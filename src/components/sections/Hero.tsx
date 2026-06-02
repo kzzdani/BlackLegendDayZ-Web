@@ -70,13 +70,13 @@ export function Hero() {
           Servidor de DayZ · Comunidad hispana
         </motion.p>
 
-        {/* Logotipo: BLACK [fénix] LEGEND */}
-        <div className="flex flex-col items-center justify-center gap-1 sm:flex-row sm:gap-4 md:gap-8">
+        {/* Logotipo: BLACK [fénix] LEGEND — rejilla simétrica (fénix centrado) */}
+        <div className="grid grid-cols-1 items-center justify-items-center gap-1 sm:grid-cols-[1fr_auto_1fr] sm:gap-4 md:gap-8">
           <motion.h1
             initial={{ opacity: 0, x: -40, filter: "blur(10px)" }}
             animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             transition={{ duration: 1, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display font-black uppercase leading-[0.8] tracking-tighter text-bone"
+            className="font-display font-black uppercase leading-[0.8] tracking-tighter text-bone sm:justify-self-end"
             style={{ fontSize: "clamp(3.5rem, 13vw, 9rem)" }}
           >
             Black
@@ -87,7 +87,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.6 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="relative shrink-0"
+            className="relative shrink-0 sm:justify-self-center"
           >
             <Image
               src="/brand/0logosoloBlackLegend.png"
@@ -103,7 +103,7 @@ export function Hero() {
             initial={{ opacity: 0, x: 40, filter: "blur(10px)" }}
             animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             transition={{ duration: 1, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display font-black uppercase leading-[0.8] tracking-tighter text-bone"
+            className="font-display font-black uppercase leading-[0.8] tracking-tighter text-bone sm:justify-self-start"
             style={{ fontSize: "clamp(3.5rem, 13vw, 9rem)" }}
           >
             Legend

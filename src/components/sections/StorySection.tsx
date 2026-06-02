@@ -79,16 +79,18 @@ export function StorySection() {
         </motion.div>
 
         {/* Capítulos */}
-        <div className="relative z-10 mx-auto max-w-2xl px-6 text-center">
-          {chapters.map((c, i) => (
-            <Chapter
-              key={c.n}
-              chapter={c}
-              index={i}
-              total={chapters.length}
-              progress={scrollYProgress}
-            />
-          ))}
+        <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center px-6">
+          <div className="relative h-[60vh] w-full max-w-2xl text-center">
+            {chapters.map((c, i) => (
+              <Chapter
+                key={c.n}
+                chapter={c}
+                index={i}
+                total={chapters.length}
+                progress={scrollYProgress}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Barra de progreso lateral */}

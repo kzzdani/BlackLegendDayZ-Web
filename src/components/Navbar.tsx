@@ -35,12 +35,12 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" className="group flex items-center gap-3" aria-label={site.fullName}>
           <Image
-            src="/brand/0logosoloBlackLegendNuevo2.png"
+            src="/brand/0logosoloBlackLegend.png"
             alt=""
-            width={44}
-            height={44}
+            width={56}
+            height={56}
             priority
-            className="h-9 w-9 drop-glow transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 md:h-10 md:w-10"
+            className="h-11 w-11 drop-glow transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 md:h-12 md:w-12"
           />
           <span className="font-display text-lg font-extrabold uppercase leading-none tracking-tight md:text-xl">
             Black <span className="text-fire">Legend</span>
