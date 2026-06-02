@@ -30,12 +30,12 @@ export function StorySection() {
     offset: ["start start", "end end"],
   });
 
-  // Fénix: crece y se enciende con el progreso
-  const phoenixScale = useTransform(scrollYProgress, [0, 1], [0.7, 1.35]);
+  // Fénix: crece y se enciende con el progreso (suave, queda de fondo)
+  const phoenixScale = useTransform(scrollYProgress, [0, 1], [0.7, 1.12]);
   const phoenixOpacity = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    [0.18, 0.55, 1],
+    [0.14, 0.34, 0.55],
   );
   const phoenixBlur = useTransform(scrollYProgress, [0, 1], [10, 0]);
   const filter = useTransform(phoenixBlur, (b) => `blur(${b}px)`);
@@ -74,9 +74,15 @@ export function StorySection() {
             alt=""
             width={620}
             height={620}
-            className="h-[64vmin] w-auto"
+            className="h-[54vmin] w-auto"
           />
         </motion.div>
+
+        {/* Velo oscuro tras el texto (legibilidad sobre el fénix) */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-1/2 z-[5] h-[48vmin] w-[82vmin] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-void/70 blur-3xl"
+        />
 
         {/* Capítulos */}
         <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center px-6">

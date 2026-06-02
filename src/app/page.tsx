@@ -4,6 +4,7 @@ import { StorySection } from "@/components/sections/StorySection";
 import { Features } from "@/components/sections/Features";
 import { MapsSection } from "@/components/sections/MapsSection";
 import { EventsSection } from "@/components/sections/EventsSection";
+import { Gallery } from "@/components/sections/Gallery";
 import { JoinCTA } from "@/components/sections/JoinCTA";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <Features />
       <MapsSection />
       <EventsSection />
+      <Gallery />
       <JoinCTA />
     </>
   );
