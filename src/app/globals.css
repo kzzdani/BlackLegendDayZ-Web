@@ -1,26 +1,222 @@
 @import "tailwindcss";
 
+/* =========================================================================
+   BLACK LEGEND DAYZ — Sistema de diseño "Ceniza & Brasa"
+   Mundo frío, gris y desolado · el fénix de fuego como único foco cálido.
+   ========================================================================= */
+
+@theme {
+  /* ---- Paleta: ceniza / acero ---- */
+  --color-void: #07070a;
+  --color-ash-950: #0a0a0d;
+  --color-ash-900: #0f1013;
+  --color-ash-850: #141519;
+  --color-ash-800: #191b20;
+  --color-ash-700: #212329;
+  --color-ash-600: #2c2f37;
+  --color-ash-500: #3b3f49;
+  --color-ash-400: #565b67;
+  --color-smoke: #8b8780;
+  --color-bone: #ece6db;
+
+  /* ---- Paleta: fuego / fénix ---- */
+  --color-blood: #b81e0a;
+  --color-ember: #ff6a1a;
+  --color-ember-soft: #ff8c3a;
+  --color-gold: #ffb02e;
+  --color-core: #ffd98a;
+
+  /* ---- Acento frío (Sakhal / Frostline) ---- */
+  --color-frost: #76b6cc;
+
+  /* ---- Tipografía ---- */
+  --font-display: var(--font-saira), "Arial Narrow", sans-serif;
+  --font-body: var(--font-chakra), ui-sans-serif, system-ui, sans-serif;
+  --font-stencil: var(--font-stencil), var(--font-saira), sans-serif;
+
+  /* ---- Sombras / glows ---- */
+  --shadow-ember: 0 0 40px -8px rgba(255, 106, 26, 0.55);
+  --shadow-ember-lg: 0 0 90px -10px rgba(255, 120, 30, 0.6);
+
+  /* ---- Animaciones ---- */
+  --animate-flicker: flicker 4s linear infinite;
+  --animate-drift: drift 22s ease-in-out infinite;
+  --animate-scan: scan 6s linear infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  41% { opacity: 1; }
+  42% { opacity: 0.72; }
+  43% { opacity: 1; }
+  45% { opacity: 0.55; }
+  46% { opacity: 1; }
+  88% { opacity: 0.9; }
+  89% { opacity: 0.6; }
+  90% { opacity: 1; }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(2%, -2%, 0) scale(1.06); }
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  70% { transform: scale(1.8); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* =========================================================================
+   Base
+   ========================================================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: auto; /* Lenis controla el scroll */
+  background-color: var(--color-void);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-void);
+  color: var(--color-bone);
+  font-family: var(--font-body);
+  font-feature-settings: "ss01", "cv01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-ember);
+  color: #120600;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-ash-950); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--color-ash-600), var(--color-ash-700));
+  border-radius: 99px;
+  border: 2px solid var(--color-ash-950);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-ember); }
+
+/* =========================================================================
+   Utilidades temáticas
+   ========================================================================= */
+
+@layer utilities {
+  /* Texto con degradado de fuego */
+  .text-fire {
+    background: linear-gradient(
+      180deg,
+      var(--color-core) 0%,
+      var(--color-gold) 35%,
+      var(--color-ember) 70%,
+      var(--color-blood) 110%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Texto contorneado (estilo HUD / stencil) */
+  .text-stroke {
+    color: transparent;
+    -webkit-text-stroke: 1.25px rgba(236, 230, 219, 0.5);
+  }
+  .text-stroke-ember {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--color-ember);
+  }
+
+  /* Etiqueta tipo "eyebrow" militar */
+  .eyebrow {
+    font-family: var(--font-stencil);
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    color: var(--color-ember);
+  }
+
+  /* Glow de brasa */
+  .glow-ember { box-shadow: var(--shadow-ember); }
+  .glow-ember-lg { box-shadow: var(--shadow-ember-lg); }
+  .drop-glow {
+    filter: drop-shadow(0 0 28px rgba(255, 110, 30, 0.45))
+            drop-shadow(0 0 60px rgba(255, 80, 10, 0.25));
+  }
+
+  /* Rejilla técnica de fondo */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* Viñeta radial */
+  .vignette {
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 55%, transparent 100%);
+    mask-image: radial-gradient(ellipse at center, #000 55%, transparent 100%);
+  }
+
+  /* Líneas de barrido tipo CRT/escáner */
+  .scanlines::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.18) 0px,
+      rgba(0, 0, 0, 0.18) 1px,
+      transparent 2px,
+      transparent 4px
+    );
+    mix-blend-mode: multiply;
+    opacity: 0.4;
+  }
+
+  .perspective { perspective: 1200px; }
+
+  /* Borde de doble línea estilo cajón militar */
+  .frame-mil {
+    box-shadow:
+      inset 0 0 0 1px rgba(236, 230, 219, 0.1),
+      inset 0 0 0 4px var(--color-ash-950),
+      inset 0 0 0 5px rgba(236, 230, 219, 0.06);
+  }
+}
+
+/* Respeta usuarios con movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
