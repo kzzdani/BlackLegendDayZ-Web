@@ -5,7 +5,7 @@ import { Container, Heading, SectionLabel, Button } from "@/components/ui";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal";
 import { JoinCTA } from "@/components/sections/JoinCTA";
 import { Icon } from "@/components/icons";
-import { site, PLACEHOLDER } from "@/lib/site";
+import { site, mods } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "El servidor",
@@ -14,9 +14,9 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { label: "Slots", value: site.server.slots !== PLACEHOLDER ? site.server.slots : "—", pending: site.server.slots === PLACEHOLDER },
-  { label: "Mapas", value: "3", pending: false },
-  { label: "Mods activos", value: PLACEHOLDER, pending: true },
+  { label: "Slots", value: site.server.slots, pending: false },
+  { label: "Perspectiva", value: "1PP", pending: false },
+  { label: "Mods", value: String(mods.length), pending: false },
   { label: "Uptime", value: "99%", pending: false },
 ];
 
@@ -65,11 +65,13 @@ export default function AcercaPage() {
                   cada bala contara y cada alianza pesara.
                 </p>
                 <p>
-                  Hoy Black Legend es una comunidad viva que rota entre{" "}
-                  <span className="text-bone">Chernarus, Sakhal y Bitterroot</span>,
-                  con eventos que se han vuelto legendarios como la{" "}
-                  <span className="text-bone">Gulag Series</span>. Pero el espíritu
-                  sigue siendo el mismo del primer día.
+                  Hoy Black Legend vive en{" "}
+                  <span className="text-bone">Livonia</span>: un mapa compacto y
+                  100% PvP donde cada partida es una guerra. Vanilla+ en primera
+                  persona, con una{" "}
+                  <span className="text-bone">Run end-game</span> que se ha vuelto
+                  legendaria. Pero el espíritu sigue siendo el mismo del primer
+                  día.
                 </p>
                 <p className="border-l-2 border-ember/60 pl-5 font-display text-xl uppercase tracking-wide text-bone">
                   &ldquo;No importa cuántas veces caigas. Importa cuántas veces
@@ -124,9 +126,6 @@ export default function AcercaPage() {
               </StaggerItem>
             ))}
           </Stagger>
-          <p className="mt-4 text-center font-stencil text-[0.6rem] uppercase tracking-[0.25em] text-ash-500">
-            Cifras pendientes de confirmar con el equipo
-          </p>
         </Container>
       </section>
 
@@ -172,12 +171,18 @@ export default function AcercaPage() {
                 Equipado para la guerra
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-smoke">
-                Usamos una selección cuidada de mods para enriquecer la
-                experiencia sin romper el equilibrio. La lista completa y la guía
-                de instalación estarán disponibles aquí muy pronto.
+                Una selección cuidada de mods que enriquece la experiencia sin
+                romper el equilibrio vanilla. Se descargan solos al conectar.
               </p>
-              <div className="mt-6 inline-flex items-center gap-2 border border-dashed border-ash-500 px-4 py-2 font-stencil text-[0.6rem] uppercase tracking-[0.25em] text-ash-400">
-                Lista de mods · pendiente de Jaro
+              <div className="mt-6 flex flex-wrap gap-2">
+                {mods.map((m) => (
+                  <span
+                    key={m}
+                    className="border border-ash-600 bg-ash-800 px-3 py-1.5 font-mono text-xs text-ember"
+                  >
+                    {m}
+                  </span>
+                ))}
               </div>
             </Reveal>
 

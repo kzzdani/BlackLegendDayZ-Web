@@ -1,8 +1,8 @@
 // =============================================================================
 // BLACK LEGEND DAYZ — Configuración central de contenido (single source of truth)
 // -----------------------------------------------------------------------------
-// Los valores marcados con PLACEHOLDER hay que pedírselos a Jaro (owner).
-// Cambia aquí y se actualiza en toda la web.
+// Datos REALES extraídos del Discord oficial (run de Livonia, llaves, normativa…).
+// Lo marcado con PLACEHOLDER sigue pendiente de confirmar con Jaro (owner).
 // =============================================================================
 
 export const PLACEHOLDER = "__PLACEHOLDER__";
@@ -12,116 +12,221 @@ export const site = {
   fullName: "Black Legend DayZ",
   tagline: "El servidor que te llevará a una experiencia única en DayZ",
   shortPitch:
-    "Sobrevive, conquista y renace. Un servidor hispano de DayZ con eventos únicos, mapas rotativos y una comunidad que no se rinde.",
+    "Servidor hispano de DayZ en Livonia. Vanilla+ en primera persona, 100% PvP, con una Run end-game única, sistema de llaves y una comunidad que no se rinde.",
   domain: "blacklegenddayz.com", // dominio que se comprará en Vercel
-  // ---- Conexión al servidor (PEDIR A JARO) --------------------------------
+  // ---- Conexión al servidor (DATOS REALES) --------------------------------
   server: {
-    ip: PLACEHOLDER, // p.ej. "play.blacklegenddayz.com"
-    port: PLACEHOLDER, // p.ej. "2302"
-    slots: PLACEHOLDER, // p.ej. "60"
-    currentMap: "Sakhal", // Frostline
+    title: "Black Legend Vanilla+ 1PP",
+    ip: "5.196.92.130",
+    port: "2302",
+    slots: "70",
+    currentMap: "Livonia",
+    perspective: "1PP", // solo primera persona
+    wipe: "Wipes periódicos",
   },
   // ---- Comunidad / Redes ---------------------------------------------------
   social: {
-    discord: "https://discord.gg/7YQ3HJK2tn",
+    discord: "https://discord.gg/c3EFQvyDA",
     youtube: "https://www.youtube.com/@blacklegenddayz",
+    vote: "https://es.top-games.net/dayz/vote/black-legend-livonia-vanilla-1pp",
     oldSite: "https://blacklegenddayz.wixsite.com/blacklegend",
   },
 } as const;
 
-// ---- Mapas en rotación ------------------------------------------------------
-export const maps = [
+// ---- Mapa actual: LIVONIA ---------------------------------------------------
+export const livonia = {
+  name: "Livonia",
+  size: "163 km²",
+  climate: "Templado · bosques densos",
+  description:
+    "El mapa actual de Black Legend. Más compacto que Chernarus, con pueblos pequeños y juntos: la interacción y el PvP están asegurados. Mucho bosque para esconder tu base… o para emboscar.",
+  highlights: [
+    "Mapa compacto enfocado al combate",
+    "Pueblos cercanos = más interacción",
+    "Bunker y Run end-game exclusivos",
+    "Zonas contaminadas de alto riesgo / alto loot",
+  ],
+} as const;
+
+// ---- Tier-map (zonas de loot) -----------------------------------------------
+export const tiers = [
   {
-    id: "chernarus",
-    name: "Chernarus",
-    flavor: "Vanilla",
-    description:
-      "El clásico que lo empezó todo. 225 km² de la ex-república soviética: bosques, ciudades industriales y costa. Pura supervivencia sin concesiones.",
-    climate: "Templado",
-    accent: "#7ea24b",
+    n: 1,
+    name: "Tier 1",
+    zone: "Norte",
+    color: "#7ea24b",
+    text: "Zona de inicio. Loot básico para equiparte y empezar a sobrevivir.",
   },
   {
-    id: "sakhal",
-    name: "Sakhal",
-    flavor: "Frostline",
-    description:
-      "El archipiélago volcánico y helado del DLC Frostline. El frío mata tan rápido como las balas. Gestiona tu temperatura o muere congelado.",
-    climate: "Ártico",
-    accent: "#76b6cc",
+    n: 2,
+    name: "Tier 2",
+    zone: "Centro",
+    color: "#5b8fb0",
+    text: "Equipo intermedio y armas decentes. Más tránsito de jugadores, más peligro.",
   },
   {
-    id: "bitterroot",
-    name: "Bitterroot",
-    flavor: "Custom",
-    description:
-      "Montañas, valles densos y pueblos aislados. Un mapa custom de combate vertical donde cada cresta esconde un francotirador.",
-    climate: "Montañoso",
-    accent: "#c98a4b",
+    n: 3,
+    name: "Tier 3",
+    zone: "Sur",
+    color: "#9b6fb0",
+    text: "El mejor loot militar del mapa. Incluye zonas contaminadas: necesitas traje NBQ y nervios de acero.",
   },
 ] as const;
 
-// ---- Características del servidor --------------------------------------------
+// ---- Características del servidor (REALES) -----------------------------------
 export const features = [
   {
     icon: "skull",
-    title: "Hardcore pero justo",
-    text: "Loot equilibrado, economía viva y zombies que de verdad dan miedo. Sin pay-to-win.",
+    title: "Vanilla+ · 1PP",
+    text: "Experiencia vanilla mejorada en primera persona. Sin pay-to-win: aquí ganas por habilidad.",
   },
   {
     icon: "flame",
-    title: "Eventos en vivo",
-    text: "Gulag Series, drops aéreos, asedios a bases y eventos de staff con recompensas únicas.",
+    title: "100% PvP",
+    text: "Livonia es un mapa compacto donde el combate está asegurado. Si buscas acción, la tienes.",
   },
   {
     icon: "map",
-    title: "Mapas rotativos",
-    text: "Chernarus, Sakhal y Bitterroot. La experiencia nunca se queda estancada.",
+    title: "La Run de Livonia",
+    text: "Un end-game único: bunkers, tarjetas de acceso y armas exclusivas (AWM, GALIL, M79).",
   },
   {
     icon: "shield",
     title: "Anticheat activo",
-    text: "Staff y herramientas anti-cheat vigilando 24/7 para que ganes por habilidad, no por trampas.",
+    text: "VPPAdminTools y un staff vigilando 24/7. Cheats o abuso de bugs = ban permanente.",
   },
   {
     icon: "users",
     title: "Comunidad hispana",
-    text: "Cientos de supervivientes en Discord. Clanes, alianzas, traiciones... y buen rollo.",
+    text: "Cientos de supervivientes en Discord. Clanes, alianzas, traiciones… y buen rollo.",
   },
   {
     icon: "bolt",
-    title: "Rendimiento sólido",
-    text: "Servidor optimizado y estable para que el único lag sea el de tus reflejos.",
+    title: "Base-building mejorado",
+    text: "Addon de construcción, Building Fortifications y MMG Base Storage para bases con criterio.",
   },
 ] as const;
 
-// ---- Eventos / Storytelling -------------------------------------------------
+// ---- Mods / configuración (REAL) --------------------------------------------
+export const mods = [
+  "BlackLegendCore",
+  "Building Fortifications",
+  "MMG Base Storage",
+  "Code Lock",
+  "VPPAdminTools",
+  "CF",
+] as const;
+
+// ---- Eventos / contenido (REAL) ---------------------------------------------
 export const events = [
   {
-    name: "Gulag Series",
-    tag: "Evento estrella",
+    name: "Wipe + Livonia",
+    tag: "Mapa actual",
     description:
-      "Cae preso, lucha por tu libertad en la arena y vuelve al mapa con la gloria — o muere en el intento.",
+      "El servidor migró a Livonia: mapa más pequeño y 100% PvP. Cada wipe es empezar de cero y reescribir tu leyenda.",
   },
   {
-    name: "Frostline Trailer",
-    tag: "Sakhal",
+    name: "Concurso de bases",
+    tag: "Evento",
     description:
-      "El estreno del mapa helado de Sakhal. Una nueva forma de morir: el frío.",
+      "Presenta tu base por ticket. Las 3 mejores consiguen color de TAG personalizado en el chat. Se valora estética y construcción.",
   },
   {
-    name: "Drops aéreos",
-    tag: "Semanal",
-    description: "Loot de alto valor caído del cielo. El que llega primero, manda.",
+    name: "La Run de Livonia",
+    tag: "End-game",
+    description:
+      "Llega al bunker final con la tarjeta perforada y la tarjeta blanca para conseguir las armas más codiciadas del servidor.",
+  },
+] as const;
+
+// ---- Sistema de llaves (REAL) -----------------------------------------------
+export const keys = [
+  {
+    id: "roja",
+    color: "#c0392b",
+    name: "Llave Roja",
+    opens: "Container rojo (cerca de hospitales)",
+    loot: "Loot y storage médico",
+    source: "Inventario de zombies médicos",
+  },
+  {
+    id: "amarilla",
+    color: "#d4a017",
+    name: "Llave Amarilla",
+    opens: "Container amarillo (zonas industriales de Nadbor y Topolin)",
+    loot: "Storage de bases variado",
+    source: "Inventario de zombies industriales",
+  },
+  {
+    id: "azul",
+    color: "#2e6fb0",
+    name: "Llave Azul",
+    opens: "Container azul (Airfield)",
+    loot: "Items necesarios para la Run de Livonia",
+    source: "Dentro del maletín del bunker de Dambog",
+  },
+] as const;
+
+// ---- La Run de Livonia, paso a paso (REAL) ----------------------------------
+export const runReward = ["AWM (sniper)", "GALIL (fusil de asalto)", "M79 (lanzagranadas)"] as const;
+
+export const runSteps = [
+  {
+    n: 1,
+    title: "Consigue la llave del maletín",
+    text: "Se obtiene looteando el inventario de los zombies oficiales. Tiene un porcentaje de drop bajo, así que arma paciencia.",
+  },
+  {
+    n: 2,
+    title: "Encuentra el maletín",
+    text: "El maletín siempre aparece en el bunker de Dambog, al suroeste del mapa.",
+  },
+  {
+    n: 3,
+    title: "Entra al bunker de Dambog",
+    text: "Necesitas la tarjeta perforada que se consigue en la zona contaminada de Radunin. Esta tarjeta tiene dos usos.",
+  },
+  {
+    n: 4,
+    title: "Abre el container Azul",
+    text: "El maletín te da la llave del container azul (en el Airfield). Dentro encontrarás un osito con la tarjeta blanca y el calentador.",
+  },
+  {
+    n: 5,
+    title: "Llega al bunker final",
+    text: "Está en la mina de Livonia. Para acceder necesitas la tarjeta perforada y la tarjeta de acceso blanca.",
+  },
+  {
+    n: 6,
+    title: "Arranca el generador",
+    text: "Dentro, busca la sala del generador. Repóstalo con gasoil, introdúcele el calentador y arráncalo.",
+  },
+  {
+    n: 7,
+    title: "Abre la sala de misiles",
+    text: "Junto al generador hay un cuadro de palancas (A1-A4) que abre y cierra las compuertas de las salas de misiles. En una de ellas están las armas de la Run.",
+  },
+] as const;
+
+// ---- Crafteos destacados (REAL) ---------------------------------------------
+export const crafts = [
+  {
+    name: "Empalizada",
+    text: "Defensa perimetral básica para proteger tu base de miradas y accesos no deseados.",
+  },
+  {
+    name: "Fortificación",
+    text: "Estructura defensiva avanzada para aguantar los raideos. Súbela de nivel y resiste.",
   },
 ] as const;
 
 // ---- Donaciones (PACKS POR CONFIRMAR CON JARO) ------------------------------
-// Estos packs son una propuesta/placeholder. Jaro define precios y contenido real.
+// Propuesta/placeholder. Jaro define precios y contenido real.
 export const donationTiers = [
   {
     id: "superviviente",
     name: "Superviviente",
-    price: PLACEHOLDER, // p.ej. "5€"
+    price: PLACEHOLDER,
     period: "único",
     highlight: false,
     perks: [
@@ -134,93 +239,81 @@ export const donationTiers = [
   {
     id: "legionario",
     name: "Legionario",
-    price: PLACEHOLDER, // p.ej. "12€"
+    price: PLACEHOLDER,
     period: "único",
     highlight: true,
     perks: [
       "Todo lo del pack Superviviente",
-      "Kit de inicio mejorado",
+      "Color de TAG personalizado en el chat",
       "Prioridad en cola de entrada",
-      "Skin/etiqueta exclusiva en el juego",
+      "Reconocimiento en la comunidad",
     ],
   },
   {
     id: "leyenda",
     name: "Leyenda",
-    price: PLACEHOLDER, // p.ej. "25€"
+    price: PLACEHOLDER,
     period: "único",
     highlight: false,
     perks: [
       "Todo lo del pack Legionario",
       "Rol VIP permanente",
-      "Acceso anticipado a eventos",
+      "Acceso anticipado a novedades",
       "Voz en las decisiones de la comunidad",
     ],
   },
 ] as const;
 
-// ---- Reglas (BASE GENÉRICA — JARO REVISA Y AJUSTA) --------------------------
+// ---- Reglas (NORMATIVA REAL del Discord) ------------------------------------
 export const ruleGroups = [
+  {
+    title: "Reglas generales",
+    rules: [
+      "Usar cheats o abusar de bugs/exploits = BAN PERMANENTE.",
+      "No ofrecemos compensación por la pérdida de tu vida, equipo o vehículo.",
+      "El uso de vehículos es bajo tu propia responsabilidad. No se ofrece soporte a vehículos.",
+      "El stream sniping está prohibido: BAN PERMANENTE si hay evidencia.",
+      "Prohibido el uso de multicuentas.",
+      "Prohibido el combat login.",
+    ],
+  },
+  {
+    title: "Reglas durante el raideo",
+    rules: [
+      "No puedes cerrar sesión dentro de una base que acabas de raidear: termina el raideo y abandona la base.",
+      "Una base sin codelock más de 3 días se considera base abandonada.",
+      "Está estrictamente prohibido colocar codelocks en una base raideada.",
+      "Boostearse entre jugadores está permitido; usar hogueras para boostearse NO está permitido.",
+      "Prohibido desmontar estructuras de otras bases fuera del horario de raid.",
+    ],
+  },
+  {
+    title: "Reglas de construcción",
+    rules: [
+      "No apilar vallas, puertas ni torres (debe haber espacio suficiente para que pase un jugador).",
+      "No construir bases imposibles de raidear (bloqueando accesos con postes u otros objetos).",
+      "Prohibido construir torres de más de 3 pisos.",
+    ],
+  },
   {
     title: "Convivencia",
     rules: [
-      "Respeto absoluto entre jugadores y hacia el staff dentro y fuera del juego.",
-      "Prohibido el racismo, la xenofobia, la apología y cualquier discurso de odio.",
-      "Nada de spam, publicidad de otros servidores ni flood en los canales.",
-    ],
-  },
-  {
-    title: "Juego limpio",
-    rules: [
-      "Cero tolerancia con cheats, hacks, glitches o exploits de cualquier tipo.",
-      "Prohibido el ghosting, combat logging y el uso de cuentas alternativas.",
-      "El stream sniping y el metagaming serán sancionados.",
-    ],
-  },
-  {
-    title: "Bases y construcción",
-    rules: [
-      "Respeta los límites de construcción y las zonas protegidas del mapa.",
-      "Prohibido bloquear loots de servidor o zonas de evento con estructuras.",
-      "El raideo está permitido según las normas vigentes del Discord.",
-    ],
-  },
-  {
-    title: "Sanciones",
-    rules: [
-      "Las sanciones van desde el aviso hasta el ban permanente según gravedad.",
-      "El staff tiene la última palabra; las apelaciones se gestionan por ticket.",
-      "Desconocer las reglas no exime de su cumplimiento.",
+      "Respeto entre jugadores y hacia el staff, dentro y fuera del juego.",
+      "Prohibido el racismo, los insultos y cualquier acto de vejación: puede suponer ban permanente.",
+      "Prohibido el SPAM de otros servidores en los canales o por MD a miembros.",
     ],
   },
 ] as const;
 
-// ---- Wiki (ESTRUCTURA INICIAL — SE AMPLÍA CON JARO) -------------------------
-export const wikiSections = [
-  {
-    id: "primeros-pasos",
-    title: "Primeros pasos",
-    summary: "Cómo conectarte, mods necesarios y tus primeros minutos vivo.",
-    articles: ["Cómo conectarse", "Instalar los mods", "Guía del novato"],
-  },
-  {
-    id: "supervivencia",
-    title: "Supervivencia",
-    summary: "Temperatura, enfermedades, comida y agua. Lo básico para no morir.",
-    articles: ["Gestión del frío en Sakhal", "Enfermedades y curas", "Hambre y sed"],
-  },
-  {
-    id: "loot-armas",
-    title: "Loot y armas",
-    summary: "Dónde encontrar el mejor equipo y cómo funciona la economía.",
-    articles: ["Zonas de loot militar", "Tier list de armas", "Economía del servidor"],
-  },
-  {
-    id: "bases",
-    title: "Bases y vehículos",
-    summary: "Construcción, defensa de bases y mecánicas de vehículos.",
-    articles: ["Construir tu primera base", "Vehículos y reparación", "Defensa anti-raid"],
-  },
+// ---- Horario de raid (REAL, UTC+2) ------------------------------------------
+export const raidSchedule = [
+  { day: "Lunes", hours: "18:00 – 00:00" },
+  { day: "Martes", hours: "18:00 – 00:00" },
+  { day: "Miércoles", hours: "18:00 – 00:00" },
+  { day: "Jueves", hours: "18:00 – 00:00" },
+  { day: "Viernes", hours: "18:00 – 00:00" },
+  { day: "Sábado", hours: "16:00 – 00:00" },
+  { day: "Domingo", hours: "16:00 – 00:00" },
 ] as const;
 
 export const navLinks = [

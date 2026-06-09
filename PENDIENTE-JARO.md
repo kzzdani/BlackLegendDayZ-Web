@@ -1,40 +1,34 @@
-# 📋 Datos pendientes de Jaro
+# 📋 Estado del contenido
 
-Estos son los datos reales que faltan para terminar la web. Todo lo demás ya
-está montado y funcionando con textos provisionales. En cuanto Jaro pase esta
-info, se actualiza en **un solo archivo**: [`src/lib/site.ts`](src/lib/site.ts).
+Casi todo está ya con **datos reales** sacados del Discord (Livonia, IP, mods,
+normativa, run, llaves, tier-map). Lo editable vive en
+[`src/lib/site.ts`](src/lib/site.ts).
 
-> Los valores provisionales aparecen en la web marcados (precios como `··€`,
-> cifras como `··`, IP como "Disponible en Discord", avisos en gris).
+## ✅ Ya actualizado con datos reales
+- Conexión: `5.196.92.130:2302` · Vanilla+ 1PP · 70 slots · **Livonia**
+- Mods reales (BlackLegendCore, Building Fortifications, MMG Base Storage…)
+- Normativa completa (general, raideo, construcción, convivencia) + horario de raid
+- Wiki: tier-map, sistema de llaves y la Run de Livonia paso a paso
+- Enlace de votación (Top-Games)
 
-## 🔌 Conexión al servidor — `site.server`
-- [ ] **IP / dominio de conexión** (ej. `play.blacklegenddayz.com`)
-- [ ] **Puerto** (ej. `2302`)
-- [ ] **Nº de slots** (ej. `60`)
-- [ ] **Mapa actual** en rotación (ya puesto: Sakhal — confirmar)
+## ⏳ Pendiente de Jaro
 
-## 💰 Donaciones — `donationTiers`
-- [ ] **Precio** de cada pack (Superviviente / Legionario / Leyenda)
-- [ ] **Recompensas reales** de cada pack (ahora hay una propuesta)
-- [ ] **Método de pago** (PayPal, Tebex, etc.) — ahora apunta al Discord
+### 1. Imágenes reales (lo más importante ahora)
+La galería y la wiki usan **capturas de DayZ de Steam** como relleno. Para
+sustituirlas, necesito los **archivos de imagen** (no la captura del Discord):
+- [ ] **Tier-map** de Livonia (la infografía con las zonas 1/2/3)
+- [ ] Capturas de la **Run de Livonia** (bunker de Dambog, generador, sala de palancas, osito, mina…)
+- [ ] Fotos de los **containers / llaves**
+- [ ] Fotos de **bases** y crafteos (empalizada, fortificación)
+- [ ] Alguna captura PvP / del servidor para el hero y la galería
 
-## 🧩 El servidor — `src/app/acerca/page.tsx` y `site.ts`
-- [ ] **Lista de mods** activos (+ guía de instalación si la hay)
-- [ ] **Nº de mods** para la cifra de "Mods activos"
-- [ ] **Equipo / Staff**: nombres, roles y (opcional) avatares
-- [ ] Revisar el texto del "manifiesto" / historia del servidor
+> Pásamelas como archivos (PNG/JPG) y las coloco en `public/gallery/` y en la wiki.
 
-## 📜 Reglas — `ruleGroups`
-- [ ] **Revisar y ajustar** las reglas (ahora hay una base genérica de DayZ)
+### 2. Donaciones
+- [ ] Precios reales de los packs y sus recompensas
+- [ ] Método de pago (PayPal, Tebex…) — ahora apunta al Discord
 
-## 📚 Wiki — `wikiSections`
-- [ ] **Contenido real** de los artículos (ahora solo están los títulos)
-
-## 🖼️ Multimedia (opcional, mejora visual)
-- [ ] **Capturas/screenshots** reales del servidor (mapas, bases, eventos)
-- [ ] **Vídeos/trailers** (Frostline, Gulag) para incrustar
-- [ ] Confirmar **redes**: Discord ✅ · YouTube ✅ · ¿TikTok/Instagram/Twitch?
-
-## 🌐 Dominio
-- [ ] Confirmar dominio final (provisional: `blacklegenddayz.com`) para
-      comprarlo en Vercel y actualizar `site.domain`.
+### 3. Otros
+- [ ] Confirmar el **enlace de Discord** definitivo (ahora: `discord.gg/c3EFQvyDA`)
+- [ ] **Staff**: nombres y roles para la sección de equipo (ahora genérica)
+- [ ] Confirmar **dominio** final para comprarlo en Vercel (`site.domain`)

@@ -85,6 +85,16 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href={site.social.vote}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-display uppercase tracking-wide text-bone/70 transition-colors hover:text-ember"
+                >
+                  Vota el servidor
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/donaciones"
                   className="font-display uppercase tracking-wide text-bone/70 transition-colors hover:text-ember"
                 >

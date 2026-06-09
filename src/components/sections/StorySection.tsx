@@ -9,12 +9,12 @@ const chapters = [
   {
     n: "01",
     title: "El mundo cayó",
-    text: "La infección arrasó Chernarus en cuestión de días. Las ciudades ardieron, los gobiernos colapsaron y la civilización se convirtió en un recuerdo lejano enterrado bajo los escombros.",
+    text: "La infección lo arrasó todo en cuestión de días. Las ciudades ardieron, los gobiernos colapsaron y la civilización se convirtió en un recuerdo lejano enterrado bajo los escombros.",
   },
   {
     n: "02",
-    title: "Solo quedó el frío",
-    text: "En los confines helados de Sakhal, la nieve entierra a los débiles. El hambre, las balas y el invierno cazan a quien baja la guardia. Aquí no hay segundas oportunidades.",
+    title: "Livonia, tierra de nadie",
+    text: "Bosques infinitos, pueblos fantasma y otros supervivientes dispuestos a todo por una bala más. El hambre, el frío y las traiciones cazan a quien baja la guardia. No hay segundas oportunidades.",
   },
   {
     n: "03",

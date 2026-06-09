@@ -96,6 +96,20 @@ export default function DonacionesPage() {
           <p className="mt-6 text-center font-stencil text-[0.6rem] uppercase tracking-[0.25em] text-ash-500">
             Precios y contenido de los packs pendientes de confirmar con el equipo
           </p>
+
+          <div className="mt-12 flex flex-col items-center gap-4 border border-ash-700 bg-ash-900 p-8 text-center">
+            <h3 className="font-display text-2xl font-bold uppercase text-bone">
+              ¿Sin presupuesto? Apóyanos gratis
+            </h3>
+            <p className="max-w-md text-sm leading-relaxed text-smoke">
+              Vota por el servidor cada día en Top-Games. Es gratis, tarda 10
+              segundos y nos ayuda a crecer y a llegar a más supervivientes.
+            </p>
+            <Button href={site.social.vote} external variant="steel">
+              <Icon.flame className="h-5 w-5" />
+              Vota el servidor
+            </Button>
+          </div>
         </Container>
       </section>
 

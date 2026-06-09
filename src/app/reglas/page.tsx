@@ -4,7 +4,7 @@ import { Container, Button } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { RulesAccordion } from "@/components/RulesAccordion";
 import { Icon } from "@/components/icons";
-import { site } from "@/lib/site";
+import { site, raidSchedule } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Reglas",
@@ -43,6 +43,36 @@ export default function ReglasPage() {
 
           <Reveal delay={0.05}>
             <RulesAccordion />
+          </Reveal>
+
+          {/* Horario de raid */}
+          <Reveal delay={0.05} className="mt-10 border border-ash-700 bg-ash-900 p-8">
+            <div className="flex items-center gap-3">
+              <Icon.bolt className="h-6 w-6 text-ember" />
+              <h2 className="font-display text-2xl font-bold uppercase text-bone">
+                Horario de raid
+              </h2>
+              <span className="ml-auto font-stencil text-[0.6rem] uppercase tracking-[0.25em] text-smoke">
+                UTC+2
+              </span>
+            </div>
+            <p className="mt-3 text-sm leading-relaxed text-smoke">
+              Solo se puede raidear dentro de estas franjas. Fuera de horario,
+              prohibido desmontar estructuras de otras bases.
+            </p>
+            <div className="mt-6 grid gap-2 sm:grid-cols-2">
+              {raidSchedule.map((r) => (
+                <div
+                  key={r.day}
+                  className="flex items-center justify-between border border-ash-700 bg-ash-850 px-4 py-3"
+                >
+                  <span className="font-display text-sm font-bold uppercase tracking-wide text-bone">
+                    {r.day}
+                  </span>
+                  <span className="font-mono text-sm text-ember">{r.hours}</span>
+                </div>
+              ))}
+            </div>
           </Reveal>
 
           <Reveal delay={0.1} className="mt-12 flex flex-col items-center gap-5 border border-ash-700 bg-ash-900 p-9 text-center">

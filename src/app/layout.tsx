@@ -40,9 +40,9 @@ export const metadata: Metadata = {
     "servidor DayZ",
     "Black Legend",
     "DayZ español",
-    "Chernarus",
-    "Sakhal",
-    "Frostline",
+    "DayZ Livonia",
+    "servidor DayZ PvP",
+    "Vanilla 1PP",
     "survival",
   ],
   openGraph: {
