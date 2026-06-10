@@ -158,25 +158,6 @@ export function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Indicador de scroll */}
-      <motion.div
-        style={{ opacity }}
-        className="absolute bottom-7 left-1/2 -translate-x-1/2"
-      >
-        <div className="flex flex-col items-center gap-2 text-smoke">
-          <span className="font-stencil text-[0.6rem] uppercase tracking-[0.3em]">
-            Desciende
-          </span>
-          <span className="relative flex h-9 w-5 justify-center rounded-full border border-ash-500">
-            <motion.span
-              animate={{ y: [3, 14, 3], opacity: [1, 0.2, 1] }}
-              transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-              className="mt-1.5 h-1.5 w-1 rounded-full bg-ember"
-            />
-          </span>
-        </div>
-      </motion.div>
-
       {/* Degradado de transición inferior */}
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-void to-transparent" />
     </section>
