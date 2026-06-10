@@ -24,11 +24,13 @@ sustituirlas, necesito los **archivos de imagen** (no la captura del Discord):
 
 > Pásamelas como archivos (PNG/JPG) y las coloco en `public/gallery/` y en la wiki.
 
-### 2. Donaciones
-- [ ] Precios reales de los packs y sus recompensas
-- [ ] Método de pago (PayPal, Tebex…) — ahora apunta al Discord
+### 2. Otros
+- [ ] **Dominio** final para comprarlo en Vercel y actualizar `site.domain`
+      (de momento se usa la URL de Vercel).
+- [ ] (Opcional) **Método de pago** para donaciones: ahora la página de
+      donaciones apunta al Discord. Si en el futuro hay PayPal/Tebex, se añade.
 
-### 3. Otros
-- [ ] Confirmar el **enlace de Discord** definitivo (ahora: `discord.gg/c3EFQvyDA`)
-- [ ] **Staff**: nombres y roles para la sección de equipo (ahora genérica)
-- [ ] Confirmar **dominio** final para comprarlo en Vercel (`site.domain`)
+## ✅ Decisiones cerradas
+- Discord oficial: `discord.gg/c3EFQvyDA`.
+- Donaciones: voluntarias, **sin packs ni recompensas** (no pay-to-win).
+- **Sin** sección de staff en la web (por decisión del cliente).

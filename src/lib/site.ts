@@ -220,50 +220,6 @@ export const crafts = [
   },
 ] as const;
 
-// ---- Donaciones (PACKS POR CONFIRMAR CON JARO) ------------------------------
-// Propuesta/placeholder. Jaro define precios y contenido real.
-export const donationTiers = [
-  {
-    id: "superviviente",
-    name: "Superviviente",
-    price: PLACEHOLDER,
-    period: "único",
-    highlight: false,
-    perks: [
-      "Rol exclusivo en Discord",
-      "Color de nombre personalizado",
-      "Acceso al canal de donadores",
-      "Nuestro eterno agradecimiento",
-    ],
-  },
-  {
-    id: "legionario",
-    name: "Legionario",
-    price: PLACEHOLDER,
-    period: "único",
-    highlight: true,
-    perks: [
-      "Todo lo del pack Superviviente",
-      "Color de TAG personalizado en el chat",
-      "Prioridad en cola de entrada",
-      "Reconocimiento en la comunidad",
-    ],
-  },
-  {
-    id: "leyenda",
-    name: "Leyenda",
-    price: PLACEHOLDER,
-    period: "único",
-    highlight: false,
-    perks: [
-      "Todo lo del pack Legionario",
-      "Rol VIP permanente",
-      "Acceso anticipado a novedades",
-      "Voz en las decisiones de la comunidad",
-    ],
-  },
-] as const;
-
 // ---- Reglas (NORMATIVA REAL del Discord) ------------------------------------
 export const ruleGroups = [
   {

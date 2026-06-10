@@ -3,13 +3,12 @@ import { PageHero } from "@/components/PageHero";
 import { Container, Heading, SectionLabel, Button } from "@/components/ui";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal";
 import { Icon } from "@/components/icons";
-import { donationTiers, PLACEHOLDER, site } from "@/lib/site";
-import { cn } from "@/lib/utils";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Donaciones",
   description:
-    "Apoya a Black Legend DayZ y mantén el servidor vivo. Packs de donación con recompensas cosméticas. Nunca pay-to-win.",
+    "Apoya a Black Legend DayZ. Donaciones 100% voluntarias para mantener el servidor: sin ventajas, sin recompensas, sin pay-to-win.",
 };
 
 export default function DonacionesPage() {
@@ -17,99 +16,41 @@ export default function DonacionesPage() {
     <>
       <PageHero
         eyebrow="Donaciones"
-        title="Mantén viva"
-        highlight="la llama."
-        subtitle="El servidor se sostiene gracias a su comunidad. Cada aportación va directa a hosting, mejoras y eventos. A cambio, recibes recompensas — siempre cosméticas, nunca ventaja injusta."
+        title="Apoya"
+        highlight="el servidor."
+        subtitle="Black Legend es y será siempre gratis. Si te apetece echar una mano para cubrir los gastos del servidor, cualquier aportación suma — de forma totalmente voluntaria y sin recibir nada a cambio."
       />
 
-      {/* Packs */}
-      <section className="relative py-24 sm:py-28">
-        <Container>
-          <Stagger className="grid gap-6 lg:grid-cols-3">
-            {donationTiers.map((tier) => (
-              <StaggerItem key={tier.id} className="h-full">
-                <article
-                  className={cn(
-                    "group relative flex h-full flex-col overflow-hidden border bg-ash-900 p-8 transition-all duration-300",
-                    tier.highlight
-                      ? "border-ember/60 bg-ash-850 shadow-[0_0_50px_-20px_rgba(255,106,26,0.6)] lg:-mt-4 lg:mb-4"
-                      : "border-ash-700 hover:border-ash-500",
-                  )}
-                >
-                  {tier.highlight && (
-                    <>
-                      <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blood via-ember to-gold" />
-                      <span className="absolute right-6 top-6 border border-ember/50 bg-ember/10 px-3 py-1 font-stencil text-[0.5rem] uppercase tracking-[0.25em] text-ember">
-                        Popular
-                      </span>
-                    </>
-                  )}
-
-                  <h3 className="font-display text-3xl font-black uppercase text-bone">
-                    {tier.name}
-                  </h3>
-
-                  <div className="mt-5 flex items-end gap-2">
-                    {tier.price !== PLACEHOLDER ? (
-                      <span className="font-display text-6xl font-black text-fire">
-                        {tier.price}
-                      </span>
-                    ) : (
-                      <span className="font-display text-5xl font-black text-ash-500">
-                        ··€
-                      </span>
-                    )}
-                    <span className="mb-2 font-stencil text-[0.6rem] uppercase tracking-[0.25em] text-smoke">
-                      pago {tier.period}
-                    </span>
-                  </div>
-
-                  <ul className="mt-8 flex-1 space-y-4">
-                    {tier.perks.map((perk) => (
-                      <li key={perk} className="flex items-start gap-3 text-sm text-bone/90">
-                        <Icon.check
-                          className={cn(
-                            "mt-0.5 h-4 w-4 shrink-0",
-                            tier.highlight ? "text-ember" : "text-smoke",
-                          )}
-                        />
-                        {perk}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-9">
-                    <Button
-                      href={site.social.discord}
-                      external
-                      variant={tier.highlight ? "fire" : "steel"}
-                      className="w-full"
-                    >
-                      Donar
-                    </Button>
-                  </div>
-                </article>
-              </StaggerItem>
-            ))}
-          </Stagger>
-
-          <p className="mt-6 text-center font-stencil text-[0.6rem] uppercase tracking-[0.25em] text-ash-500">
-            Precios y contenido de los packs pendientes de confirmar con el equipo
-          </p>
-
-          <div className="mt-12 flex flex-col items-center gap-4 border border-ash-700 bg-ash-900 p-8 text-center">
-            <h3 className="font-display text-2xl font-bold uppercase text-bone">
-              ¿Sin presupuesto? Apóyanos gratis
-            </h3>
-            <p className="max-w-md text-sm leading-relaxed text-smoke">
-              Vota por el servidor cada día en Top-Games. Es gratis, tarda 10
-              segundos y nos ayuda a crecer y a llegar a más supervivientes.
-            </p>
-            <Button href={site.social.vote} external variant="steel">
-              <Icon.flame className="h-5 w-5" />
-              Vota el servidor
-            </Button>
-          </div>
+      {/* Donar */}
+      <section className="relative py-20 sm:py-24">
+        <Container className="max-w-3xl">
+          <Reveal>
+            <div className="relative overflow-hidden border border-ember/40 bg-ash-900 p-10 text-center shadow-[0_0_60px_-25px_rgba(255,106,26,0.6)] sm:p-14">
+              <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blood via-ember to-gold" />
+              <div className="mx-auto flex h-16 w-16 items-center justify-center border border-ember/50 bg-ember/10 text-ember">
+                <Icon.flame className="h-8 w-8" />
+              </div>
+              <Heading className="mt-7 text-4xl sm:text-5xl">
+                Una aportación,
+                <br />
+                <span className="text-fire">cero ventajas</span>
+              </Heading>
+              <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-smoke">
+                Las donaciones son 100% voluntarias y no otorgan ningún objeto,
+                rol ni ventaja dentro del juego. Van íntegras a mantener el
+                servidor vivo: hosting, mods y mejoras.
+              </p>
+              <div className="mt-9">
+                <Button href={site.social.discord} external size="lg">
+                  <Icon.discord className="h-5 w-5" />
+                  Donar vía Discord
+                </Button>
+              </div>
+              <p className="mt-5 font-stencil text-[0.6rem] uppercase tracking-[0.2em] text-ash-500">
+                Escríbenos en el Discord y te indicamos cómo hacerlo
+              </p>
+            </div>
+          </Reveal>
         </Container>
       </section>
 
@@ -123,18 +64,34 @@ export default function DonacionesPage() {
                 Nunca <span className="text-fire">pay-to-win</span>.
               </Heading>
               <p className="mt-6 text-base leading-relaxed text-smoke">
-                Lo prometemos y lo cumplimos: ninguna donación te dará ventaja en
-                combate. Las recompensas son cosméticas, de comodidad o de
-                reconocimiento. El que gana, gana por habilidad.
+                Lo prometemos y lo cumplimos: donar no te da absolutamente nada en
+                el juego. El que gana, gana por habilidad. Donar es solo una forma
+                de apoyar el proyecto si te apetece y puedes.
               </p>
             </Reveal>
 
             <Stagger className="grid gap-4 sm:grid-cols-2">
               {[
-                { icon: "shield" as const, t: "100% transparente", d: "Sabes a dónde va cada euro: hosting, mods y eventos." },
-                { icon: "flame" as const, t: "Solo cosmético", d: "Skins, roles y prioridad de cola. Cero ventaja de combate." },
-                { icon: "users" as const, t: "Por la comunidad", d: "Donar es opcional. El servidor es gratis para todos, siempre." },
-                { icon: "bolt" as const, t: "Pago seguro", d: "Gestionado por pasarelas externas seguras vía Discord." },
+                {
+                  icon: "shield" as const,
+                  t: "Sin ventajas",
+                  d: "Cero objetos, roles o ventaja de combate. Ninguna donación te beneficia en partida.",
+                },
+                {
+                  icon: "flame" as const,
+                  t: "100% al servidor",
+                  d: "Cada aportación va a hosting, mods y mejoras. Nada más.",
+                },
+                {
+                  icon: "users" as const,
+                  t: "Siempre voluntario",
+                  d: "El servidor es gratis para todos, siempre. Donar es totalmente opcional.",
+                },
+                {
+                  icon: "bolt" as const,
+                  t: "Con cabeza",
+                  d: "Dona solo lo que te sobre. Lo primero es tu bienestar, esto es un juego.",
+                },
               ].map((b) => {
                 const IconCmp = Icon[b.icon];
                 return (
@@ -156,6 +113,25 @@ export default function DonacionesPage() {
                 );
               })}
             </Stagger>
+          </div>
+        </Container>
+      </section>
+
+      {/* Votar gratis */}
+      <section className="relative py-20">
+        <Container>
+          <div className="flex flex-col items-center gap-4 border border-ash-700 bg-ash-900 p-10 text-center">
+            <h3 className="font-display text-2xl font-bold uppercase text-bone sm:text-3xl">
+              ¿No puedes donar? Apóyanos gratis
+            </h3>
+            <p className="max-w-md text-sm leading-relaxed text-smoke">
+              Vota por el servidor cada día en Top-Games. Es gratis, tarda 10
+              segundos y nos ayuda a crecer y a llegar a más supervivientes.
+            </p>
+            <Button href={site.social.vote} external variant="steel">
+              <Icon.flame className="h-5 w-5" />
+              Vota el servidor
+            </Button>
           </div>
         </Container>
       </section>

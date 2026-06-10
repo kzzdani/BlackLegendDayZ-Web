@@ -164,7 +164,7 @@ export default function AcercaPage() {
       {/* Mods + Staff (placeholders) */}
       <section className="relative pb-24">
         <Container>
-          <div className="grid gap-5 lg:grid-cols-2">
+          <div className="mx-auto max-w-3xl">
             <Reveal className="relative overflow-hidden border border-ash-700 bg-ash-900 p-9">
               <SectionLabel>Mods & configuración</SectionLabel>
               <h3 className="mt-4 font-display text-3xl font-bold uppercase text-bone">
@@ -183,21 +183,6 @@ export default function AcercaPage() {
                     {m}
                   </span>
                 ))}
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.1} className="relative overflow-hidden border border-ash-700 bg-ash-900 p-9">
-              <SectionLabel>El equipo</SectionLabel>
-              <h3 className="mt-4 font-display text-3xl font-bold uppercase text-bone">
-                Quién mantiene viva la llama
-              </h3>
-              <p className="mt-4 text-sm leading-relaxed text-smoke">
-                Detrás de Black Legend hay un equipo de administradores y
-                moderadores que vela por la comunidad 24/7. Pronto los conocerás
-                aquí, con sus roles y su historia.
-              </p>
-              <div className="mt-6 inline-flex items-center gap-2 border border-dashed border-ash-500 px-4 py-2 font-stencil text-[0.6rem] uppercase tracking-[0.25em] text-ash-400">
-                Staff · pendiente de Jaro
               </div>
             </Reveal>
           </div>
