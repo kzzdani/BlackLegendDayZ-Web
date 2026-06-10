@@ -2,6 +2,7 @@
 
 import { ReactLenis } from "lenis/react";
 import type { ReactNode } from "react";
+import { ScrollReset } from "@/components/ScrollReset";
 
 /**
  * Scroll suave global (Lenis). Da la sensación de "peso" cinematográfico
@@ -18,6 +19,7 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
         touchMultiplier: 1.5,
       }}
     >
+      <ScrollReset />
       {children}
     </ReactLenis>
   );
