@@ -2,15 +2,14 @@ import Image from "next/image";
 import { Container, Heading, SectionLabel } from "@/components/ui";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal";
 
-// Capturas oficiales de DayZ (Steam) usadas como PLACEHOLDER.
-// Sustituir por capturas reales del servidor cuando Jaro las pase.
+// Mezcla de capturas REALES del servidor (real-*) y ejemplos de DayZ (dayz-*).
 const shots = [
-  { src: "/gallery/dayz-01.jpg", caption: "Supervivencia bajo la lluvia", span: "sm:col-span-2 sm:row-span-2" },
-  { src: "/gallery/dayz-04.jpg", caption: "Reconocimiento", span: "" },
+  { src: "/gallery/real-1.webp", caption: "Patrulla en Livonia", span: "sm:col-span-2 sm:row-span-2" },
+  { src: "/gallery/real-2.webp", caption: "Caída la noche", span: "" },
+  { src: "/gallery/real-3.webp", caption: "Camino a la mina", span: "" },
   { src: "/gallery/dayz-05.jpg", caption: "Ciudad en ruinas", span: "" },
-  { src: "/gallery/dayz-02.jpg", caption: "El corazón de la ciudad", span: "" },
-  { src: "/gallery/dayz-03.jpg", caption: "Tiroteo", span: "" },
-  { src: "/gallery/dayz-07.jpg", caption: "Emboscada en el túnel", span: "" },
+  { src: "/gallery/dayz-04.jpg", caption: "Reconocimiento", span: "" },
+  { src: "/gallery/dayz-07.jpg", caption: "Emboscada", span: "" },
 ];
 
 export function Gallery() {
@@ -26,8 +25,7 @@ export function Gallery() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="max-w-xs font-stencil text-[0.6rem] uppercase leading-relaxed tracking-[0.2em] text-ash-400">
-              Imágenes de DayZ a modo de ejemplo · pronto, capturas reales del
-              servidor
+              Capturas reales del servidor en Livonia
             </p>
           </Reveal>
         </div>

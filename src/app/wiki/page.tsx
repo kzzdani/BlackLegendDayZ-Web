@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { Container, Heading, SectionLabel, Button } from "@/components/ui";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal";
 import { CopyChip } from "@/components/CopyChip";
 import { Icon } from "@/components/icons";
-import {
-  site,
-  tiers,
-  keys,
-  runSteps,
-  runReward,
-  crafts,
-} from "@/lib/site";
+import { site, tiers, keys, runSteps, runReward, crafts } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Wiki",
@@ -26,6 +20,9 @@ const index = [
   { href: "#run", label: "Run de Livonia" },
   { href: "#crafteos", label: "Crafteos" },
 ];
+
+const runShots = Array.from({ length: 8 }, (_, i) => `/wiki/run-${i + 1}.webp`);
+const craftShots = Array.from({ length: 11 }, (_, i) => `/wiki/craft-${i + 1}.webp`);
 
 export default function WikiPage() {
   return (
@@ -72,7 +69,10 @@ export default function WikiPage() {
                 <CopyChip value={`${site.server.ip}:${site.server.port}`} />
               </div>
               <p className="mt-5 text-sm leading-relaxed text-smoke">
-                Servidor <span className="text-bone">Vanilla+ en primera persona (1PP)</span>{" "}
+                Servidor{" "}
+                <span className="text-bone">
+                  Vanilla+ en primera persona (1PP)
+                </span>{" "}
                 con {site.server.slots} slots en el mapa de{" "}
                 <span className="text-bone">Livonia</span>. Copia la IP, ábrela en
                 el navegador del cliente de DayZ y conéctate.
@@ -114,39 +114,53 @@ export default function WikiPage() {
               Zonas de <span className="text-fire">loot</span>
             </Heading>
             <p className="mt-4 max-w-xl text-base text-smoke">
-              Cuanto más alto el tier, mejor el equipo… y mayor el peligro.
+              Cuanto más al sur, mejor el equipo… y mayor el peligro. Cuidado con
+              las zonas contaminadas (necesitas traje NBQ).
             </p>
           </Reveal>
-          <Stagger className="mt-10 grid gap-5 md:grid-cols-3">
-            {tiers.map((t) => (
-              <StaggerItem key={t.n}>
-                <article className="h-full border border-ash-700 bg-ash-900 p-7">
-                  <div className="flex items-center gap-4">
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-start">
+            {/* Mapa real */}
+            <Reveal className="relative overflow-hidden border border-ash-700 bg-ash-900 p-3 frame-mil">
+              <Image
+                src="/wiki/tier-map.webp"
+                alt="Tier-map de Livonia con las zonas 1, 2 y 3"
+                width={1080}
+                height={976}
+                className="h-auto w-full"
+              />
+            </Reveal>
+
+            {/* Leyenda */}
+            <Stagger className="space-y-4" gap={0.08}>
+              {tiers.map((t) => (
+                <StaggerItem key={t.n}>
+                  <article className="flex gap-4 border border-ash-700 bg-ash-900 p-5">
                     <span
-                      className="flex h-14 w-14 items-center justify-center font-display text-3xl font-black text-void"
+                      className="flex h-12 w-12 shrink-0 items-center justify-center font-display text-2xl font-black text-void"
                       style={{ background: t.color }}
                     >
                       {t.n}
                     </span>
                     <div>
-                      <p className="font-display text-2xl font-bold uppercase leading-none text-bone">
-                        {t.name}
+                      <p className="font-display text-xl font-bold uppercase leading-none text-bone">
+                        {t.name}{" "}
+                        <span
+                          className="text-sm font-semibold"
+                          style={{ color: t.color }}
+                        >
+                          · {t.zone}
+                        </span>
                       </p>
-                      <p
-                        className="font-stencil text-[0.6rem] uppercase tracking-[0.25em]"
-                        style={{ color: t.color }}
-                      >
-                        {t.zone}
+                      <p className="mt-1.5 text-sm leading-relaxed text-smoke">
+                        {t.text}
                       </p>
                     </div>
-                  </div>
-                  <p className="mt-5 text-sm leading-relaxed text-smoke">
-                    {t.text}
-                  </p>
-                </article>
-              </StaggerItem>
-            ))}
-          </Stagger>
+                  </article>
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </div>
         </Container>
       </section>
 
@@ -166,25 +180,37 @@ export default function WikiPage() {
           <Stagger className="mt-10 grid gap-5 md:grid-cols-3">
             {keys.map((k) => (
               <StaggerItem key={k.id}>
-                <article className="group relative h-full overflow-hidden border border-ash-700 bg-ash-900 p-7">
+                <article className="group relative flex h-full flex-col overflow-hidden border border-ash-700 bg-ash-900">
                   <span
-                    className="absolute inset-x-0 top-0 h-1"
+                    className="absolute inset-x-0 top-0 z-10 h-1"
                     style={{ background: k.color }}
                   />
-                  <div className="flex items-center gap-3">
-                    <span
-                      className="h-8 w-8 rounded-sm border border-white/20"
-                      style={{ background: k.color }}
+                  <div className="relative aspect-video overflow-hidden">
+                    <Image
+                      src={`/wiki/llave-${k.id}.webp`}
+                      alt={`Container de la ${k.name}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <h3 className="font-display text-2xl font-bold uppercase text-bone">
-                      {k.name}
-                    </h3>
+                    <div className="absolute inset-0 bg-gradient-to-t from-ash-900 to-transparent" />
                   </div>
-                  <dl className="mt-6 space-y-4 text-sm">
-                    <Row label="Abre" value={k.opens} />
-                    <Row label="Contiene" value={k.loot} />
-                    <Row label="Se consigue" value={k.source} />
-                  </dl>
+                  <div className="flex flex-1 flex-col p-7">
+                    <div className="flex items-center gap-3">
+                      <span
+                        className="h-7 w-7 rounded-sm border border-white/20"
+                        style={{ background: k.color }}
+                      />
+                      <h3 className="font-display text-2xl font-bold uppercase text-bone">
+                        {k.name}
+                      </h3>
+                    </div>
+                    <dl className="mt-5 space-y-4 text-sm">
+                      <Row label="Abre" value={k.opens} />
+                      <Row label="Contiene" value={k.loot} />
+                      <Row label="Se consigue" value={k.source} />
+                    </dl>
+                  </div>
                 </article>
               </StaggerItem>
             ))}
@@ -245,14 +271,22 @@ export default function WikiPage() {
             ))}
           </Stagger>
 
-          <Reveal delay={0.1}>
-            <div className="mt-6 flex items-start gap-3 border-l-2 border-ember/60 bg-ash-900/60 p-5 text-sm leading-relaxed text-smoke">
-              <Icon.map className="mt-0.5 h-5 w-5 shrink-0 text-ember" />
-              <p>
-                Guía visual completa con capturas (bunker de Dambog, tarjeta
-                perforada, sala del generador…) en el canal{" "}
-                <span className="text-bone">#run-livonia</span> del Discord.
-              </p>
+          {/* Galería de la run */}
+          <Reveal delay={0.05}>
+            <p className="mb-4 mt-12 font-stencil text-[0.6rem] uppercase tracking-[0.3em] text-ember">
+              La ruta en imágenes
+            </p>
+            <div className="columns-2 gap-3 md:columns-3 [&>*]:mb-3">
+              {runShots.map((src, i) => (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
+                  key={src}
+                  src={src}
+                  alt={`Paso de la Run de Livonia ${i + 1}`}
+                  loading="lazy"
+                  className="w-full break-inside-avoid border border-ash-700 transition-opacity hover:opacity-90"
+                />
+              ))}
             </div>
           </Reveal>
         </Container>
@@ -266,7 +300,12 @@ export default function WikiPage() {
             <Heading className="mt-5">
               Construye y <span className="text-fire">fortifica</span>
             </Heading>
+            <p className="mt-4 max-w-2xl text-base text-smoke">
+              El servidor incorpora un addon de base-building con fortificaciones
+              y MMG Base Storage. Aquí tienes las guías de construcción.
+            </p>
           </Reveal>
+
           <Stagger className="mt-10 grid gap-5 md:grid-cols-2">
             {crafts.map((c) => (
               <StaggerItem key={c.name}>
@@ -286,14 +325,24 @@ export default function WikiPage() {
               </StaggerItem>
             ))}
           </Stagger>
-          <Reveal delay={0.1}>
-            <p className="mt-6 text-sm leading-relaxed text-smoke">
-              El servidor incorpora un{" "}
-              <span className="text-bone">addon de base-building</span> con
-              fortificaciones y MMG Base Storage. Recetas completas y guías de
-              crafteo en los canales <span className="text-bone">#crafteos</span>{" "}
-              y <span className="text-bone">#base-building-addon</span> del Discord.
+
+          {/* Guías de construcción (infografías) */}
+          <Reveal delay={0.05}>
+            <p className="mb-4 mt-12 font-stencil text-[0.6rem] uppercase tracking-[0.3em] text-ember">
+              Guías de construcción
             </p>
+            <div className="columns-1 gap-4 sm:columns-2 lg:columns-3 [&>*]:mb-4">
+              {craftShots.map((src, i) => (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
+                  key={src}
+                  src={src}
+                  alt={`Guía de crafteo ${i + 1}`}
+                  loading="lazy"
+                  className="w-full break-inside-avoid border border-ash-700 transition-opacity hover:opacity-90"
+                />
+              ))}
+            </div>
           </Reveal>
         </Container>
       </section>

@@ -1,6 +1,7 @@
+import Image from "next/image";
 import { livonia, tiers } from "@/lib/site";
 import { Container, Heading, SectionLabel } from "@/components/ui";
-import { Reveal, Stagger, StaggerItem } from "@/components/Reveal";
+import { Reveal } from "@/components/Reveal";
 import { Icon } from "@/components/icons";
 
 export function MapsSection() {
@@ -44,44 +45,42 @@ export function MapsSection() {
             </div>
           </Reveal>
 
-          {/* Tier-map */}
+          {/* Tier-map real */}
           <Reveal delay={0.15}>
-            <div className="relative overflow-hidden border border-ash-700 bg-ash-900 p-7 frame-mil">
-              <p className="font-stencil text-[0.6rem] uppercase tracking-[0.3em] text-ember">
-                Tier-map · zonas de loot
-              </p>
-              <Stagger className="mt-5 space-y-3" gap={0.08}>
-                {tiers.map((t) => (
-                  <StaggerItem key={t.n}>
-                    <div className="group flex gap-4 border border-ash-700 bg-ash-850 p-4 transition-colors hover:border-ash-500">
-                      <div
-                        className="flex h-12 w-12 shrink-0 items-center justify-center font-display text-2xl font-black text-void"
-                        style={{ background: t.color }}
-                      >
-                        {t.n}
-                      </div>
-                      <div>
-                        <p className="font-display text-lg font-bold uppercase leading-none text-bone">
-                          {t.name}{" "}
-                          <span
-                            className="text-sm font-semibold"
-                            style={{ color: t.color }}
-                          >
-                            · {t.zone}
-                          </span>
-                        </p>
-                        <p className="mt-1.5 text-sm leading-relaxed text-smoke">
-                          {t.text}
-                        </p>
-                      </div>
-                    </div>
-                  </StaggerItem>
-                ))}
-              </Stagger>
-              <p className="mt-4 font-stencil text-[0.55rem] uppercase tracking-[0.2em] text-ash-500">
-                Mapa de tiers detallado · disponible en el Discord
-              </p>
+            <div className="relative overflow-hidden border border-ash-700 bg-ash-900 p-3 frame-mil">
+              <span className="absolute left-5 top-5 z-10 bg-void/70 px-3 py-1 font-stencil text-[0.6rem] uppercase tracking-[0.3em] text-ember backdrop-blur-sm">
+                Tier-map · Livonia
+              </span>
+              <Image
+                src="/wiki/tier-map.webp"
+                alt="Tier-map de Livonia con las zonas 1, 2 y 3"
+                width={1080}
+                height={976}
+                className="h-auto w-full"
+              />
             </div>
+            <div className="mt-3 grid grid-cols-3 gap-2">
+              {tiers.map((t) => (
+                <div
+                  key={t.n}
+                  className="flex items-center gap-2 border border-ash-700 bg-ash-900 px-3 py-2.5"
+                >
+                  <span
+                    className="h-4 w-4 shrink-0"
+                    style={{ background: t.color }}
+                  />
+                  <span className="font-display text-sm font-bold uppercase leading-none text-bone">
+                    {t.n} · {t.zone}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <p className="mt-3 text-center font-stencil text-[0.55rem] uppercase tracking-[0.2em] text-ash-500">
+              Guía de tiers completa en la{" "}
+              <a href="/wiki#tier-map" className="text-ember">
+                Wiki
+              </a>
+            </p>
           </Reveal>
         </div>
       </Container>
