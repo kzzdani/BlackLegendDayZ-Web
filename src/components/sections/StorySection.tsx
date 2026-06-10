@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 import { useRef } from "react";
 import { Embers } from "@/components/Embers";
@@ -13,7 +12,7 @@ const chapters = [
   },
   {
     n: "02",
-    title: "Livonia, tierra de nadie",
+    title: "Livonia no perdona",
     text: "Bosques infinitos, pueblos fantasma y otros supervivientes dispuestos a todo por una bala más. El hambre, el frío y las traiciones cazan a quien baja la guardia. No hay segundas oportunidades.",
   },
   {
@@ -30,15 +29,6 @@ export function StorySection() {
     offset: ["start start", "end end"],
   });
 
-  // Fénix: crece y se enciende con el progreso (suave, queda de fondo)
-  const phoenixScale = useTransform(scrollYProgress, [0, 1], [0.7, 1.12]);
-  const phoenixOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    [0.14, 0.34, 0.55],
-  );
-  const phoenixBlur = useTransform(scrollYProgress, [0, 1], [10, 0]);
-  const filter = useTransform(phoenixBlur, (b) => `blur(${b}px)`);
   const glowOpacity = useTransform(scrollYProgress, [0, 1], [0.1, 0.5]);
   const ringRotate = useTransform(scrollYProgress, [0, 1], [0, 90]);
 
@@ -63,26 +53,6 @@ export function StorySection() {
         >
           <span className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ember shadow-[0_0_12px_var(--color-ember)]" />
         </motion.div>
-
-        {/* Fénix */}
-        <motion.div
-          style={{ scale: phoenixScale, opacity: phoenixOpacity, filter }}
-          className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-        >
-          <Image
-            src="/brand/0logosoloBlackLegendNuevo2.png"
-            alt=""
-            width={620}
-            height={620}
-            className="h-[54vmin] w-auto"
-          />
-        </motion.div>
-
-        {/* Velo oscuro tras el texto (legibilidad sobre el fénix) */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute left-1/2 top-1/2 z-[5] h-[48vmin] w-[82vmin] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-void/70 blur-3xl"
-        />
 
         {/* Capítulos */}
         <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center px-6">

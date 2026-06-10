@@ -15,8 +15,8 @@ export function EventsSection() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="max-w-sm text-base text-smoke">
-              Eventos de staff con recompensas únicas, drops aéreos y batallas
-              que se convierten en leyenda.
+              Wipes, concursos de bases y la Run end-game. Contenido que
+              evoluciona manteniendo siempre la esencia vanilla.
             </p>
           </Reveal>
         </div>

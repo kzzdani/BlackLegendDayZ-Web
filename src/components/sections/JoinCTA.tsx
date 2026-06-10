@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { site } from "@/lib/site";
 import { Button, Container } from "@/components/ui";
 import { Embers } from "@/components/Embers";
@@ -13,13 +12,6 @@ export function JoinCTA() {
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-1/2 h-[80vmin] w-[80vmin] -translate-x-1/2 -translate-y-1/2 rounded-full bg-ember/15 blur-[110px]"
-      />
-      <Image
-        src="/brand/0logosoloBlackLegendNuevo2.png"
-        alt=""
-        width={700}
-        height={700}
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[70vmin] w-auto -translate-x-1/2 -translate-y-1/2 opacity-[0.07]"
       />
       <div className="absolute inset-0">
         <Embers density={0.0001} />

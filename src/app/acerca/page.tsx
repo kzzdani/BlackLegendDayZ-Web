@@ -17,7 +17,6 @@ const stats = [
   { label: "Slots", value: site.server.slots, pending: false },
   { label: "Perspectiva", value: "1PP", pending: false },
   { label: "Mods", value: String(mods.length), pending: false },
-  { label: "Uptime", value: "99%", pending: false },
 ];
 
 const pillars = [
@@ -108,7 +107,7 @@ export default function AcercaPage() {
       {/* Cifras */}
       <section className="relative border-y border-ash-800 bg-ash-950 py-20">
         <Container>
-          <Stagger className="grid grid-cols-2 gap-px overflow-hidden border border-ash-700 bg-ash-700 md:grid-cols-4">
+          <Stagger className="grid grid-cols-3 gap-px overflow-hidden border border-ash-700 bg-ash-700">
             {stats.map((s) => (
               <StaggerItem key={s.label}>
                 <div className="flex flex-col items-center justify-center gap-2 bg-ash-900 px-4 py-10 text-center">

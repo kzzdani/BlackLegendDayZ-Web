@@ -19,12 +19,7 @@ export function Container({
 }
 
 export function SectionLabel({ children }: { children: ReactNode }) {
-  return (
-    <span className="eyebrow inline-flex items-center gap-3">
-      <span className="h-px w-8 bg-ember/60" />
-      {children}
-    </span>
-  );
+  return <span className="eyebrow inline-flex items-center">{children}</span>;
 }
 
 /** Título de sección grande con palabra destacada en fuego. */

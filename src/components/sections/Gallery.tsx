@@ -2,14 +2,14 @@ import Image from "next/image";
 import { Container, Heading, SectionLabel } from "@/components/ui";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal";
 
-// Mezcla de capturas REALES del servidor (real-*) y ejemplos de DayZ (dayz-*).
+// Capturas reales del servidor en Livonia.
 const shots = [
   { src: "/gallery/real-1.webp", caption: "Patrulla en Livonia", span: "sm:col-span-2 sm:row-span-2" },
   { src: "/gallery/real-2.webp", caption: "Caída la noche", span: "" },
   { src: "/gallery/real-3.webp", caption: "Camino a la mina", span: "" },
-  { src: "/gallery/dayz-05.jpg", caption: "Ciudad en ruinas", span: "" },
-  { src: "/gallery/dayz-04.jpg", caption: "Reconocimiento", span: "" },
-  { src: "/gallery/dayz-07.jpg", caption: "Emboscada", span: "" },
+  { src: "/wiki/run-8.webp", caption: "El búnker", span: "" },
+  { src: "/wiki/run-1.webp", caption: "Sin testigos", span: "" },
+  { src: "/wiki/llave-azul.webp", caption: "El alijo", span: "" },
 ];
 
 export function Gallery() {
