@@ -33,7 +33,11 @@ export function Gallery() {
         <Stagger className="mt-12 grid auto-rows-[170px] grid-cols-2 gap-3 sm:auto-rows-[200px] sm:grid-cols-3 lg:grid-cols-4">
           {shots.map((shot, i) => (
             <StaggerItem key={shot.src} className={shot.span}>
-              <figure className="group relative h-full w-full overflow-hidden border border-ash-700 scanlines">
+              <figure
+                data-lightbox="gallery"
+                data-full={shot.src}
+                className="group relative h-full w-full cursor-zoom-in overflow-hidden border border-ash-700 scanlines"
+              >
                 <Image
                   src={shot.src}
                   alt={shot.caption}

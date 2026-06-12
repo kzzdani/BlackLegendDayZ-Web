@@ -155,6 +155,29 @@ export default function WikiPage() {
               ))}
             </Stagger>
           </div>
+
+          <Reveal
+            delay={0.1}
+            className="mt-6 flex flex-col items-center justify-between gap-4 border border-ash-700 bg-ash-900 p-6 sm:flex-row"
+          >
+            <div className="flex items-center gap-3">
+              <Icon.map className="h-6 w-6 shrink-0 text-ember" />
+              <p className="text-sm leading-relaxed text-smoke">
+                ¿Quieres planificar tu ruta? Abre el{" "}
+                <span className="text-bone">mapa interactivo de Livonia</span> con
+                todas las localizaciones, loot y zonas.
+              </p>
+            </div>
+            <Button
+              href="https://www.izurvive.com/livonia/"
+              external
+              variant="steel"
+              className="shrink-0"
+            >
+              <Icon.map className="h-4 w-4" />
+              Mapa interactivo
+            </Button>
+          </Reveal>
         </Container>
       </section>
 
@@ -278,7 +301,8 @@ export default function WikiPage() {
                   src={src}
                   alt={`Paso de la Run de Livonia ${i + 1}`}
                   loading="lazy"
-                  className="w-full break-inside-avoid border border-ash-700 transition-opacity hover:opacity-90"
+                  data-lightbox="run"
+                  className="w-full cursor-zoom-in break-inside-avoid border border-ash-700 transition-opacity hover:opacity-90"
                 />
               ))}
             </div>
@@ -333,7 +357,8 @@ export default function WikiPage() {
                   src={src}
                   alt={`Guía de crafteo ${i + 1}`}
                   loading="lazy"
-                  className="w-full break-inside-avoid border border-ash-700 transition-opacity hover:opacity-90"
+                  data-lightbox="craft"
+                  className="w-full cursor-zoom-in break-inside-avoid border border-ash-700 transition-opacity hover:opacity-90"
                 />
               ))}
             </div>

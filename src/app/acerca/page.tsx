@@ -176,14 +176,21 @@ export default function AcercaPage() {
               </p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {mods.map((m) => (
-                  <span
+                  <a
                     key={m}
-                    className="border border-ash-600 bg-ash-800 px-3 py-1.5 font-mono text-xs text-ember"
+                    href={`https://steamcommunity.com/workshop/browse/?appid=221100&searchtext=${encodeURIComponent(m)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-1.5 border border-ash-600 bg-ash-800 px-3 py-1.5 font-mono text-xs text-ember transition-colors hover:border-ember/60 hover:bg-ash-700"
                   >
                     {m}
-                  </span>
+                    <Icon.arrow className="h-3 w-3 -rotate-45 opacity-0 transition-opacity group-hover:opacity-100" />
+                  </a>
                 ))}
               </div>
+              <p className="mt-3 font-stencil text-[0.55rem] uppercase tracking-[0.2em] text-ash-500">
+                Clic en un mod para verlo en el Steam Workshop
+              </p>
             </Reveal>
           </div>
         </Container>

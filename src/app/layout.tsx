@@ -10,6 +10,8 @@ import { LiveStatusProvider } from "@/components/LiveStatus";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { Intro } from "@/components/Intro";
 import { FloatingDiscord } from "@/components/FloatingDiscord";
+import { Lightbox } from "@/components/Lightbox";
+import { Konami } from "@/components/Konami";
 
 const saira = Saira_Condensed({
   variable: "--font-saira",
@@ -56,20 +58,11 @@ export const metadata: Metadata = {
     siteName: site.fullName,
     locale: "es_ES",
     type: "website",
-    images: [
-      {
-        url: "/brand/0logosoloBlackLegendNuevo.png",
-        width: 1099,
-        height: 1099,
-        alt: site.fullName,
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.fullName} — Renace de las cenizas`,
     description: site.shortPitch,
-    images: ["/brand/0logosoloBlackLegendNuevo.png"],
   },
   icons: { icon: "/brand/0logosoloBlackLegendNuevo2.png" },
 };
@@ -88,8 +81,34 @@ export default function RootLayout({
       className={`${saira.variable} ${chakra.variable} ${stencil.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-void text-bone">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  name: site.fullName,
+                  url: `https://${site.domain}`,
+                  logo: `https://${site.domain}/brand/0logosoloBlackLegendNuevo.png`,
+                  description: site.shortPitch,
+                  sameAs: [site.social.discord, site.social.youtube],
+                },
+                {
+                  "@type": "WebSite",
+                  name: site.fullName,
+                  url: `https://${site.domain}`,
+                  inLanguage: "es-ES",
+                },
+              ],
+            }),
+          }}
+        />
         <Intro />
         <ScrollProgress />
+        <Lightbox />
+        <Konami />
         <SmoothScroll>
           <LiveStatusProvider>
             <GrainOverlay />

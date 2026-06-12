@@ -3,6 +3,7 @@ import Link from "next/link";
 import { navLinks, site } from "@/lib/site";
 import { Icon } from "@/components/icons";
 import { Container } from "@/components/ui";
+import { ShareButtons } from "@/components/ShareButtons";
 
 export function Footer() {
   return (
@@ -39,6 +40,11 @@ export function Footer() {
               <SocialLink href={site.social.youtube} label="YouTube">
                 <Icon.youtube className="h-5 w-5" />
               </SocialLink>
+            </div>
+
+            <div className="mt-7">
+              <p className="eyebrow mb-3">Comparte</p>
+              <ShareButtons />
             </div>
           </div>
 

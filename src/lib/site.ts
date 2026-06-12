@@ -80,7 +80,7 @@ export const tiers = [
     label: "Ú",
     name: "Tier Único",
     color: "#c350d2",
-    text: "Zonas moradas especiales repartidas por el mapa: el botín más codiciado y el mayor peligro.",
+    text: "Zonas moradas especiales repartidas por el mapa: Dónde encontrarás los tipos de explosivos necesarios para raidear.",
   },
 ] as const;
 
