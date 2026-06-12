@@ -9,6 +9,7 @@ import { Footer } from "@/components/Footer";
 import { LiveStatusProvider } from "@/components/LiveStatus";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { Intro } from "@/components/Intro";
+import { FloatingDiscord } from "@/components/FloatingDiscord";
 
 const saira = Saira_Condensed({
   variable: "--font-saira",
@@ -95,6 +96,7 @@ export default function RootLayout({
             <Navbar />
             <main>{children}</main>
             <Footer />
+            <FloatingDiscord />
           </LiveStatusProvider>
         </SmoothScroll>
       </body>

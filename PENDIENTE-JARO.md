@@ -25,6 +25,8 @@ sustituirlas, necesito los **archivos de imagen** (no la captura del Discord):
 > Pásamelas como archivos (PNG/JPG) y las coloco en `public/gallery/` y en la wiki.
 
 ### 2. Otros
+- [ ] **Trailer de YouTube**: pásame el enlace/ID del vídeo y se incrusta en la
+      sección "El servidor en movimiento" (`site.media.trailerId`). Ahora lleva al canal.
 - [ ] **Dominio** final para comprarlo en Vercel y actualizar `site.domain`
       (de momento se usa la URL de Vercel).
 - [ ] (Opcional) **Método de pago** para donaciones: ahora la página de

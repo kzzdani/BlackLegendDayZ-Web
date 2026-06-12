@@ -280,6 +280,58 @@ export const raidSchedule = [
   { day: "Domingo", hours: "16:00 – 00:00" },
 ] as const;
 
+// ---- Cómo empezar -----------------------------------------------------------
+export const quickStart = [
+  {
+    title: "Únete al Discord",
+    text: "Entra a la comunidad, presenta tu candidatura y entérate de wipes, eventos y normativa.",
+  },
+  {
+    title: "Ten DayZ en Steam",
+    text: "Necesitas el juego base. Black Legend es una experiencia Vanilla+ en primera persona.",
+  },
+  {
+    title: "Copia la IP y conéctate",
+    text: "En DayZ, ve a servidores comunitarios y busca por dirección IP. Pega la nuestra y entra.",
+  },
+  {
+    title: "Instala los mods y sobrevive",
+    text: "Los mods se descargan solos al conectar. Crea tu personaje y empieza a escribir tu leyenda.",
+  },
+] as const;
+
+// ---- Preguntas frecuentes ---------------------------------------------------
+export const faqs = [
+  {
+    q: "¿Es gratis?",
+    a: "Sí. El servidor es y será siempre gratis. Solo necesitas tener DayZ en Steam.",
+  },
+  {
+    q: "¿Necesito instalar mods?",
+    a: "Unos pocos, y se descargan automáticamente la primera vez que te conectas. No tienes que hacer nada manual.",
+  },
+  {
+    q: "¿En qué mapa se juega?",
+    a: "En Livonia: un mapa compacto y 100% PvP donde la interacción y el combate están asegurados.",
+  },
+  {
+    q: "¿Hay pay-to-win?",
+    a: "Nunca. Las donaciones son voluntarias y no dan ningún objeto ni ventaja dentro del juego.",
+  },
+  {
+    q: "¿Qué es la Run de Livonia?",
+    a: "El end-game del servidor: una ruta por bunkers y llaves para conseguir las armas más codiciadas (AWM, GALIL, M79). Tienes la guía completa en la Wiki.",
+  },
+  {
+    q: "¿Cuándo puedo raidear?",
+    a: "Solo dentro del horario de raid, que tienes publicado en la sección de Reglas. Fuera de ese horario está prohibido.",
+  },
+  {
+    q: "¿Se juega en primera persona?",
+    a: "Sí, el servidor es solo 1PP (primera persona). Más hardcore, más justo y más competitivo.",
+  },
+] as const;
+
 export const navLinks = [
   { href: "/", label: "Inicio" },
   { href: "/acerca", label: "El servidor" },
