@@ -126,7 +126,7 @@ export function Hero() {
             transition={{ duration: 0.9, delay: 0.7 }}
             className="mx-auto mt-7 max-w-xl text-balance text-base leading-relaxed text-smoke sm:text-lg"
           >
-            {site.tagline}. Sobrevive al frío, conquista el mapa y{" "}
+            {site.tagline}. Sobrevive, conquista el mapa y{" "}
             <span className="text-bone">renace de las cenizas</span>.
           </motion.p>
 
