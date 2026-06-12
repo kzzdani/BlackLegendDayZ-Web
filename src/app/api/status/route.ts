@@ -23,10 +23,19 @@ export async function GET() {
   };
 
   // --- BattleMetrics: jugadores conectados ---
+  const bmToken = process.env.BATTLEMETRICS_TOKEN;
   try {
     const res = await fetch(
       `https://api.battlemetrics.com/servers/${site.server.battlemetricsId}`,
-      { next: { revalidate: 45 } },
+      {
+        headers: {
+          "User-Agent":
+            "BlackLegendDayZ/1.0 (+https://black-legend-day-z-web.vercel.app)",
+          Accept: "application/json",
+          ...(bmToken ? { Authorization: `Bearer ${bmToken}` } : {}),
+        },
+        next: { revalidate: 45 },
+      },
     );
     if (res.ok) {
       const json = await res.json();
