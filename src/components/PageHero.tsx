@@ -61,7 +61,7 @@ export function PageHero({
         )}
       </Container>
 
-      <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-void to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-void to-transparent" />
     </section>
   );
 }

@@ -18,7 +18,7 @@ const chapters = [
   {
     n: "03",
     title: "Las leyendas renacen",
-    text: "Pero del fuego siempre surge algo nuevo. Como el fénix, los que sobreviven se levantan más fuertes. Esta es tu historia. Esta es Black Legend.",
+    text: "Pero del fuego siempre surge algo nuevo. Como el fénix, los que sobreviven se levantan más fuertes. Esta es tu historia. Esto es Black Legend.",
   },
 ];
 

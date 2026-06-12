@@ -159,7 +159,7 @@ export function Hero() {
       </motion.div>
 
       {/* Degradado de transición inferior */}
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-void to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-void to-transparent" />
     </section>
   );
 }

@@ -4,7 +4,6 @@ import { StorySection } from "@/components/sections/StorySection";
 import { Features } from "@/components/sections/Features";
 import { QuickStart } from "@/components/sections/QuickStart";
 import { MapsSection } from "@/components/sections/MapsSection";
-import { PlayerActivity } from "@/components/sections/PlayerActivity";
 import { VideoSection } from "@/components/sections/VideoSection";
 import { EventsSection } from "@/components/sections/EventsSection";
 import { Gallery } from "@/components/sections/Gallery";
@@ -20,7 +19,6 @@ export default function Home() {
       <Features />
       <QuickStart />
       <MapsSection />
-      <PlayerActivity />
       <VideoSection />
       <EventsSection />
       <Gallery />
