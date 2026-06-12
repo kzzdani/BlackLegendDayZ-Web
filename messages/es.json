@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "titleSuffix": "Renace de las cenizas",
+    "description": "Servidor hispano de DayZ en Livonia. Vanilla+ en primera persona, 100% PvP, con una Run end-game única, sistema de llaves y una comunidad que no se rinde.",
+    "keywords": "DayZ,servidor DayZ,Black Legend,DayZ español,DayZ Livonia,servidor DayZ PvP,Vanilla 1PP,survival"
+  },
+  "nav": {
+    "inicio": "Inicio",
+    "servidor": "El servidor",
+    "donaciones": "Donaciones",
+    "reglas": "Reglas",
+    "wiki": "Wiki",
+    "discord": "Discord",
+    "joinDiscord": "Únete al Discord",
+    "switchTo": "EN"
+  },
+  "hero": {
+    "eyebrow": "Servidor de DayZ · Comunidad hispana",
+    "subtitle": "El servidor que te llevará a una experiencia única en DayZ. Sobrevive, conquista el mapa y",
+    "subtitleHighlight": "renace de las cenizas",
+    "ctaConnect": "Conéctate ahora",
+    "ctaDiscord": "Únete al Discord"
+  },
+  "connect": {
+    "status": "Estado",
+    "online": "Servidor online",
+    "offline": "Servidor offline",
+    "connecting": "Conectando…",
+    "players": "Jugadores",
+    "map": "Mapa actual",
+    "community": "Comunidad",
+    "onlineSuffix": "en línea",
+    "ipLabel": "IP del servidor"
+  },
+  "story": {
+    "cap": "Cap.",
+    "chapters": [
+      {
+        "title": "El mundo cayó",
+        "text": "La infección lo arrasó todo en cuestión de días. Las ciudades ardieron, los gobiernos colapsaron y la civilización se convirtió en un recuerdo lejano enterrado bajo los escombros."
+      },
+      {
+        "title": "Livonia no perdona",
+        "text": "Bosques infinitos, pueblos fantasma y otros supervivientes dispuestos a todo por una bala más. El hambre, el frío y las traiciones cazan a quien baja la guardia. No hay segundas oportunidades."
+      },
+      {
+        "title": "Las leyendas renacen",
+        "text": "Pero del fuego siempre surge algo nuevo. Como el fénix, los que sobreviven se levantan más fuertes. Esta es tu historia. Esto es Black Legend."
+      }
+    ]
+  },
+  "features": {
+    "eyebrow": "Por qué Black Legend",
+    "title1": "No es un servidor más.",
+    "title2": "Es una guerra por sobrevivir.",
+    "subtitle": "Cada detalle está pensado para que la experiencia sea intensa, justa y memorable. Esto es lo que te espera dentro.",
+    "items": [
+      { "icon": "skull", "title": "Vanilla+ · 1PP", "text": "Experiencia vanilla mejorada en primera persona. Sin pay-to-win: aquí ganas por habilidad." },
+      { "icon": "flame", "title": "100% PvP", "text": "Livonia es un mapa compacto donde el combate está asegurado. Si buscas acción, la tienes." },
+      { "icon": "map", "title": "La Run de Livonia", "text": "Un end-game único: bunkers, tarjetas de acceso y armas exclusivas (AWM, GALIL, M79)." },
+      { "icon": "shield", "title": "Anticheat activo", "text": "VPPAdminTools y un staff vigilando 24/7. Cheats o abuso de bugs = ban permanente." },
+      { "icon": "users", "title": "Comunidad hispana", "text": "Cientos de supervivientes en Discord. Clanes, alianzas, traiciones… y buen rollo." },
+      { "icon": "bolt", "title": "Base-building mejorado", "text": "Addon de construcción, Building Fortifications y MMG Base Storage para bases con criterio." }
+    ]
+  },
+  "quickstart": {
+    "eyebrow": "Cómo empezar",
+    "title1": "De cero a",
+    "title2": "superviviente",
+    "button": "Empezar ahora",
+    "steps": [
+      { "title": "Únete al Discord", "text": "Entra a la comunidad, presenta tu candidatura y entérate de wipes, eventos y normativa." },
+      { "title": "Ten DayZ en Steam", "text": "Necesitas el juego base. Black Legend es una experiencia Vanilla+ en primera persona." },
+      { "title": "Copia la IP y conéctate", "text": "En DayZ, ve a servidores comunitarios y busca por dirección IP. Pega la nuestra y entra." },
+      { "title": "Instala los mods y sobrevive", "text": "Los mods se descargan solos al conectar. Crea tu personaje y empieza a escribir tu leyenda." }
+    ]
+  },
+  "maps": {
+    "eyebrow": "El mapa",
+    "title1": "Bienvenido a",
+    "title2": "Livonia BL",
+    "description": "El mapa actual de Black Legend. Más compacto que Chernarus, con pueblos pequeños y juntos: la interacción y el PvP están asegurados. Mucho bosque para esconder tu base… o para emboscar.",
+    "highlights": [
+      "Mapa compacto enfocado al combate",
+      "Pueblos cercanos = más interacción",
+      "Bunker y Run end-game exclusivos",
+      "Zonas contaminadas de alto riesgo / alto loot"
+    ],
+    "statClimate": "Clima",
+    "statClimateValue": "Templado",
+    "statPerspective": "Perspectiva",
+    "statPerspectiveValue": "1ª persona",
+    "statStyle": "Estilo",
+    "statStyleValue": "100% PvP",
+    "tierMapLabel": "Tier-map · Livonia",
+    "guidePre": "Guía de tiers completa en la",
+    "guideLink": "Wiki",
+    "tiers": [
+      { "label": "1", "name": "Tier 1", "color": "#56c15f", "text": "Zona verde. Loot básico para equiparte y empezar a sobrevivir." },
+      { "label": "2", "name": "Tier 2", "color": "#74bce0", "text": "Zona azul. Equipo intermedio y armas decentes; más tránsito de jugadores." },
+      { "label": "3", "name": "Tier 3", "color": "#f1ce2a", "text": "Zona amarilla. El mejor loot militar del mapa, con mayor riesgo de combate." },
+      { "label": "Ú", "name": "Tier Único", "color": "#c350d2", "text": "Zonas moradas especiales repartidas por el mapa: dónde encontrarás los explosivos necesarios para raidear." }
+    ]
+  },
+  "clips": {
+    "eyebrow": "En acción",
+    "title1": "El servidor",
+    "title2": "en movimiento",
+    "subtitle": "Trailers y momentos del servidor, directos desde nuestro YouTube."
+  },
+  "events": {
+    "eyebrow": "Eventos en vivo",
+    "title1": "La acción",
+    "title2": "nunca para",
+    "subtitle": "Wipes, concursos de bases y la Run end-game. Contenido que evoluciona manteniendo siempre la esencia vanilla.",
+    "items": [
+      { "name": "Wipe + Livonia", "tag": "Mapa actual", "description": "El servidor migró a Livonia: mapa más pequeño y 100% PvP. Cada wipe es empezar de cero y reescribir tu leyenda." },
+      { "name": "Concurso de bases", "tag": "Evento", "description": "Presenta tu base por ticket. Las 3 mejores consiguen color de TAG personalizado en el chat. Se valora estética y construcción." },
+      { "name": "La Run de Livonia", "tag": "End-game", "description": "Llega al bunker final con la tarjeta perforada y la tarjeta blanca para conseguir las armas más codiciadas del servidor." }
+    ]
+  },
+  "gallery": {
+    "eyebrow": "Galería",
+    "title1": "El campo de",
+    "title2": "batalla",
+    "note": "Capturas reales del servidor en Livonia",
+    "captions": ["Patrulla en Livonia", "Caída la noche", "Camino a la mina", "El búnker", "Sin testigos", "El alijo"]
+  },
+  "faq": {
+    "eyebrow": "Dudas",
+    "title1": "Preguntas",
+    "title2": "frecuentes",
+    "items": [
+      { "q": "¿Es gratis?", "a": "Sí. El servidor es y será siempre gratis. Solo necesitas tener DayZ en Steam." },
+      { "q": "¿Necesito instalar mods?", "a": "Unos pocos, y se descargan automáticamente la primera vez que te conectas. No tienes que hacer nada manual." },
+      { "q": "¿En qué mapa se juega?", "a": "En Livonia: un mapa compacto y 100% PvP donde la interacción y el combate están asegurados." },
+      { "q": "¿Hay pay-to-win?", "a": "Nunca. Las donaciones son voluntarias y no dan ningún objeto ni ventaja dentro del juego." },
+      { "q": "¿Qué es la Run de Livonia?", "a": "El end-game del servidor: una ruta por bunkers y llaves para conseguir las armas más codiciadas (AWM, GALIL, M79). Tienes la guía completa en la Wiki." },
+      { "q": "¿Cuándo puedo raidear?", "a": "Solo dentro del horario de raid, que tienes publicado en la sección de Reglas. Fuera de ese horario está prohibido." },
+      { "q": "¿Se juega en primera persona?", "a": "Sí, el servidor es solo 1PP (primera persona). Más hardcore, más justo y más competitivo." }
+    ]
+  },
+  "join": {
+    "eyebrow": "Tu historia empieza aquí",
+    "title1": "Renace de las",
+    "title2": "cenizas",
+    "ctaDiscord": "Únete al Discord",
+    "ctaSupport": "Apoya el servidor",
+    "joinPre": "Únete a",
+    "survivors": "supervivientes",
+    "onlineNow": "en línea ahora",
+    "fallback": "Únete a cientos de supervivientes. El mapa no espera a nadie."
+  },
+  "footer": {
+    "tagline": "El servidor que te llevará a una experiencia única en DayZ. Un proyecto de la comunidad hispana de DayZ. Sobrevive, conquista y renace de las cenizas.",
+    "navTitle": "Navegación",
+    "communityTitle": "Comunidad",
+    "discordOfficial": "Discord oficial",
+    "youtubeChannel": "Canal de YouTube",
+    "voteServer": "Vota el servidor",
+    "supportServer": "Apoya el servidor",
+    "shareTitle": "Comparte",
+    "rights": "Todos los derechos reservados.",
+    "disclaimer": "No afiliado con Bohemia Interactive. DayZ es marca de sus respectivos propietarios."
+  },
+  "floating": {
+    "onlineSuffix": "en línea",
+    "joinNow": "Únete ya"
+  },
+  "share": {
+    "share": "Compartir",
+    "copy": "Copiar enlace",
+    "copied": "¡Copiado!",
+    "text": "🔥 Black Legend DayZ — servidor hispano de DayZ en Livonia. ¡Únete!"
+  },
+  "intro": {
+    "tagline": "Renace de las cenizas"
+  },
+  "konami": {
+    "title": "¡Has despertado al fénix!",
+    "subtitle": "Renace de las cenizas"
+  },
+  "notFound": {
+    "title": "Te has perdido en Livonia",
+    "text": "Esta zona no existe en el mapa… o ya la han raideado. Vuelve a terreno conocido antes de que caiga la noche.",
+    "back": "Volver al inicio",
+    "help": "Pedir ayuda en Discord"
+  },
+  "about": {
+    "eyebrow": "El servidor",
+    "title1": "Más que un servidor.",
+    "title2": "Una leyenda.",
+    "subtitle": "Black Legend nació de la idea de que DayZ podía ser más justo, más intenso y más humano. Esta es nuestra historia y lo que nos mueve.",
+    "philEyebrow": "Nuestra filosofía",
+    "philTitle1": "Forjados en el",
+    "philTitle2": "fuego",
+    "p1": "Empezamos como un puñado de supervivientes cansados de servidores pay-to-win, llenos de cheaters y sin alma. Queríamos algo distinto: un lugar donde sobrevivir significara algo, donde cada bala contara y cada alianza pesara.",
+    "p2pre": "Hoy Black Legend vive en",
+    "p2mid": ": un mapa compacto y 100% PvP donde cada partida es una guerra. Vanilla+ en primera persona, con una",
+    "p2run": "Run end-game",
+    "p2post": "que se ha vuelto legendaria. Pero el espíritu sigue siendo el mismo del primer día.",
+    "quote": "“No importa cuántas veces caigas. Importa cuántas veces renazcas.”",
+    "philButton": "Conoce a la comunidad",
+    "statSlots": "Slots",
+    "statPerspective": "Perspectiva",
+    "statMods": "Mods",
+    "statWipe": "Días de wipe",
+    "pillarsEyebrow": "Lo que nos define",
+    "pillarsTitle": "Tres pilares",
+    "pillars": [
+      { "title": "Inmersión real", "text": "Nada de atajos arcade. Aquí el realismo manda: gestión de temperatura, enfermedades, hambre y la amenaza constante de otros jugadores." },
+      { "title": "Comunidad por encima de todo", "text": "Un staff cercano, decisiones transparentes y una comunidad hispana que lleva años forjándose. Tu voz cuenta." },
+      { "title": "Contenido constante", "text": "Eventos semanales, mapas rotativos y mejoras continuas. El servidor evoluciona contigo, nunca se queda quieto." }
+    ],
+    "modsEyebrow": "Mods & configuración",
+    "modsTitle": "Equipado para la guerra",
+    "modsText": "Una selección cuidada de mods que enriquece la experiencia sin romper el equilibrio vanilla. Se descargan solos al conectar.",
+    "modsNote": "Clic en un mod para verlo en el Steam Workshop"
+  },
+  "donations": {
+    "eyebrow": "Donaciones",
+    "title1": "Apoya",
+    "title2": "el servidor.",
+    "subtitle": "Black Legend es y será siempre gratis. Si te apetece echar una mano para cubrir los gastos del servidor, cualquier aportación suma — de forma totalmente voluntaria y sin recibir nada a cambio.",
+    "cardTitle1": "Una aportación,",
+    "cardTitle2": "cero ventajas",
+    "cardText": "Las donaciones son 100% voluntarias y no otorgan ningún objeto, rol ni ventaja dentro del juego. Van íntegras a mantener el servidor vivo: hosting, mods y mejoras.",
+    "donateBtn": "Donar vía Discord",
+    "donateNote": "Escríbenos en el Discord y te indicamos cómo hacerlo",
+    "transpEyebrow": "Juego limpio",
+    "transpTitle1": "Nunca",
+    "transpTitle2": "pay-to-win",
+    "transpText": "Lo prometemos y lo cumplimos: donar no te da absolutamente nada en el juego. El que gana, gana por habilidad. Donar es solo una forma de apoyar el proyecto si te apetece y puedes.",
+    "cards": [
+      { "t": "Sin ventajas", "d": "Cero objetos, roles o ventaja de combate. Ninguna donación te beneficia en partida." },
+      { "t": "100% al servidor", "d": "Cada aportación va a hosting, mods y mejoras. Nada más." },
+      { "t": "Siempre voluntario", "d": "El servidor es gratis para todos, siempre. Donar es totalmente opcional." },
+      { "t": "Con cabeza", "d": "Dona solo lo que te sobre. Lo primero es tu bienestar, esto es un juego." }
+    ],
+    "voteTitle": "¿No puedes donar? Apóyanos gratis",
+    "voteText": "Vota por el servidor cada día en Top-Games. Es gratis, tarda 10 segundos y nos ayuda a crecer y a llegar a más supervivientes.",
+    "voteBtn": "Vota el servidor"
+  },
+  "rules": {
+    "eyebrow": "Reglas",
+    "title1": "El código",
+    "title2": "del superviviente.",
+    "subtitle": "Unas pocas normas claras mantienen el servidor justo y divertido para todos. Conectarte implica conocerlas y aceptarlas.",
+    "noticePre": "Estas reglas son una base y pueden ampliarse o ajustarse. La versión vigente y definitiva siempre es la publicada en el",
+    "noticeLink": "Discord oficial",
+    "noticePost": ". Ante cualquier duda, abre un ticket.",
+    "groups": [
+      { "title": "Reglas generales", "rules": ["Usar cheats o abusar de bugs/exploits = BAN PERMANENTE.", "No ofrecemos compensación por la pérdida de tu vida, equipo o vehículo.", "El uso de vehículos es bajo tu propia responsabilidad. No se ofrece soporte a vehículos.", "El stream sniping está prohibido: BAN PERMANENTE si hay evidencia.", "Prohibido el uso de multicuentas.", "Prohibido el combat login."] },
+      { "title": "Reglas durante el raideo", "rules": ["No puedes cerrar sesión dentro de una base que acabas de raidear: termina el raideo y abandona la base.", "Una base sin codelock más de 3 días se considera base abandonada.", "Está estrictamente prohibido colocar codelocks en una base raideada.", "Boostearse entre jugadores está permitido; usar hogueras para boostearse NO está permitido.", "Prohibido desmontar estructuras de otras bases fuera del horario de raid."] },
+      { "title": "Reglas de construcción", "rules": ["No apilar vallas, puertas ni torres (debe haber espacio suficiente para que pase un jugador).", "No construir bases imposibles de raidear (bloqueando accesos con postes u otros objetos).", "Prohibido construir torres de más de 3 pisos."] },
+      { "title": "Convivencia", "rules": ["Respeto entre jugadores y hacia el staff, dentro y fuera del juego.", "Prohibido el racismo, los insultos y cualquier acto de vejación: puede suponer ban permanente.", "Prohibido el SPAM de otros servidores en los canales o por MD a miembros."] }
+    ],
+    "scheduleTitle": "Horario de raid",
+    "scheduleNote": "Solo se puede raidear dentro de estas franjas. Fuera de horario, prohibido desmontar estructuras de otras bases.",
+    "days": ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"],
+    "reportTitle": "¿Has visto a un infractor?",
+    "reportText": "Reporta cheaters, comportamientos tóxicos o bugs abriendo un ticket en nuestro Discord. El staff actúa rápido.",
+    "reportBtn": "Abrir un ticket"
+  },
+  "wiki": {
+    "eyebrow": "Wiki",
+    "title1": "Guía de",
+    "title2": "supervivencia.",
+    "subtitle": "Todo lo que necesitas para dominar Livonia: cómo conectarte, las zonas de loot, el sistema de llaves y la legendaria Run de Livonia paso a paso.",
+    "idxConexion": "Conexión",
+    "idxTier": "Tier-map",
+    "idxLlaves": "Llaves",
+    "idxRun": "Run de Livonia",
+    "idxCrafteos": "Crafteos",
+    "s1eyebrow": "01 · Conexión",
+    "s1title1": "Entra al",
+    "s1title2": "servidor",
+    "s1desc": "Servidor Vanilla+ en primera persona (1PP) con {slots} slots en el mapa de Livonia. Copia la IP, ábrela en el navegador del cliente de DayZ y conéctate.",
+    "s1how": "Cómo conectarse",
+    "s1steps": ["Abre DayZ y ve a la pestaña de servidores comunitarios.", "Pega la IP y el puerto en el buscador por dirección IP.", "Instala los mods si el cliente te lo pide (descarga automática).", "Conéctate, crea tu personaje y... sobrevive."],
+    "s2eyebrow": "02 · Tier-map",
+    "s2title1": "Zonas de",
+    "s2title2": "loot",
+    "s2desc": "Cada color marca un tier de loot. Cuanto más alto el tier, mejor el equipo… y mayor el peligro.",
+    "s2callout": "¿Quieres planificar tu ruta? Abre el mapa interactivo de Livonia con todas las localizaciones, loot y zonas.",
+    "s2btn": "Mapa interactivo",
+    "s3eyebrow": "03 · Llaves",
+    "s3title1": "Sistema de",
+    "s3title2": "llaves",
+    "s3desc": "Tres llaves abren tres containers repartidos por el mapa. Cada una se consigue de una fuente distinta.",
+    "rowOpens": "Abre",
+    "rowLoot": "Contiene",
+    "rowSource": "Se consigue",
+    "keys": [
+      { "id": "roja", "color": "#c0392b", "name": "Llave Roja", "opens": "Container rojo (cerca de hospitales)", "loot": "Loot y storage médico", "source": "Inventario de zombies médicos" },
+      { "id": "amarilla", "color": "#d4a017", "name": "Llave Amarilla", "opens": "Container amarillo (zonas industriales de Nadbor y Topolin)", "loot": "Storage de bases variado", "source": "Inventario de zombies industriales" },
+      { "id": "azul", "color": "#2e6fb0", "name": "Llave Azul", "opens": "Container azul (Airfield)", "loot": "Items necesarios para la Run de Livonia", "source": "Dentro del maletín del bunker de Dambog" }
+    ],
+    "s4eyebrow": "04 · End-game",
+    "s4title1": "La Run de",
+    "s4title2": "Livonia",
+    "s4desc": "El objetivo definitivo: llegar al bunker final y conseguir las armas más codiciadas del servidor. Sigue los pasos.",
+    "reward": ["AWM (sniper)", "GALIL (fusil de asalto)", "M79 (lanzagranadas)"],
+    "runSteps": [
+      { "title": "Consigue la llave del maletín", "text": "Se obtiene looteando el inventario de los zombies oficiales. Tiene un porcentaje de drop bajo, así que arma paciencia." },
+      { "title": "Encuentra el maletín", "text": "El maletín siempre aparece en el bunker de Dambog, al suroeste del mapa." },
+      { "title": "Entra al bunker de Dambog", "text": "Necesitas la tarjeta perforada que se consigue en la zona contaminada de Radunin. Esta tarjeta tiene dos usos." },
+      { "title": "Abre el container Azul", "text": "El maletín te da la llave del container azul (en el Airfield). Dentro encontrarás un osito con la tarjeta blanca y el calentador." },
+      { "title": "Llega al bunker final", "text": "Está en la mina de Livonia. Para acceder necesitas la tarjeta perforada y la tarjeta de acceso blanca." },
+      { "title": "Arranca el generador", "text": "Dentro, busca la sala del generador. Repóstalo con gasoil, introdúcele el calentador y arráncalo." },
+      { "title": "Abre la sala de misiles", "text": "Junto al generador hay un cuadro de palancas (A1-A4) que abre y cierra las compuertas de las salas de misiles. En una de ellas están las armas de la Run." }
+    ],
+    "runGalleryLabel": "La ruta en imágenes",
+    "s5eyebrow": "05 · Crafteos & bases",
+    "s5title1": "Construye y",
+    "s5title2": "fortifica",
+    "s5desc": "El servidor incorpora un addon de base-building con fortificaciones y MMG Base Storage. Aquí tienes las guías de construcción.",
+    "crafts": [
+      { "name": "Empalizada", "text": "Defensa perimetral básica para proteger tu base de miradas y accesos no deseados." },
+      { "name": "Fortificación", "text": "Estructura defensiva avanzada para aguantar los raideos. Súbela de nivel y resiste." }
+    ],
+    "guidesLabel": "Guías de construcción",
+    "ctaTitle": "¿Te quedan dudas?",
+    "ctaText": "Toda la información ampliada, capturas y la comunidad para echarte una mano están en nuestro Discord.",
+    "ctaBtn": "Entrar al Discord"
+  }
+}

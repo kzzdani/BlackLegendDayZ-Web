@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { site } from "@/lib/site";
 import { Container, Heading, SectionLabel } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
@@ -9,6 +10,7 @@ import { cn } from "@/lib/utils";
 type Clip = { id: string; title: string };
 
 export function ClipsSection() {
+  const t = useTranslations("clips");
   const [clips, setClips] = useState<Clip[]>([]);
   const [active, setActive] = useState<string | null>(site.media.trailerId || null);
   const [playing, setPlaying] = useState(false);
@@ -42,13 +44,13 @@ export function ClipsSection() {
       <Container>
         <Reveal className="mx-auto max-w-2xl text-center">
           <SectionLabel>
-            <span className="mx-auto">En acción</span>
+            <span className="mx-auto">{t("eyebrow")}</span>
           </SectionLabel>
           <Heading className="mt-5">
-            El servidor <span className="text-fire">en movimiento</span>
+            {t("title1")} <span className="text-fire">{t("title2")}</span>
           </Heading>
           <p className="mx-auto mt-4 max-w-lg text-base text-smoke">
-            Trailers y momentos del servidor, directos desde nuestro YouTube.
+            {t("subtitle")}
           </p>
         </Reveal>
 

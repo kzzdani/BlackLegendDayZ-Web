@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { site } from "@/lib/site";
 import { Button, Container } from "@/components/ui";
 import { Embers } from "@/components/Embers";
@@ -5,7 +6,8 @@ import { Icon } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
 import { CommunityCount } from "@/components/CommunityCount";
 
-export function JoinCTA() {
+export async function JoinCTA() {
+  const t = await getTranslations("join");
   return (
     <section className="relative overflow-hidden border-t border-ash-800 py-28 sm:py-36">
       {/* Fondo */}
@@ -20,11 +22,11 @@ export function JoinCTA() {
 
       <Container className="relative text-center">
         <Reveal>
-          <p className="eyebrow justify-center">Tu historia empieza aquí</p>
+          <p className="eyebrow justify-center">{t("eyebrow")}</p>
           <h2 className="mx-auto mt-6 max-w-4xl font-display text-5xl font-black uppercase leading-[0.88] text-bone sm:text-7xl md:text-8xl">
-            Renace de las
+            {t("title1")}
             <br />
-            <span className="text-fire">cenizas</span>
+            <span className="text-fire">{t("title2")}</span>
           </h2>
           <div className="mx-auto mt-7 max-w-xl">
             <CommunityCount />
@@ -32,10 +34,10 @@ export function JoinCTA() {
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button href={site.social.discord} external size="lg">
               <Icon.discord className="h-5 w-5" />
-              Únete al Discord
+              {t("ctaDiscord")}
             </Button>
             <Button href="/donaciones" variant="steel" size="lg">
-              Apoya el servidor
+              {t("ctaSupport")}
             </Button>
           </div>
         </Reveal>

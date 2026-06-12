@@ -1,37 +1,62 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { Container, Heading, SectionLabel, Button } from "@/components/ui";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal";
 import { CopyChip } from "@/components/CopyChip";
 import { Icon } from "@/components/icons";
-import { site, tiers, keys, runSteps, runReward, crafts } from "@/lib/site";
+import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Wiki",
-  description:
-    "Guía completa de Black Legend DayZ (Livonia): conexión, tier-map, sistema de llaves, la Run de Livonia paso a paso, crafteos y base-building.",
-};
-
-const index = [
-  { href: "#conexion", label: "Conexión" },
-  { href: "#tier-map", label: "Tier-map" },
-  { href: "#llaves", label: "Llaves" },
-  { href: "#run", label: "Run de Livonia" },
-  { href: "#crafteos", label: "Crafteos" },
-];
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const tn = await getTranslations({ locale, namespace: "nav" });
+  const t = await getTranslations({ locale, namespace: "wiki" });
+  return { title: tn("wiki"), description: t("subtitle") };
+}
 
 const runShots = Array.from({ length: 8 }, (_, i) => `/wiki/run-${i + 1}.webp`);
 const craftShots = Array.from({ length: 11 }, (_, i) => `/wiki/craft-${i + 1}.webp`);
 
-export default function WikiPage() {
+export default async function WikiPage() {
+  const t = await getTranslations("wiki");
+  const index = [
+    { href: "#conexion", label: t("idxConexion") },
+    { href: "#tier-map", label: t("idxTier") },
+    { href: "#llaves", label: t("idxLlaves") },
+    { href: "#run", label: t("idxRun") },
+    { href: "#crafteos", label: t("idxCrafteos") },
+  ];
+  const s1steps = t.raw("s1steps") as string[];
+  const tiers = t.raw("tiers") as {
+    label: string;
+    name: string;
+    color: string;
+    text: string;
+  }[];
+  const keys = t.raw("keys") as {
+    id: string;
+    color: string;
+    name: string;
+    opens: string;
+    loot: string;
+    source: string;
+  }[];
+  const reward = t.raw("reward") as string[];
+  const runSteps = t.raw("runSteps") as { title: string; text: string }[];
+  const crafts = t.raw("crafts") as { name: string; text: string }[];
+
   return (
     <>
       <PageHero
-        eyebrow="Wiki"
-        title="Guía de"
-        highlight="supervivencia."
-        subtitle="Todo lo que necesitas para dominar Livonia: cómo conectarte, las zonas de loot, el sistema de llaves y la legendaria Run de Livonia paso a paso."
+        eyebrow={t("eyebrow")}
+        title={t("title1")}
+        highlight={t("title2")}
+        subtitle={t("subtitle")}
       />
 
       {/* Índice */}
@@ -55,9 +80,9 @@ export default function WikiPage() {
       <section id="conexion" className="relative scroll-mt-24 py-16 sm:py-20">
         <Container>
           <Reveal>
-            <SectionLabel>01 · Conexión</SectionLabel>
+            <SectionLabel>{t("s1eyebrow")}</SectionLabel>
             <Heading className="mt-5">
-              Entra al <span className="text-fire">servidor</span>
+              {t("s1title1")} <span className="text-fire">{t("s1title2")}</span>
             </Heading>
           </Reveal>
           <Reveal delay={0.1} className="mt-8 grid gap-5 lg:grid-cols-[1fr_1fr]">
@@ -69,30 +94,17 @@ export default function WikiPage() {
                 <CopyChip value={`${site.server.ip}:${site.server.port}`} />
               </div>
               <p className="mt-5 text-sm leading-relaxed text-smoke">
-                Servidor{" "}
-                <span className="text-bone">
-                  Vanilla+ en primera persona (1PP)
-                </span>{" "}
-                con {site.server.slots} slots en el mapa de{" "}
-                <span className="text-bone">Livonia</span>. Copia la IP, ábrela en
-                el navegador del cliente de DayZ y conéctate.
+                {t("s1desc", { slots: site.server.slots })}
               </p>
             </div>
             <div className="border border-ash-700 bg-ash-900 p-8">
               <h3 className="font-display text-xl font-bold uppercase text-bone">
-                Cómo conectarse
+                {t("s1how")}
               </h3>
               <ol className="mt-4 space-y-3 text-sm text-smoke">
-                {[
-                  "Abre DayZ y ve a la pestaña de servidores comunitarios.",
-                  "Pega la IP y el puerto en el buscador por dirección IP.",
-                  "Instala los mods si el cliente te lo pide (descarga automática).",
-                  "Conéctate, crea tu personaje y... sobrevive.",
-                ].map((s, i) => (
+                {s1steps.map((s, i) => (
                   <li key={i} className="flex gap-3">
-                    <span className="font-display font-black text-ember">
-                      {i + 1}.
-                    </span>
+                    <span className="font-display font-black text-ember">{i + 1}.</span>
                     {s}
                   </li>
                 ))}
@@ -109,45 +121,40 @@ export default function WikiPage() {
       >
         <Container>
           <Reveal>
-            <SectionLabel>02 · Tier-map</SectionLabel>
+            <SectionLabel>{t("s2eyebrow")}</SectionLabel>
             <Heading className="mt-5">
-              Zonas de <span className="text-fire">loot</span>
+              {t("s2title1")} <span className="text-fire">{t("s2title2")}</span>
             </Heading>
-            <p className="mt-4 max-w-xl text-base text-smoke">
-              Cada color marca un tier de loot. Cuanto más alto el tier, mejor el
-              equipo… y mayor el peligro.
-            </p>
+            <p className="mt-4 max-w-xl text-base text-smoke">{t("s2desc")}</p>
           </Reveal>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-start">
-            {/* Mapa real */}
             <Reveal className="relative overflow-hidden border border-ash-700 bg-ash-900 p-3 frame-mil">
               <Image
                 src="/wiki/tier-map.webp"
-                alt="Tier-map de Livonia con los tiers de loot"
+                alt={t("s2title1")}
                 width={1100}
                 height={1101}
                 className="h-auto w-full"
               />
             </Reveal>
 
-            {/* Leyenda */}
             <Stagger className="space-y-3" gap={0.07}>
-              {tiers.map((t) => (
-                <StaggerItem key={t.label}>
+              {tiers.map((tier) => (
+                <StaggerItem key={tier.label}>
                   <article className="flex gap-4 border border-ash-700 bg-ash-900 p-5">
                     <span
                       className="flex h-12 w-12 shrink-0 items-center justify-center font-display text-2xl font-black text-void"
-                      style={{ background: t.color }}
+                      style={{ background: tier.color }}
                     >
-                      {t.label}
+                      {tier.label}
                     </span>
                     <div>
                       <p className="font-display text-xl font-bold uppercase leading-none text-bone">
-                        {t.name}
+                        {tier.name}
                       </p>
                       <p className="mt-1.5 text-sm leading-relaxed text-smoke">
-                        {t.text}
+                        {tier.text}
                       </p>
                     </div>
                   </article>
@@ -162,11 +169,7 @@ export default function WikiPage() {
           >
             <div className="flex items-center gap-3">
               <Icon.map className="h-6 w-6 shrink-0 text-ember" />
-              <p className="text-sm leading-relaxed text-smoke">
-                ¿Quieres planificar tu ruta? Abre el{" "}
-                <span className="text-bone">mapa interactivo de Livonia</span> con
-                todas las localizaciones, loot y zonas.
-              </p>
+              <p className="text-sm leading-relaxed text-smoke">{t("s2callout")}</p>
             </div>
             <Button
               href="https://www.izurvive.com/livonia/"
@@ -175,7 +178,7 @@ export default function WikiPage() {
               className="shrink-0"
             >
               <Icon.map className="h-4 w-4" />
-              Mapa interactivo
+              {t("s2btn")}
             </Button>
           </Reveal>
         </Container>
@@ -185,14 +188,11 @@ export default function WikiPage() {
       <section id="llaves" className="relative scroll-mt-24 py-16 sm:py-20">
         <Container>
           <Reveal>
-            <SectionLabel>03 · Llaves</SectionLabel>
+            <SectionLabel>{t("s3eyebrow")}</SectionLabel>
             <Heading className="mt-5">
-              Sistema de <span className="text-fire">llaves</span>
+              {t("s3title1")} <span className="text-fire">{t("s3title2")}</span>
             </Heading>
-            <p className="mt-4 max-w-2xl text-base text-smoke">
-              Tres llaves abren tres containers repartidos por el mapa. Cada una
-              se consigue de una fuente distinta.
-            </p>
+            <p className="mt-4 max-w-2xl text-base text-smoke">{t("s3desc")}</p>
           </Reveal>
           <Stagger className="mt-10 grid gap-5 md:grid-cols-3">
             {keys.map((k) => (
@@ -205,7 +205,7 @@ export default function WikiPage() {
                   <div className="relative aspect-video overflow-hidden">
                     <Image
                       src={`/wiki/llave-${k.id}.webp`}
-                      alt={`Container de la ${k.name}`}
+                      alt={k.name}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -223,9 +223,9 @@ export default function WikiPage() {
                       </h3>
                     </div>
                     <dl className="mt-5 space-y-4 text-sm">
-                      <Row label="Abre" value={k.opens} />
-                      <Row label="Contiene" value={k.loot} />
-                      <Row label="Se consigue" value={k.source} />
+                      <Row label={t("rowOpens")} value={k.opens} />
+                      <Row label={t("rowLoot")} value={k.loot} />
+                      <Row label={t("rowSource")} value={k.source} />
                     </dl>
                   </div>
                 </article>
@@ -246,16 +246,13 @@ export default function WikiPage() {
         />
         <Container className="relative">
           <Reveal>
-            <SectionLabel>04 · End-game</SectionLabel>
+            <SectionLabel>{t("s4eyebrow")}</SectionLabel>
             <Heading className="mt-5">
-              La Run de <span className="text-fire">Livonia</span>
+              {t("s4title1")} <span className="text-fire">{t("s4title2")}</span>
             </Heading>
-            <p className="mt-4 max-w-2xl text-base text-smoke">
-              El objetivo definitivo: llegar al bunker final y conseguir las armas
-              más codiciadas del servidor. Sigue los pasos.
-            </p>
+            <p className="mt-4 max-w-2xl text-base text-smoke">{t("s4desc")}</p>
             <div className="mt-6 flex flex-wrap gap-3">
-              {runReward.map((r) => (
+              {reward.map((r) => (
                 <span
                   key={r}
                   className="inline-flex items-center gap-2 border border-ember/40 bg-ember/10 px-3 py-1.5 font-display text-sm font-bold uppercase tracking-wide text-ember"
@@ -267,13 +264,12 @@ export default function WikiPage() {
             </div>
           </Reveal>
 
-          {/* Timeline de pasos */}
           <Stagger className="mt-12 space-y-4" gap={0.06}>
-            {runSteps.map((s) => (
-              <StaggerItem key={s.n}>
+            {runSteps.map((s, i) => (
+              <StaggerItem key={i}>
                 <div className="flex gap-5 border border-ash-700 bg-ash-900 p-6 transition-colors hover:border-ember/40">
                   <span className="font-display text-4xl font-black leading-none text-ash-700">
-                    {String(s.n).padStart(2, "0")}
+                    {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
                     <h3 className="font-display text-xl font-bold uppercase text-bone">
@@ -288,10 +284,9 @@ export default function WikiPage() {
             ))}
           </Stagger>
 
-          {/* Galería de la run */}
           <Reveal delay={0.05}>
             <p className="mb-4 mt-12 font-stencil text-[0.6rem] uppercase tracking-[0.3em] text-ember">
-              La ruta en imágenes
+              {t("runGalleryLabel")}
             </p>
             <div className="columns-2 gap-3 md:columns-3 [&>*]:mb-3">
               {runShots.map((src, i) => (
@@ -299,7 +294,7 @@ export default function WikiPage() {
                 <img
                   key={src}
                   src={src}
-                  alt={`Paso de la Run de Livonia ${i + 1}`}
+                  alt={`${t("s4title1")} ${t("s4title2")} ${i + 1}`}
                   loading="lazy"
                   data-lightbox="run"
                   className="w-full cursor-zoom-in break-inside-avoid border border-ash-700 transition-opacity hover:opacity-90"
@@ -314,14 +309,11 @@ export default function WikiPage() {
       <section id="crafteos" className="relative scroll-mt-24 py-16 sm:py-20">
         <Container>
           <Reveal>
-            <SectionLabel>05 · Crafteos & bases</SectionLabel>
+            <SectionLabel>{t("s5eyebrow")}</SectionLabel>
             <Heading className="mt-5">
-              Construye y <span className="text-fire">fortifica</span>
+              {t("s5title1")} <span className="text-fire">{t("s5title2")}</span>
             </Heading>
-            <p className="mt-4 max-w-2xl text-base text-smoke">
-              El servidor incorpora un addon de base-building con fortificaciones
-              y MMG Base Storage. Aquí tienes las guías de construcción.
-            </p>
+            <p className="mt-4 max-w-2xl text-base text-smoke">{t("s5desc")}</p>
           </Reveal>
 
           <Stagger className="mt-10 grid gap-5 md:grid-cols-2">
@@ -344,10 +336,9 @@ export default function WikiPage() {
             ))}
           </Stagger>
 
-          {/* Guías de construcción (infografías) */}
           <Reveal delay={0.05}>
             <p className="mb-4 mt-12 font-stencil text-[0.6rem] uppercase tracking-[0.3em] text-ember">
-              Guías de construcción
+              {t("guidesLabel")}
             </p>
             <div className="columns-1 gap-4 sm:columns-2 lg:columns-3 [&>*]:mb-4">
               {craftShots.map((src, i) => (
@@ -355,7 +346,7 @@ export default function WikiPage() {
                 <img
                   key={src}
                   src={src}
-                  alt={`Guía de crafteo ${i + 1}`}
+                  alt={`${t("guidesLabel")} ${i + 1}`}
                   loading="lazy"
                   data-lightbox="craft"
                   className="w-full cursor-zoom-in break-inside-avoid border border-ash-700 transition-opacity hover:opacity-90"
@@ -371,15 +362,14 @@ export default function WikiPage() {
         <Container>
           <div className="flex flex-col items-center gap-5 border border-ash-700 bg-ash-950 p-10 text-center">
             <h2 className="font-display text-3xl font-bold uppercase text-bone sm:text-4xl">
-              ¿Te quedan dudas?
+              {t("ctaTitle")}
             </h2>
             <p className="max-w-md text-sm leading-relaxed text-smoke">
-              Toda la información ampliada, capturas y la comunidad para echarte
-              una mano están en nuestro Discord.
+              {t("ctaText")}
             </p>
             <Button href={site.social.discord} external>
               <Icon.discord className="h-5 w-5" />
-              Entrar al Discord
+              {t("ctaBtn")}
             </Button>
           </div>
         </Container>

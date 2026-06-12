@@ -1,11 +1,13 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
-import { ruleGroups } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function RulesAccordion() {
+  const t = useTranslations("rules");
+  const ruleGroups = t.raw("groups") as { title: string; rules: string[] }[];
   const [open, setOpen] = useState<number>(0);
 
   return (

@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Icon } from "@/components/icons";
 
-const TEXT = "🔥 Black Legend DayZ — servidor hispano de DayZ en Livonia. ¡Únete!";
-
 export function ShareButtons() {
+  const t = useTranslations("share");
+  const TEXT = t("text");
   const [copied, setCopied] = useState(false);
 
   const url = () =>
@@ -41,7 +42,7 @@ export function ShareButtons() {
 
   return (
     <div className="flex items-center gap-2">
-      <Btn label="Compartir" onClick={native}>
+      <Btn label={t("share")} onClick={native}>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
           <circle cx="18" cy="5" r="3" />
           <circle cx="6" cy="12" r="3" />
@@ -59,7 +60,7 @@ export function ShareButtons() {
           <path d="M18.9 2H22l-7.5 8.6L23 22h-6.8l-5.3-7-6.1 7H1.6l8-9.2L1 2h7l4.8 6.4L18.9 2Zm-2.4 18h1.9L7.6 4H5.6l10.9 16Z" />
         </svg>
       </LinkBtn>
-      <Btn label={copied ? "¡Copiado!" : "Copiar enlace"} onClick={copy}>
+      <Btn label={copied ? t("copied") : t("copy")} onClick={copy}>
         {copied ? <Icon.check className="h-4 w-4 text-emerald-400" /> : <Icon.copy className="h-4 w-4" />}
       </Btn>
     </div>

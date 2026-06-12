@@ -1,27 +1,33 @@
-import { features } from "@/lib/site";
+import { getTranslations } from "next-intl/server";
 import { Container, Heading, SectionLabel } from "@/components/ui";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal";
 import { Icon, type IconName } from "@/components/icons";
 
-export function Features() {
+export async function Features() {
+  const t = await getTranslations("features");
+  const items = t.raw("items") as {
+    icon: string;
+    title: string;
+    text: string;
+  }[];
+
   return (
     <section className="relative py-24 sm:py-32">
       <Container>
         <Reveal className="max-w-3xl">
-          <SectionLabel>Por qué Black Legend</SectionLabel>
+          <SectionLabel>{t("eyebrow")}</SectionLabel>
           <Heading className="mt-5">
-            No es un servidor más.
+            {t("title1")}
             <br />
-            <span className="text-fire">Es una guerra por sobrevivir.</span>
+            <span className="text-fire">{t("title2")}</span>
           </Heading>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-smoke">
-            Cada detalle está pensado para que la experiencia sea intensa, justa
-            y memorable. Esto es lo que te espera dentro.
+            {t("subtitle")}
           </p>
         </Reveal>
 
         <Stagger className="mt-14 grid gap-px overflow-hidden border border-ash-700/70 bg-ash-700/70 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((f) => {
+          {items.map((f) => {
             const IconCmp = Icon[f.icon as IconName];
             return (
               <StaggerItem key={f.title}>

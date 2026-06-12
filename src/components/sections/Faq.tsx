@@ -1,12 +1,14 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
-import { faqs } from "@/lib/site";
 import { Container, Heading, SectionLabel } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
 export function Faq() {
+  const t = useTranslations("faq");
+  const faqs = t.raw("items") as { q: string; a: string }[];
   const [open, setOpen] = useState<number>(0);
 
   return (
@@ -14,10 +16,10 @@ export function Faq() {
       <Container className="max-w-3xl">
         <div className="text-center">
           <SectionLabel>
-            <span className="mx-auto">Dudas</span>
+            <span className="mx-auto">{t("eyebrow")}</span>
           </SectionLabel>
           <Heading className="mt-5">
-            Preguntas <span className="text-fire">frecuentes</span>
+            {t("title1")} <span className="text-fire">{t("title2")}</span>
           </Heading>
         </div>
 

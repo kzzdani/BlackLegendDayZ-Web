@@ -1,47 +1,50 @@
 import Image from "next/image";
-import { livonia, tiers } from "@/lib/site";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { Container, Heading, SectionLabel } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { Icon } from "@/components/icons";
 
-export function MapsSection() {
+export async function MapsSection() {
+  const t = await getTranslations("maps");
+  const highlights = t.raw("highlights") as string[];
+  const tiers = t.raw("tiers") as {
+    label: string;
+    name: string;
+    color: string;
+    text: string;
+  }[];
+
   return (
     <section className="relative overflow-hidden border-y border-ash-800 bg-ash-950 py-24 sm:py-32">
-      {/* Patrón de fondo tenue */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: "url(/brand/bl_01sin_logo_01.png)",
-          backgroundSize: "520px",
-        }}
+        style={{ backgroundImage: "url(/brand/bl_01sin_logo_01.png)", backgroundSize: "520px" }}
       />
       <Container className="relative">
         <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center">
           {/* Texto */}
           <Reveal>
-            <SectionLabel>El mapa</SectionLabel>
+            <SectionLabel>{t("eyebrow")}</SectionLabel>
             <Heading className="mt-5">
-              Bienvenido a <span className="text-fire">Livonia BL</span>
+              {t("title1")} <span className="text-fire">{t("title2")}</span>
             </Heading>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-smoke">
-              {livonia.description}
+              {t("description")}
             </p>
             <ul className="mt-7 grid gap-3 sm:grid-cols-2">
-              {livonia.highlights.map((h) => (
-                <li
-                  key={h}
-                  className="flex items-start gap-3 text-sm text-bone/90"
-                >
+              {highlights.map((h) => (
+                <li key={h} className="flex items-start gap-3 text-sm text-bone/90">
                   <Icon.flame className="mt-0.5 h-4 w-4 shrink-0 text-ember" />
                   {h}
                 </li>
               ))}
             </ul>
             <div className="mt-8 flex gap-8 border-t border-ash-700 pt-6">
-              <Stat label="Clima" value={livonia.climate.split(" · ")[0]} />
-              <Stat label="Perspectiva" value="1ª persona" />
-              <Stat label="Estilo" value="100% PvP" />
+              <Stat label={t("statClimate")} value={t("statClimateValue")} />
+              <Stat label={t("statPerspective")} value={t("statPerspectiveValue")} />
+              <Stat label={t("statStyle")} value={t("statStyleValue")} />
             </div>
           </Reveal>
 
@@ -49,37 +52,34 @@ export function MapsSection() {
           <Reveal delay={0.15}>
             <div className="relative overflow-hidden border border-ash-700 bg-ash-900 p-3 frame-mil">
               <span className="absolute left-5 top-5 z-10 bg-void/70 px-3 py-1 font-stencil text-[0.6rem] uppercase tracking-[0.3em] text-ember backdrop-blur-sm">
-                Tier-map · Livonia
+                {t("tierMapLabel")}
               </span>
               <Image
                 src="/wiki/tier-map.webp"
-                alt="Tier-map de Livonia con los tiers de loot"
+                alt={t("tierMapLabel")}
                 width={1100}
                 height={1101}
                 className="h-auto w-full"
               />
             </div>
             <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
-              {tiers.map((t) => (
+              {tiers.map((tier) => (
                 <div
-                  key={t.label}
+                  key={tier.label}
                   className="flex items-center gap-2 border border-ash-700 bg-ash-900 px-3 py-2.5"
                 >
-                  <span
-                    className="h-4 w-4 shrink-0"
-                    style={{ background: t.color }}
-                  />
+                  <span className="h-4 w-4 shrink-0" style={{ background: tier.color }} />
                   <span className="font-display text-sm font-bold uppercase leading-none text-bone">
-                    {t.name}
+                    {tier.name}
                   </span>
                 </div>
               ))}
             </div>
             <p className="mt-3 text-center font-stencil text-[0.55rem] uppercase tracking-[0.2em] text-ash-500">
-              Guía de tiers completa en la{" "}
-              <a href="/wiki#tier-map" className="text-ember">
-                Wiki
-              </a>
+              {t("guidePre")}{" "}
+              <Link href="/wiki#tier-map" className="text-ember">
+                {t("guideLink")}
+              </Link>
             </p>
           </Reveal>
         </div>

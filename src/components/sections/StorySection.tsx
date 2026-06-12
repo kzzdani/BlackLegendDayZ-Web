@@ -1,28 +1,16 @@
 "use client";
 
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { useRef } from "react";
 import { Embers } from "@/components/Embers";
 
-const chapters = [
-  {
-    n: "01",
-    title: "El mundo cayó",
-    text: "La infección lo arrasó todo en cuestión de días. Las ciudades ardieron, los gobiernos colapsaron y la civilización se convirtió en un recuerdo lejano enterrado bajo los escombros.",
-  },
-  {
-    n: "02",
-    title: "Livonia no perdona",
-    text: "Bosques infinitos, pueblos fantasma y otros supervivientes dispuestos a todo por una bala más. El hambre, el frío y las traiciones cazan a quien baja la guardia. No hay segundas oportunidades.",
-  },
-  {
-    n: "03",
-    title: "Las leyendas renacen",
-    text: "Pero del fuego siempre surge algo nuevo. Como el fénix, los que sobreviven se levantan más fuertes. Esta es tu historia. Esto es Black Legend.",
-  },
-];
+type Chapter = { title: string; text: string };
 
 export function StorySection() {
+  const t = useTranslations("story");
+  const chapters = t.raw("chapters") as Chapter[];
+  const cap = t("cap");
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -35,18 +23,15 @@ export function StorySection() {
   return (
     <section ref={ref} className="relative h-[320vh]">
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
-        {/* Fondo */}
         <div className="absolute inset-0 bg-gradient-to-b from-void via-ash-950 to-void" />
         <div className="absolute inset-0 bg-grid opacity-40 vignette" />
         <Embers density={0.00008} />
 
-        {/* Resplandor */}
         <motion.div
           style={{ opacity: glowOpacity }}
           className="pointer-events-none absolute left-1/2 top-1/2 h-[70vmin] w-[70vmin] -translate-x-1/2 -translate-y-1/2 rounded-full bg-ember/30 blur-[100px]"
         />
 
-        {/* Anillo decorativo */}
         <motion.div
           style={{ rotate: ringRotate }}
           className="pointer-events-none absolute left-1/2 top-1/2 h-[78vmin] w-[78vmin] -translate-x-1/2 -translate-y-1/2 rounded-full border border-ash-600/40"
@@ -54,13 +39,13 @@ export function StorySection() {
           <span className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ember shadow-[0_0_12px_var(--color-ember)]" />
         </motion.div>
 
-        {/* Capítulos */}
         <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center px-6">
           <div className="relative h-[60vh] w-full max-w-2xl text-center">
             {chapters.map((c, i) => (
-              <Chapter
-                key={c.n}
+              <ChapterView
+                key={i}
                 chapter={c}
+                cap={cap}
                 index={i}
                 total={chapters.length}
                 progress={scrollYProgress}
@@ -69,20 +54,21 @@ export function StorySection() {
           </div>
         </div>
 
-        {/* Barra de progreso lateral */}
         <ProgressDots progress={scrollYProgress} total={chapters.length} />
       </div>
     </section>
   );
 }
 
-function Chapter({
+function ChapterView({
   chapter,
+  cap,
   index,
   total,
   progress,
 }: {
-  chapter: (typeof chapters)[number];
+  chapter: Chapter;
+  cap: string;
   index: number;
   total: number;
   progress: MotionValue<number>;
@@ -92,13 +78,10 @@ function Chapter({
   const mid = start + seg / 2;
   const end = (index + 1) * seg;
 
-  // Visible alrededor de su segmento, con entradas/salidas suaves
   const opacity = useTransform(
     progress,
     [start, start + seg * 0.18, end - seg * 0.18, end],
-    index === total - 1
-      ? [0, 1, 1, 1]
-      : [0, 1, 1, 0],
+    index === total - 1 ? [0, 1, 1, 1] : [0, 1, 1, 0],
   );
   const y = useTransform(progress, [start, mid, end], [40, 0, -40]);
 
@@ -108,7 +91,7 @@ function Chapter({
       className="absolute inset-x-0 top-1/2 -translate-y-1/2"
     >
       <span className="font-stencil text-sm tracking-[0.4em] text-ember">
-        Cap. {chapter.n}
+        {cap} {String(index + 1).padStart(2, "0")}
       </span>
       <h2 className="mt-4 font-display text-5xl font-black uppercase leading-[0.9] text-bone sm:text-7xl">
         {chapter.title}

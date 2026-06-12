@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useLenis } from "lenis/react";
+import { useTranslations } from "next-intl";
 import { useRef } from "react";
 import { site } from "@/lib/site";
 import { Button } from "@/components/ui";
@@ -10,6 +11,7 @@ import { Embers } from "@/components/Embers";
 import { Icon } from "@/components/icons";
 
 export function Hero() {
+  const t = useTranslations("hero");
   const ref = useRef<HTMLElement>(null);
   const lenis = useLenis();
   const { scrollYProgress } = useScroll({
@@ -67,7 +69,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="eyebrow mb-6 justify-center"
         >
-          Servidor de DayZ · Comunidad hispana
+          {t("eyebrow")}
         </motion.p>
 
         {/* Logotipo: BLACK [fénix] LEGEND — rejilla simétrica (fénix centrado) */}
@@ -126,8 +128,8 @@ export function Hero() {
             transition={{ duration: 0.9, delay: 0.7 }}
             className="mx-auto mt-7 max-w-xl text-balance text-base leading-relaxed text-smoke sm:text-lg"
           >
-            {site.tagline}. Sobrevive, conquista el mapa y{" "}
-            <span className="text-bone">renace de las cenizas</span>.
+            {t("subtitle")}{" "}
+            <span className="text-bone">{t("subtitleHighlight")}</span>.
           </motion.p>
 
           <motion.div
@@ -142,7 +144,7 @@ export function Hero() {
                 lenis?.scrollTo("#conectar", { offset: -90, duration: 1.4 })
               }
             >
-              Conéctate ahora
+              {t("ctaConnect")}
               <Icon.arrow className="h-4 w-4" />
             </Button>
             <Button
@@ -152,7 +154,7 @@ export function Hero() {
               size="lg"
             >
               <Icon.discord className="h-5 w-5" />
-              Únete al Discord
+              {t("ctaDiscord")}
             </Button>
           </motion.div>
         </motion.div>

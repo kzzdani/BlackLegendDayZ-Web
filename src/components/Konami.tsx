@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 const CODE = [
@@ -20,6 +21,7 @@ const CODE = [
 type Drop = { id: number; left: number; size: number; delay: number; dur: number; rot: number };
 
 export function Konami() {
+  const t = useTranslations("konami");
   const [active, setActive] = useState(false);
   const [drops, setDrops] = useState<Drop[]>([]);
 
@@ -85,10 +87,10 @@ export function Konami() {
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border border-ember/50 bg-void/80 px-8 py-5 text-center backdrop-blur-sm"
           >
             <p className="font-display text-3xl font-black uppercase text-fire sm:text-4xl">
-              ¡Has despertado al fénix!
+              {t("title")}
             </p>
             <p className="mt-1 font-stencil text-[0.6rem] uppercase tracking-[0.3em] text-smoke">
-              Renace de las cenizas
+              {t("subtitle")}
             </p>
           </motion.div>
         </motion.div>

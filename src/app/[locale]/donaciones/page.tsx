@@ -1,24 +1,35 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { Container, Heading, SectionLabel, Button } from "@/components/ui";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal";
-import { Icon } from "@/components/icons";
+import { Icon, type IconName } from "@/components/icons";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Donaciones",
-  description:
-    "Apoya a Black Legend DayZ. Donaciones 100% voluntarias para mantener el servidor: sin ventajas, sin recompensas, sin pay-to-win.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const tn = await getTranslations({ locale, namespace: "nav" });
+  const t = await getTranslations({ locale, namespace: "donations" });
+  return { title: tn("donaciones"), description: t("subtitle") };
+}
 
-export default function DonacionesPage() {
+const cardIcons: IconName[] = ["shield", "flame", "users", "bolt"];
+
+export default async function DonacionesPage() {
+  const t = await getTranslations("donations");
+  const cards = t.raw("cards") as { t: string; d: string }[];
+
   return (
     <>
       <PageHero
-        eyebrow="Donaciones"
-        title="Apoya"
-        highlight="el servidor."
-        subtitle="Black Legend es y será siempre gratis. Si te apetece echar una mano para cubrir los gastos del servidor, cualquier aportación suma — de forma totalmente voluntaria y sin recibir nada a cambio."
+        eyebrow={t("eyebrow")}
+        title={t("title1")}
+        highlight={t("title2")}
+        subtitle={t("subtitle")}
       />
 
       {/* Donar */}
@@ -31,23 +42,21 @@ export default function DonacionesPage() {
                 <Icon.flame className="h-8 w-8" />
               </div>
               <Heading className="mt-7 text-4xl sm:text-5xl">
-                Una aportación,
+                {t("cardTitle1")}
                 <br />
-                <span className="text-fire">cero ventajas</span>
+                <span className="text-fire">{t("cardTitle2")}</span>
               </Heading>
               <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-smoke">
-                Las donaciones son 100% voluntarias y no otorgan ningún objeto,
-                rol ni ventaja dentro del juego. Van íntegras a mantener el
-                servidor vivo: hosting, mods y mejoras.
+                {t("cardText")}
               </p>
               <div className="mt-9">
                 <Button href={site.social.discord} external size="lg">
                   <Icon.discord className="h-5 w-5" />
-                  Donar vía Discord
+                  {t("donateBtn")}
                 </Button>
               </div>
               <p className="mt-5 font-stencil text-[0.6rem] uppercase tracking-[0.2em] text-ash-500">
-                Escríbenos en el Discord y te indicamos cómo hacerlo
+                {t("donateNote")}
               </p>
             </div>
           </Reveal>
@@ -59,41 +68,19 @@ export default function DonacionesPage() {
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <Reveal>
-              <SectionLabel>Juego limpio</SectionLabel>
+              <SectionLabel>{t("transpEyebrow")}</SectionLabel>
               <Heading className="mt-5">
-                Nunca <span className="text-fire">pay-to-win</span>.
+                {t("transpTitle1")}{" "}
+                <span className="text-fire">{t("transpTitle2")}</span>.
               </Heading>
               <p className="mt-6 text-base leading-relaxed text-smoke">
-                Lo prometemos y lo cumplimos: donar no te da absolutamente nada en
-                el juego. El que gana, gana por habilidad. Donar es solo una forma
-                de apoyar el proyecto si te apetece y puedes.
+                {t("transpText")}
               </p>
             </Reveal>
 
             <Stagger className="grid gap-4 sm:grid-cols-2">
-              {[
-                {
-                  icon: "shield" as const,
-                  t: "Sin ventajas",
-                  d: "Cero objetos, roles o ventaja de combate. Ninguna donación te beneficia en partida.",
-                },
-                {
-                  icon: "flame" as const,
-                  t: "100% al servidor",
-                  d: "Cada aportación va a hosting, mods y mejoras. Nada más.",
-                },
-                {
-                  icon: "users" as const,
-                  t: "Siempre voluntario",
-                  d: "El servidor es gratis para todos, siempre. Donar es totalmente opcional.",
-                },
-                {
-                  icon: "bolt" as const,
-                  t: "Con cabeza",
-                  d: "Dona solo lo que te sobre. Lo primero es tu bienestar, esto es un juego.",
-                },
-              ].map((b) => {
-                const IconCmp = Icon[b.icon];
+              {cards.map((b, i) => {
+                const IconCmp = Icon[cardIcons[i]];
                 return (
                   <StaggerItem key={b.t}>
                     <div className="flex h-full gap-4 border border-ash-700 bg-ash-900 p-6">
@@ -122,15 +109,14 @@ export default function DonacionesPage() {
         <Container>
           <div className="flex flex-col items-center gap-4 border border-ash-700 bg-ash-900 p-10 text-center">
             <h3 className="font-display text-2xl font-bold uppercase text-bone sm:text-3xl">
-              ¿No puedes donar? Apóyanos gratis
+              {t("voteTitle")}
             </h3>
             <p className="max-w-md text-sm leading-relaxed text-smoke">
-              Vota por el servidor cada día en Top-Games. Es gratis, tarda 10
-              segundos y nos ayuda a crecer y a llegar a más supervivientes.
+              {t("voteText")}
             </p>
             <Button href={site.social.vote} external variant="steel">
               <Icon.flame className="h-5 w-5" />
-              Vota el servidor
+              {t("voteBtn")}
             </Button>
           </div>
         </Container>

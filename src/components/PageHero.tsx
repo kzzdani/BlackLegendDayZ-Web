@@ -1,8 +1,9 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/ui";
 import { Embers } from "@/components/Embers";
 
-export function PageHero({
+export async function PageHero({
   eyebrow,
   title,
   highlight,
@@ -13,6 +14,7 @@ export function PageHero({
   highlight?: string;
   subtitle?: string;
 }) {
+  const t = await getTranslations("nav");
   return (
     <section className="relative flex min-h-[58vh] items-end overflow-hidden pt-20">
       {/* Fondo */}
@@ -39,7 +41,7 @@ export function PageHero({
         {/* Breadcrumb */}
         <nav className="mb-6 flex items-center gap-2 font-stencil text-[0.6rem] uppercase tracking-[0.25em] text-smoke">
           <Link href="/" className="transition-colors hover:text-ember">
-            Inicio
+            {t("inicio")}
           </Link>
           <span className="text-ash-500">/</span>
           <span className="text-ember">{eyebrow}</span>

@@ -1,14 +1,25 @@
 import Image from "next/image";
-import Link from "next/link";
-import { navLinks, site } from "@/lib/site";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
+import { site } from "@/lib/site";
 import { Icon } from "@/components/icons";
 import { Container } from "@/components/ui";
 import { ShareButtons } from "@/components/ShareButtons";
 
-export function Footer() {
+const navItems = [
+  { href: "/", key: "inicio" },
+  { href: "/acerca", key: "servidor" },
+  { href: "/donaciones", key: "donaciones" },
+  { href: "/reglas", key: "reglas" },
+  { href: "/wiki", key: "wiki" },
+] as const;
+
+export async function Footer() {
+  const t = await getTranslations("footer");
+  const tn = await getTranslations("nav");
+
   return (
     <footer className="relative mt-24 overflow-hidden border-t border-ash-700/70 bg-ash-950">
-      {/* Resplandor inferior */}
       <div
         aria-hidden
         className="pointer-events-none absolute -bottom-40 left-1/2 h-80 w-[120%] -translate-x-1/2 rounded-[100%] bg-ember/10 blur-3xl"
@@ -30,8 +41,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-smoke">
-              {site.tagline}. Un proyecto de la comunidad hispana de DayZ.
-              Sobrevive, conquista y renace de las cenizas.
+              {t("tagline")}
             </p>
             <div className="mt-6 flex gap-3">
               <SocialLink href={site.social.discord} label="Discord">
@@ -43,22 +53,22 @@ export function Footer() {
             </div>
 
             <div className="mt-7">
-              <p className="eyebrow mb-3">Comparte</p>
+              <p className="eyebrow mb-3">{t("shareTitle")}</p>
               <ShareButtons />
             </div>
           </div>
 
           {/* Navegación */}
           <div>
-            <h3 className="eyebrow mb-5">Navegación</h3>
+            <h3 className="eyebrow mb-5">{t("navTitle")}</h3>
             <ul className="space-y-3">
-              {navLinks.map((l) => (
+              {navItems.map((l) => (
                 <li key={l.href}>
                   <Link
                     href={l.href}
                     className="font-display text-sm uppercase tracking-wide text-bone/70 transition-colors hover:text-ember"
                   >
-                    {l.label}
+                    {tn(l.key)}
                   </Link>
                 </li>
               ))}
@@ -67,44 +77,44 @@ export function Footer() {
 
           {/* Comunidad */}
           <div>
-            <h3 className="eyebrow mb-5">Comunidad</h3>
+            <h3 className="eyebrow mb-5">{t("communityTitle")}</h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link
+                <a
                   href={site.social.discord}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-display uppercase tracking-wide text-bone/70 transition-colors hover:text-ember"
                 >
-                  Discord oficial
-                </Link>
+                  {t("discordOfficial")}
+                </a>
               </li>
               <li>
-                <Link
+                <a
                   href={site.social.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-display uppercase tracking-wide text-bone/70 transition-colors hover:text-ember"
                 >
-                  Canal de YouTube
-                </Link>
+                  {t("youtubeChannel")}
+                </a>
               </li>
               <li>
-                <Link
+                <a
                   href={site.social.vote}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-display uppercase tracking-wide text-bone/70 transition-colors hover:text-ember"
                 >
-                  Vota el servidor
-                </Link>
+                  {t("voteServer")}
+                </a>
               </li>
               <li>
                 <Link
                   href="/donaciones"
                   className="font-display uppercase tracking-wide text-bone/70 transition-colors hover:text-ember"
                 >
-                  Apoya el servidor
+                  {t("supportServer")}
                 </Link>
               </li>
             </ul>
@@ -113,13 +123,9 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-ash-700/70 pt-6 text-xs text-smoke sm:flex-row">
           <p>
-            © {new Date().getFullYear()} {site.fullName}. Todos los derechos
-            reservados.
+            © {new Date().getFullYear()} {site.fullName}. {t("rights")}
           </p>
-          <p className="text-ash-400">
-            No afiliado con Bohemia Interactive. DayZ es marca de sus respectivos
-            propietarios.
-          </p>
+          <p className="text-ash-400">{t("disclaimer")}</p>
         </div>
       </Container>
     </footer>
@@ -136,7 +142,7 @@ function SocialLink({
   children: React.ReactNode;
 }) {
   return (
-    <Link
+    <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
@@ -144,6 +150,6 @@ function SocialLink({
       className="flex h-11 w-11 items-center justify-center border border-ash-600 bg-ash-800/60 text-bone/70 transition-all duration-300 hover:border-ember/70 hover:text-ember hover:shadow-[0_0_20px_-4px_rgba(255,106,26,0.6)]"
     >
       {children}
-    </Link>
+    </a>
   );
 }

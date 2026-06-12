@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { site } from "@/lib/site";
 import { Icon } from "@/components/icons";
 import { useLiveStatus } from "@/components/LiveStatus";
 
 /** Botón flotante del Discord, siempre visible, con online en vivo. */
 export function FloatingDiscord() {
+  const t = useTranslations("floating");
   const { online } = useLiveStatus();
 
   return (
@@ -27,11 +29,11 @@ export function FloatingDiscord() {
         {online != null ? (
           <span className="mt-1 inline-flex items-center gap-1.5 font-stencil text-[0.55rem] uppercase tracking-[0.2em] text-emerald-400">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 [animation:flicker_2s_ease-in-out_infinite]" />
-            {online} en línea
+            {online} {t("onlineSuffix")}
           </span>
         ) : (
           <span className="mt-1 font-stencil text-[0.55rem] uppercase tracking-[0.2em] text-smoke">
-            Únete ya
+            {t("joinNow")}
           </span>
         )}
       </span>

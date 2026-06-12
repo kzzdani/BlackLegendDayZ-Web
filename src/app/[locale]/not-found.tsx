@@ -1,16 +1,17 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui";
 import { Embers } from "@/components/Embers";
 import { Icon } from "@/components/icons";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Perdido en Livonia",
   robots: { index: false },
 };
 
-export default function NotFound() {
+export default async function NotFound() {
+  const t = await getTranslations("notFound");
   return (
     <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden px-5 text-center">
       <div className="absolute inset-0 -z-20 bg-gradient-to-b from-ash-950 via-void to-void" />
@@ -38,20 +39,19 @@ export default function NotFound() {
           404
         </p>
         <h1 className="mt-2 font-display text-3xl font-bold uppercase tracking-tight text-bone sm:text-4xl">
-          Te has perdido en Livonia
+          {t("title")}
         </h1>
         <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-smoke">
-          Esta zona no existe en el mapa… o ya la han raideado. Vuelve a terreno
-          conocido antes de que caiga la noche.
+          {t("text")}
         </p>
         <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button href="/" size="lg">
             <Icon.arrow className="h-4 w-4 rotate-180" />
-            Volver al inicio
+            {t("back")}
           </Button>
           <Button href={site.social.discord} external variant="steel" size="lg">
             <Icon.discord className="h-5 w-5" />
-            Pedir ayuda en Discord
+            {t("help")}
           </Button>
         </div>
       </div>

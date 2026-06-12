@@ -1,15 +1,26 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTranslations, useLocale } from "next-intl";
 import { useEffect, useState } from "react";
-import { navLinks, site } from "@/lib/site";
+import { Link, usePathname } from "@/i18n/navigation";
+import { site } from "@/lib/site";
 import { Icon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 
+const navItems = [
+  { href: "/", key: "inicio" },
+  { href: "/acerca", key: "servidor" },
+  { href: "/donaciones", key: "donaciones" },
+  { href: "/reglas", key: "reglas" },
+  { href: "/wiki", key: "wiki" },
+] as const;
+
 export function Navbar() {
+  const t = useTranslations("nav");
   const pathname = usePathname();
+  const locale = useLocale();
+  const other = locale === "es" ? "en" : "es";
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -49,7 +60,7 @@ export function Navbar() {
 
         {/* Desktop links */}
         <ul className="hidden items-center gap-1 lg:flex">
-          {navLinks.map((l) => {
+          {navItems.map((l) => {
             const active = pathname === l.href;
             return (
               <li key={l.href}>
@@ -60,7 +71,7 @@ export function Navbar() {
                     active ? "text-ember" : "text-bone/70 hover:text-bone",
                   )}
                 >
-                  {l.label}
+                  {t(l.key)}
                   {active && (
                     <span className="absolute inset-x-3 -bottom-0.5 h-px bg-ember shadow-[0_0_8px_var(--color-ember)]" />
                   )}
@@ -70,8 +81,17 @@ export function Navbar() {
           })}
         </ul>
 
-        {/* CTA + burger */}
-        <div className="flex items-center gap-3">
+        {/* CTA + lang + burger */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          <Link
+            href={pathname}
+            locale={other}
+            className="flex h-9 items-center justify-center border border-ash-500 bg-ash-800/60 px-3 font-display text-sm font-bold uppercase tracking-widest text-bone transition-colors hover:border-ember/70 hover:text-ember"
+            aria-label={`Idioma: ${other.toUpperCase()}`}
+          >
+            {t("switchTo")}
+          </Link>
+
           <Link
             href={site.social.discord}
             target="_blank"
@@ -79,7 +99,7 @@ export function Navbar() {
             className="hidden items-center gap-2 border border-ash-500 bg-ash-800/60 px-4 py-2 font-display text-sm font-bold uppercase tracking-widest text-bone transition-colors hover:border-ember/70 hover:text-ember sm:inline-flex [clip-path:polygon(7px_0,100%_0,100%_calc(100%-7px),calc(100%-7px)_100%,0_100%,0_7px)]"
           >
             <Icon.discord className="h-4 w-4" />
-            Discord
+            {t("discord")}
           </Link>
 
           <button
@@ -118,7 +138,7 @@ export function Navbar() {
         )}
       >
         <ul className="flex flex-col gap-1 px-5 py-4">
-          {navLinks.map((l) => {
+          {navItems.map((l) => {
             const active = pathname === l.href;
             return (
               <li key={l.href}>
@@ -131,7 +151,7 @@ export function Navbar() {
                       : "border-transparent text-bone/80 hover:border-ash-500 hover:text-bone",
                   )}
                 >
-                  {l.label}
+                  {t(l.key)}
                   <Icon.arrow className="h-4 w-4 opacity-50" />
                 </Link>
               </li>
@@ -145,7 +165,7 @@ export function Navbar() {
               className="flex items-center justify-center gap-2 bg-ember px-4 py-3 font-display font-bold uppercase tracking-widest text-[#160600]"
             >
               <Icon.discord className="h-5 w-5" />
-              Únete al Discord
+              {t("joinDiscord")}
             </Link>
           </li>
         </ul>

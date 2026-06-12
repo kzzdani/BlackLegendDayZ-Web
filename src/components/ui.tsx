@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
@@ -94,12 +94,15 @@ export function Button({
     );
 
   if (href) {
+    if (external) {
+      return (
+        <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>
+          {inner}
+        </a>
+      );
+    }
     return (
-      <Link
-        href={href}
-        className={cls}
-        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      >
+      <Link href={href} className={cls}>
         {inner}
       </Link>
     );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { site } from "@/lib/site";
 import { Icon } from "@/components/icons";
 import { Container } from "@/components/ui";
@@ -8,6 +9,7 @@ import { useLiveStatus } from "@/components/LiveStatus";
 import { cn } from "@/lib/utils";
 
 export function ConnectBar() {
+  const t = useTranslations("connect");
   const { ip, port } = site.server;
   const address = `${ip}:${port}`;
   const live = useLiveStatus();
@@ -24,8 +26,10 @@ export function ConnectBar() {
   };
 
   const online = !live.loading && live.serverOnline;
-  const players = live.players != null ? `${live.players}/${live.maxPlayers}` : `–/${live.maxPlayers}`;
-  const discord = live.online != null ? `${live.online} en línea` : "Discord";
+  const players =
+    live.players != null ? `${live.players}/${live.maxPlayers}` : `–/${live.maxPlayers}`;
+  const community =
+    live.online != null ? `${live.online} ${t("onlineSuffix")}` : "—";
 
   return (
     <section id="conectar" className="relative -mt-px scroll-mt-24 py-6">
@@ -53,25 +57,21 @@ export function ConnectBar() {
               </span>
               <div>
                 <p className="font-stencil text-[0.6rem] uppercase tracking-[0.25em] text-smoke">
-                  Estado
+                  {t("status")}
                 </p>
                 <p className="font-display text-lg font-bold uppercase leading-none text-bone">
-                  {live.loading
-                    ? "Conectando…"
-                    : online
-                      ? "Servidor online"
-                      : "Servidor offline"}
+                  {live.loading ? t("connecting") : online ? t("online") : t("offline")}
                 </p>
               </div>
             </div>
 
             {/* Métricas en vivo */}
             <div className="grid grid-cols-2 sm:grid-cols-3">
-              <Metric label="Jugadores" value={players} live accent />
-              <Metric label="Mapa actual" value={site.server.currentMap} />
+              <Metric label={t("players")} value={players} live accent />
+              <Metric label={t("map")} value={site.server.currentMap} />
               <Metric
-                label="Comunidad"
-                value={discord}
+                label={t("community")}
+                value={community}
                 live={live.online != null}
                 className="hidden sm:flex"
               />
@@ -85,7 +85,7 @@ export function ConnectBar() {
               >
                 <span className="text-left">
                   <span className="block font-stencil text-[0.55rem] uppercase tracking-[0.25em] text-smoke">
-                    IP del servidor
+                    {t("ipLabel")}
                   </span>
                   <span className="font-mono text-sm font-semibold text-ember">
                     {address}
@@ -123,9 +123,7 @@ function Metric({
       <p className="flex items-center gap-1.5 font-stencil text-[0.6rem] uppercase tracking-[0.25em] text-smoke">
         {label}
         {live && (
-          <span className="inline-flex items-center gap-1 text-emerald-400">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 [animation:flicker_2s_ease-in-out_infinite]" />
-          </span>
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 [animation:flicker_2s_ease-in-out_infinite]" />
         )}
       </p>
       <p
