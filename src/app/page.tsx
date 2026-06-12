@@ -3,6 +3,7 @@ import { ConnectBar } from "@/components/sections/ConnectBar";
 import { StorySection } from "@/components/sections/StorySection";
 import { Features } from "@/components/sections/Features";
 import { MapsSection } from "@/components/sections/MapsSection";
+import { VideoSection } from "@/components/sections/VideoSection";
 import { EventsSection } from "@/components/sections/EventsSection";
 import { Gallery } from "@/components/sections/Gallery";
 import { JoinCTA } from "@/components/sections/JoinCTA";
@@ -15,6 +16,7 @@ export default function Home() {
       <StorySection />
       <Features />
       <MapsSection />
+      <VideoSection />
       <EventsSection />
       <Gallery />
       <JoinCTA />

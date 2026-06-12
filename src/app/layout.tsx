@@ -6,6 +6,9 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { LiveStatusProvider } from "@/components/LiveStatus";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { Intro } from "@/components/Intro";
 
 const saira = Saira_Condensed({
   variable: "--font-saira",
@@ -84,11 +87,15 @@ export default function RootLayout({
       className={`${saira.variable} ${chakra.variable} ${stencil.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-void text-bone">
+        <Intro />
+        <ScrollProgress />
         <SmoothScroll>
-          <GrainOverlay />
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
+          <LiveStatusProvider>
+            <GrainOverlay />
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+          </LiveStatusProvider>
         </SmoothScroll>
       </body>
     </html>

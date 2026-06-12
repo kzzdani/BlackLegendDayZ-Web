@@ -3,6 +3,7 @@ import { Button, Container } from "@/components/ui";
 import { Embers } from "@/components/Embers";
 import { Icon } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
+import { CommunityCount } from "@/components/CommunityCount";
 
 export function JoinCTA() {
   return (
@@ -25,10 +26,9 @@ export function JoinCTA() {
             <br />
             <span className="text-fire">cenizas</span>
           </h2>
-          <p className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-smoke sm:text-lg">
-            Únete a cientos de supervivientes. Entra al Discord, instala los mods
-            y conéctate. El mapa no espera a nadie.
-          </p>
+          <div className="mx-auto mt-7 max-w-xl">
+            <CommunityCount />
+          </div>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button href={site.social.discord} external size="lg">
               <Icon.discord className="h-5 w-5" />

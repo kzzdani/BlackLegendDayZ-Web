@@ -3,6 +3,7 @@ import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { Container, Heading, SectionLabel, Button } from "@/components/ui";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal";
+import { CountUp } from "@/components/CountUp";
 import { JoinCTA } from "@/components/sections/JoinCTA";
 import { Icon } from "@/components/icons";
 import { site, mods } from "@/lib/site";
@@ -111,12 +112,12 @@ export default function AcercaPage() {
             {stats.map((s) => (
               <StaggerItem key={s.label}>
                 <div className="flex flex-col items-center justify-center gap-2 bg-ash-900 px-4 py-10 text-center">
-                  <span
-                    className={`font-display text-5xl font-black uppercase sm:text-6xl ${
-                      s.pending ? "text-ash-500" : "text-fire"
-                    }`}
-                  >
-                    {s.pending ? "··" : s.value}
+                  <span className="font-display text-5xl font-black uppercase text-fire sm:text-6xl">
+                    {/^\d+$/.test(s.value) ? (
+                      <CountUp value={Number(s.value)} />
+                    ) : (
+                      s.value
+                    )}
                   </span>
                   <span className="font-stencil text-[0.6rem] uppercase tracking-[0.3em] text-smoke">
                     {s.label}

@@ -23,13 +23,21 @@ export const site = {
     currentMap: "Livonia",
     perspective: "1PP", // solo primera persona
     wipe: "Wipes periódicos",
+    battlemetricsId: "38441271", // para el contador de jugadores en vivo
   },
   // ---- Comunidad / Redes ---------------------------------------------------
   social: {
     discord: "https://discord.gg/c3EFQvyDA",
+    discordInvite: "c3EFQvyDA", // código para contar miembros/online en vivo
     youtube: "https://www.youtube.com/@blacklegenddayz",
     vote: "https://es.top-games.net/dayz/vote/black-legend-livonia-vanilla-1pp",
     oldSite: "https://blacklegenddayz.wixsite.com/blacklegend",
+  },
+  // ---- Multimedia ----------------------------------------------------------
+  media: {
+    // ID del vídeo de YouTube para el trailer (p.ej. "dQw4w9WgXcQ").
+    // Pendiente de Jaro: pega aquí el ID y se incrusta automáticamente.
+    trailerId: "",
   },
 } as const;
 

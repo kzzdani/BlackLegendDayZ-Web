@@ -4,10 +4,13 @@ import { useState } from "react";
 import { site } from "@/lib/site";
 import { Icon } from "@/components/icons";
 import { Container } from "@/components/ui";
+import { useLiveStatus } from "@/components/LiveStatus";
+import { cn } from "@/lib/utils";
 
 export function ConnectBar() {
-  const { ip, port, slots, currentMap } = site.server;
+  const { ip, port } = site.server;
   const address = `${ip}:${port}`;
+  const live = useLiveStatus();
 
   const [copied, setCopied] = useState(false);
   const copy = async () => {
@@ -20,6 +23,10 @@ export function ConnectBar() {
     }
   };
 
+  const online = !live.loading && live.serverOnline;
+  const players = live.players != null ? `${live.players}/${live.maxPlayers}` : `–/${live.maxPlayers}`;
+  const discord = live.online != null ? `${live.online} en línea` : "Discord";
+
   return (
     <section id="conectar" className="relative -mt-px scroll-mt-24 py-6">
       <Container>
@@ -27,27 +34,47 @@ export function ConnectBar() {
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ember/70 to-transparent" />
 
           <div className="grid divide-ash-700/70 md:grid-cols-[auto_1fr_auto] md:divide-x">
-            {/* Estado */}
+            {/* Estado en vivo */}
             <div className="flex items-center gap-4 px-6 py-5">
               <span className="relative flex h-3 w-3">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/70 [animation:pulse-ring_2s_ease-out_infinite]" />
-                <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-400 shadow-[0_0_10px_#34d399]" />
+                {online && (
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/70 [animation:pulse-ring_2s_ease-out_infinite]" />
+                )}
+                <span
+                  className={cn(
+                    "relative inline-flex h-3 w-3 rounded-full",
+                    live.loading
+                      ? "bg-ash-400"
+                      : online
+                        ? "bg-emerald-400 shadow-[0_0_10px_#34d399]"
+                        : "bg-blood shadow-[0_0_10px_#b81e0a]",
+                  )}
+                />
               </span>
               <div>
                 <p className="font-stencil text-[0.6rem] uppercase tracking-[0.25em] text-smoke">
                   Estado
                 </p>
                 <p className="font-display text-lg font-bold uppercase leading-none text-bone">
-                  Servidor online
+                  {live.loading
+                    ? "Conectando…"
+                    : online
+                      ? "Servidor online"
+                      : "Servidor offline"}
                 </p>
               </div>
             </div>
 
-            {/* Métricas */}
+            {/* Métricas en vivo */}
             <div className="grid grid-cols-2 sm:grid-cols-3">
-              <Metric label="Slots" value={slots} />
-              <Metric label="Mapa actual" value={currentMap} />
-              <Metric label="Modo" value="Vanilla+ 1PP" className="hidden sm:flex" />
+              <Metric label="Jugadores" value={players} live accent />
+              <Metric label="Mapa actual" value={site.server.currentMap} />
+              <Metric
+                label="Comunidad"
+                value={discord}
+                live={live.online != null}
+                className="hidden sm:flex"
+              />
             </div>
 
             {/* Conectar */}
@@ -81,18 +108,32 @@ export function ConnectBar() {
 function Metric({
   label,
   value,
+  live = false,
+  accent = false,
   className = "",
 }: {
   label: string;
   value: string;
+  live?: boolean;
+  accent?: boolean;
   className?: string;
 }) {
   return (
     <div className={`flex flex-col justify-center px-6 py-5 ${className}`}>
-      <p className="font-stencil text-[0.6rem] uppercase tracking-[0.25em] text-smoke">
+      <p className="flex items-center gap-1.5 font-stencil text-[0.6rem] uppercase tracking-[0.25em] text-smoke">
         {label}
+        {live && (
+          <span className="inline-flex items-center gap-1 text-emerald-400">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 [animation:flicker_2s_ease-in-out_infinite]" />
+          </span>
+        )}
       </p>
-      <p className="font-display text-lg font-bold uppercase leading-none text-bone">
+      <p
+        className={cn(
+          "font-display text-lg font-bold uppercase leading-none",
+          accent ? "text-fire" : "text-bone",
+        )}
+      >
         {value}
       </p>
     </div>
