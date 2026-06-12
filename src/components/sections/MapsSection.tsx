@@ -22,7 +22,7 @@ export function MapsSection() {
           <Reveal>
             <SectionLabel>El mapa</SectionLabel>
             <Heading className="mt-5">
-              Bienvenido a <span className="text-fire">Livonia</span>
+              Bienvenido a <span className="text-fire">Livonia BL</span>
             </Heading>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-smoke">
               {livonia.description}
@@ -53,16 +53,16 @@ export function MapsSection() {
               </span>
               <Image
                 src="/wiki/tier-map.webp"
-                alt="Tier-map de Livonia con las zonas 1, 2 y 3"
-                width={1080}
-                height={976}
+                alt="Tier-map de Livonia con los tiers de loot"
+                width={1100}
+                height={1101}
                 className="h-auto w-full"
               />
             </div>
-            <div className="mt-3 grid grid-cols-3 gap-2">
+            <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
               {tiers.map((t) => (
                 <div
-                  key={t.n}
+                  key={t.label}
                   className="flex items-center gap-2 border border-ash-700 bg-ash-900 px-3 py-2.5"
                 >
                   <span
@@ -70,7 +70,7 @@ export function MapsSection() {
                     style={{ background: t.color }}
                   />
                   <span className="font-display text-sm font-bold uppercase leading-none text-bone">
-                    {t.n} · {t.zone}
+                    {t.name}
                   </span>
                 </div>
               ))}

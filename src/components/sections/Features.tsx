@@ -36,9 +36,6 @@ export function Features() {
                   <p className="mt-3 text-sm leading-relaxed text-smoke">
                     {f.text}
                   </p>
-                  <span className="pointer-events-none absolute bottom-6 right-7 font-display text-6xl font-black text-ash-800 transition-colors duration-300 group-hover:text-ash-700/70">
-                    →
-                  </span>
                 </article>
               </StaggerItem>
             );

@@ -59,25 +59,28 @@ export const livonia = {
 // ---- Tier-map (zonas de loot) -----------------------------------------------
 export const tiers = [
   {
-    n: 1,
+    label: "1",
     name: "Tier 1",
-    zone: "Norte",
-    color: "#7ea24b",
-    text: "Zona de inicio. Loot básico para equiparte y empezar a sobrevivir.",
+    color: "#56c15f",
+    text: "Zona verde. Loot básico para equiparte y empezar a sobrevivir.",
   },
   {
-    n: 2,
+    label: "2",
     name: "Tier 2",
-    zone: "Centro",
-    color: "#5b8fb0",
-    text: "Equipo intermedio y armas decentes. Más tránsito de jugadores, más peligro.",
+    color: "#74bce0",
+    text: "Zona azul. Equipo intermedio y armas decentes; más tránsito de jugadores.",
   },
   {
-    n: 3,
+    label: "3",
     name: "Tier 3",
-    zone: "Sur",
-    color: "#9b6fb0",
-    text: "El mejor loot militar del mapa. Incluye zonas contaminadas: necesitas traje NBQ y nervios de acero.",
+    color: "#f1ce2a",
+    text: "Zona amarilla. El mejor loot militar del mapa, con mayor riesgo de combate.",
+  },
+  {
+    label: "Ú",
+    name: "Tier Único",
+    color: "#c350d2",
+    text: "Zonas moradas especiales repartidas por el mapa: el botín más codiciado y el mayor peligro.",
   },
 ] as const;
 

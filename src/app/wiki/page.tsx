@@ -114,8 +114,8 @@ export default function WikiPage() {
               Zonas de <span className="text-fire">loot</span>
             </Heading>
             <p className="mt-4 max-w-xl text-base text-smoke">
-              Cuanto más al sur, mejor el equipo… y mayor el peligro. Cuidado con
-              las zonas contaminadas (necesitas traje NBQ).
+              Cada color marca un tier de loot. Cuanto más alto el tier, mejor el
+              equipo… y mayor el peligro.
             </p>
           </Reveal>
 
@@ -124,33 +124,27 @@ export default function WikiPage() {
             <Reveal className="relative overflow-hidden border border-ash-700 bg-ash-900 p-3 frame-mil">
               <Image
                 src="/wiki/tier-map.webp"
-                alt="Tier-map de Livonia con las zonas 1, 2 y 3"
-                width={1080}
-                height={976}
+                alt="Tier-map de Livonia con los tiers de loot"
+                width={1100}
+                height={1101}
                 className="h-auto w-full"
               />
             </Reveal>
 
             {/* Leyenda */}
-            <Stagger className="space-y-4" gap={0.08}>
+            <Stagger className="space-y-3" gap={0.07}>
               {tiers.map((t) => (
-                <StaggerItem key={t.n}>
+                <StaggerItem key={t.label}>
                   <article className="flex gap-4 border border-ash-700 bg-ash-900 p-5">
                     <span
                       className="flex h-12 w-12 shrink-0 items-center justify-center font-display text-2xl font-black text-void"
                       style={{ background: t.color }}
                     >
-                      {t.n}
+                      {t.label}
                     </span>
                     <div>
                       <p className="font-display text-xl font-bold uppercase leading-none text-bone">
-                        {t.name}{" "}
-                        <span
-                          className="text-sm font-semibold"
-                          style={{ color: t.color }}
-                        >
-                          · {t.zone}
-                        </span>
+                        {t.name}
                       </p>
                       <p className="mt-1.5 text-sm leading-relaxed text-smoke">
                         {t.text}

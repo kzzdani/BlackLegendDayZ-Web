@@ -33,9 +33,6 @@ export function QuickStart() {
                   {s.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-smoke">{s.text}</p>
-                {i < quickStart.length - 1 && (
-                  <Icon.arrow className="absolute right-6 top-8 hidden h-5 w-5 text-ash-600 lg:block" />
-                )}
               </article>
             </StaggerItem>
           ))}
