@@ -4,7 +4,7 @@ import { StorySection } from "@/components/sections/StorySection";
 import { Features } from "@/components/sections/Features";
 import { QuickStart } from "@/components/sections/QuickStart";
 import { MapsSection } from "@/components/sections/MapsSection";
-import { VideoSection } from "@/components/sections/VideoSection";
+import { ClipsSection } from "@/components/sections/ClipsSection";
 import { EventsSection } from "@/components/sections/EventsSection";
 import { Gallery } from "@/components/sections/Gallery";
 import { Faq } from "@/components/sections/Faq";
@@ -19,7 +19,7 @@ export default function Home() {
       <Features />
       <QuickStart />
       <MapsSection />
-      <VideoSection />
+      <ClipsSection />
       <EventsSection />
       <Gallery />
       <Faq />

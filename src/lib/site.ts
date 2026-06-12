@@ -23,6 +23,7 @@ export const site = {
     currentMap: "Livonia",
     perspective: "1PP", // solo primera persona
     wipe: "Wipes periódicos",
+    lastWipe: "2026-05-28", // fecha del último wipe (para el contador de días)
     battlemetricsId: "38441271", // para el contador de jugadores en vivo
   },
   // ---- Comunidad / Redes ---------------------------------------------------
@@ -30,6 +31,7 @@ export const site = {
     discord: "https://discord.gg/c3EFQvyDA",
     discordInvite: "c3EFQvyDA", // código para contar miembros/online en vivo
     youtube: "https://www.youtube.com/@blacklegenddayz",
+    youtubeChannelId: "UCKt9s_iscG69zHYby4NeRMg", // para el muro de clips (RSS)
     vote: "https://es.top-games.net/dayz/vote/black-legend-livonia-vanilla-1pp",
     oldSite: "https://blacklegenddayz.wixsite.com/blacklegend",
   },
