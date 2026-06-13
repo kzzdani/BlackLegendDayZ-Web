@@ -6,6 +6,7 @@ import { QuickStart } from "@/components/sections/QuickStart";
 import { MapsSection } from "@/components/sections/MapsSection";
 import { ClipsSection } from "@/components/sections/ClipsSection";
 import { EventsSection } from "@/components/sections/EventsSection";
+import { AnnouncementsSection } from "@/components/sections/AnnouncementsSection";
 import { Gallery } from "@/components/sections/Gallery";
 import { Faq } from "@/components/sections/Faq";
 import { JoinCTA } from "@/components/sections/JoinCTA";
@@ -21,6 +22,7 @@ export default function Home() {
       <MapsSection />
       <ClipsSection />
       <EventsSection />
+      <AnnouncementsSection />
       <Gallery />
       <Faq />
       <JoinCTA />

@@ -13,6 +13,13 @@
     "success": "Got it! The staff will review it soon.",
     "error": "Something failed. Try again or use the Discord."
   },
+  "news": {
+    "eyebrow": "News",
+    "title1": "Latest",
+    "title2": "announcements",
+    "subtitle": "The latest, straight from our Discord.",
+    "viewAll": "See all on Discord"
+  },
   "meta": {
     "titleSuffix": "Rise from the ashes",
     "description": "Spanish DayZ server on Livonia. Vanilla+ first person, 100% PvP, with a unique end-game Run, a key system and a community that never gives up.",

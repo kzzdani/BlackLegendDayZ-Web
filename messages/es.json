@@ -13,6 +13,13 @@
     "success": "¡Recibido! El staff lo revisará pronto.",
     "error": "Algo falló. Inténtalo de nuevo o usa el Discord."
   },
+  "news": {
+    "eyebrow": "Novedades",
+    "title1": "Últimos",
+    "title2": "comunicados",
+    "subtitle": "Lo último, directo desde nuestro Discord.",
+    "viewAll": "Ver todo en Discord"
+  },
   "meta": {
     "titleSuffix": "Renace de las cenizas",
     "description": "Servidor hispano de DayZ en Livonia. Vanilla+ en primera persona, 100% PvP, con una Run end-game única, sistema de llaves y una comunidad que no se rinde.",
