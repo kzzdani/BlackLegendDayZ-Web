@@ -15,13 +15,48 @@ function clean(s: string) {
     .trim();
 }
 
+// Fecha real codificada en el ID (snowflake) de Discord.
+function tsFromId(id: string) {
+  return new Date(Number((BigInt(id) >> 22n) + 1420070400000n)).toISOString();
+}
+
+// Comunicados reales (de capturas) para la DEMO visual. Solo se muestran si
+// DEMO_ANNOUNCEMENTS=1 y no hay bot configurado.
+const demoItems: Msg[] = [
+  {
+    id: "1514924739825766400",
+    author: "Katha Romanoff",
+    content:
+      "Aviso sobre el bug de DayZ 1.29\n\nHola buenos días chicos, sí, somos conscientes del bug de la 1.29, que se supone que habían parcheado, pero no...! Es un fallo del propio DayZ, no del servidor. Esperad entre 1 y 5 minutos antes de volver a intentar entrar para que el servidor y el cliente puedan sincronizarse correctamente.",
+  },
+  {
+    id: "1509292634936709210",
+    author: "Jaro93",
+    content:
+      "WIPE WIPE WIPE\n\nEl día 28 de mayo junto al WIPE cambiaremos de mapa a Livonia. Pensamos que Chernarus es un mapa demasiado grande para un servidor de PvP, es difícil encontrar interacción aún teniendo +50 jugadores conectados, por lo tanto hemos optado por cambiar de mapa.",
+  },
+  {
+    id: "1509124578293841950",
+    author: "Jaro93",
+    content:
+      "Se ha añadido el arma Tundra (el vanilla de toda la vida) al spawn. Por defecto Livonia lo trae a 0, nos hemos dado cuenta ahora. Saldrá en zonas de caza tier2 y tier3. Se aplicará después del próximo restart.",
+  },
+  {
+    id: "1506697710718423111",
+    author: "Jaro93",
+    content:
+      "Antes de generar descontentos y malentendidos hemos modificado parte de la normativa: una base sin codelock más de 3 días se considera base abandonada.",
+  },
+].map((m) => ({ ...m, timestamp: tsFromId(m.id) }));
+
 export async function GET() {
   const token = process.env.DISCORD_BOT_TOKEN;
   const channel = process.env.DISCORD_ANNOUNCEMENTS_CHANNEL_ID;
 
-  // Sin configurar → sección invisible (no rompe nada).
+  // Sin bot: demo visual (si está activada) o sección invisible.
   if (!token || !channel) {
-    return NextResponse.json({ items: [] as Msg[] });
+    const demo = process.env.DEMO_ANNOUNCEMENTS === "1" ? demoItems : [];
+    return NextResponse.json({ items: demo });
   }
 
   try {
