@@ -298,6 +298,12 @@
     "s2desc": "Cada color marca un tier de loot. Cuanto más alto el tier, mejor el equipo… y mayor el peligro.",
     "s2callout": "¿Quieres planificar tu ruta? Abre el mapa interactivo de Livonia con todas las localizaciones, loot y zonas.",
     "s2btn": "Mapa interactivo",
+    "tiers": [
+      { "label": "1", "name": "Tier 1", "color": "#56c15f", "text": "Zona verde. Loot básico para equiparte y empezar a sobrevivir." },
+      { "label": "2", "name": "Tier 2", "color": "#74bce0", "text": "Zona azul. Equipo intermedio y armas decentes; más tránsito de jugadores." },
+      { "label": "3", "name": "Tier 3", "color": "#f1ce2a", "text": "Zona amarilla. El mejor loot militar del mapa, con mayor riesgo de combate." },
+      { "label": "Ú", "name": "Tier Único", "color": "#c350d2", "text": "Zonas moradas especiales repartidas por el mapa: dónde encontrarás los explosivos necesarios para raidear." }
+    ],
     "s3eyebrow": "03 · Llaves",
     "s3title1": "Sistema de",
     "s3title2": "llaves",
