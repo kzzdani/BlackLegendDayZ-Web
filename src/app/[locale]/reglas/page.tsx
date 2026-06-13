@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
-import { Container, Button } from "@/components/ui";
+import { Container } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { RulesAccordion } from "@/components/RulesAccordion";
+import { ReportForm } from "@/components/ReportForm";
 import { Icon } from "@/components/icons";
 import { site, raidSchedule } from "@/lib/site";
 
@@ -82,20 +83,8 @@ export default async function ReglasPage() {
             </div>
           </Reveal>
 
-          <Reveal
-            delay={0.1}
-            className="mt-12 flex flex-col items-center gap-5 border border-ash-700 bg-ash-900 p-9 text-center"
-          >
-            <h2 className="font-display text-3xl font-bold uppercase text-bone">
-              {t("reportTitle")}
-            </h2>
-            <p className="max-w-md text-sm leading-relaxed text-smoke">
-              {t("reportText")}
-            </p>
-            <Button href={site.social.discord} external>
-              <Icon.discord className="h-5 w-5" />
-              {t("reportBtn")}
-            </Button>
+          <Reveal delay={0.1} className="mt-12">
+            <ReportForm />
           </Reveal>
         </Container>
       </section>

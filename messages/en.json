@@ -1,4 +1,18 @@
 {
+  "report": {
+    "title": "Report or contact us",
+    "subtitle": "Cheaters, toxic behaviour, bugs or any question. It goes straight to the staff.",
+    "nickLabel": "Your nick (optional)",
+    "nickPlaceholder": "Your in-game name",
+    "suspectLabel": "Subject or suspect (optional)",
+    "suspectPlaceholder": "Suspect's name or subject",
+    "detailsLabel": "Message",
+    "detailsPlaceholder": "Tell us what happened, with details and evidence if you have it…",
+    "submit": "Send",
+    "sending": "Sending…",
+    "success": "Got it! The staff will review it soon.",
+    "error": "Something failed. Try again or use the Discord."
+  },
   "meta": {
     "titleSuffix": "Rise from the ashes",
     "description": "Spanish DayZ server on Livonia. Vanilla+ first person, 100% PvP, with a unique end-game Run, a key system and a community that never gives up.",

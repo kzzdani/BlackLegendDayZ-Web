@@ -1,4 +1,18 @@
 {
+  "report": {
+    "title": "Reporta o contáctanos",
+    "subtitle": "Cheaters, comportamientos tóxicos, bugs o cualquier consulta. Llega directo al staff.",
+    "nickLabel": "Tu nick (opcional)",
+    "nickPlaceholder": "Tu nombre en el juego",
+    "suspectLabel": "Asunto o sospechoso (opcional)",
+    "suspectPlaceholder": "Nombre del sospechoso o asunto",
+    "detailsLabel": "Mensaje",
+    "detailsPlaceholder": "Cuéntanos qué ha pasado, con detalles y pruebas si las tienes…",
+    "submit": "Enviar",
+    "sending": "Enviando…",
+    "success": "¡Recibido! El staff lo revisará pronto.",
+    "error": "Algo falló. Inténtalo de nuevo o usa el Discord."
+  },
   "meta": {
     "titleSuffix": "Renace de las cenizas",
     "description": "Servidor hispano de DayZ en Livonia. Vanilla+ en primera persona, 100% PvP, con una Run end-game única, sistema de llaves y una comunidad que no se rinde.",
