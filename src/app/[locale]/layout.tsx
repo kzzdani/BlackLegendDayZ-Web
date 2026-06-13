@@ -89,9 +89,9 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${saira.variable} ${chakra.variable} ${stencil.variable} h-full antialiased`}
+      className={`${saira.variable} ${chakra.variable} ${stencil.variable} antialiased`}
     >
-      <body className="min-h-full bg-void text-bone">
+      <body className="min-h-screen bg-void text-bone">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
