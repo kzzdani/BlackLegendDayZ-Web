@@ -4,7 +4,6 @@ import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { RulesAccordion } from "@/components/RulesAccordion";
-import { ReportForm } from "@/components/ReportForm";
 import { Icon } from "@/components/icons";
 import { site, raidSchedule } from "@/lib/site";
 
@@ -81,10 +80,6 @@ export default async function ReglasPage() {
                 </div>
               ))}
             </div>
-          </Reveal>
-
-          <Reveal delay={0.1} className="mt-12">
-            <ReportForm />
           </Reveal>
         </Container>
       </section>
