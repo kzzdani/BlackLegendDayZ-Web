@@ -17,6 +17,7 @@ import { FloatingDiscord } from "@/components/FloatingDiscord";
 import { Lightbox } from "@/components/Lightbox";
 import { Konami } from "@/components/Konami";
 import { AnnouncementBanner } from "@/components/AnnouncementBanner";
+import { VisitTracker } from "@/components/VisitTracker";
 import { Analytics } from "@vercel/analytics/next";
 
 const saira = Saira_Condensed({
@@ -132,6 +133,7 @@ export default async function LocaleLayout({
               <FloatingDiscord />
             </LiveStatusProvider>
           </SmoothScroll>
+          <VisitTracker />
           <Analytics />
         </NextIntlClientProvider>
       </body>
