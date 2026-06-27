@@ -71,7 +71,6 @@ export async function generateMetadata({
       title: `${site.fullName} — ${t("titleSuffix")}`,
       description: t("description"),
     },
-    icons: { icon: "/brand/0logosoloBlackLegendNuevo2.png" },
     alternates: {
       languages: { es: "/", en: "/en" },
     },
