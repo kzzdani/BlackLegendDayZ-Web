@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { site } from "@/lib/site";
+import { getSiteConfig } from "@/lib/config";
 
 export const dynamic = "force-dynamic";
 
@@ -32,12 +33,26 @@ export async function GET() {
           const title = e.match(/<title>([^<]+)<\/title>/)?.[1];
           return id ? { id, title: decode(title ?? "Black Legend DayZ") } : null;
         })
-        .filter((c): c is { id: string; title: string } => c !== null)
-        .slice(0, 9);
+        .filter((c): c is { id: string; title: string } => c !== null);
     }
   } catch {
     /* sin clips */
   }
+
+  // Control desde el panel: ocultar clips y/o destacar uno al principio.
+  try {
+    const { clips } = await getSiteConfig();
+    if (clips.hiddenIds.length) {
+      out.clips = out.clips.filter((c) => !clips.hiddenIds.includes(c.id));
+    }
+    if (clips.featuredId) {
+      const idx = out.clips.findIndex((c) => c.id === clips.featuredId);
+      if (idx > 0) out.clips.unshift(out.clips.splice(idx, 1)[0]);
+    }
+  } catch {
+    /* sin overrides */
+  }
+  out.clips = out.clips.slice(0, 9);
 
   return NextResponse.json(out, {
     headers: { "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=7200" },

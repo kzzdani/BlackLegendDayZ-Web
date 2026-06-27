@@ -51,7 +51,9 @@
     "map": "Current map",
     "community": "Community",
     "onlineSuffix": "online",
-    "ipLabel": "Server IP"
+    "ipLabel": "Server IP",
+    "wipeToday": "Wipe today!",
+    "wipeIn": "Next wipe in {days} days"
   },
   "story": {
     "cap": "Ch.",
@@ -76,12 +78,36 @@
     "title2": "It's a war to survive.",
     "subtitle": "Every detail is designed to make the experience intense, fair and memorable. This is what awaits you inside.",
     "items": [
-      { "icon": "skull", "title": "Vanilla+ · 1PP", "text": "Enhanced vanilla experience in first person. No pay-to-win: here you win by skill." },
-      { "icon": "flame", "title": "100% PvP", "text": "Livonia is a compact map where combat is guaranteed. If you're after action, you've got it." },
-      { "icon": "map", "title": "The Livonia Run", "text": "A unique end-game: bunkers, access cards and exclusive weapons (AWM, GALIL, M79)." },
-      { "icon": "shield", "title": "Active anti-cheat", "text": "VPPAdminTools and a staff watching 24/7. Cheats or bug abuse = permanent ban." },
-      { "icon": "users", "title": "Spanish community", "text": "Hundreds of survivors on Discord. Clans, alliances, betrayals… and good vibes." },
-      { "icon": "bolt", "title": "Enhanced base-building", "text": "Building addon, Building Fortifications and MMG Base Storage for bases done right." }
+      {
+        "icon": "skull",
+        "title": "Vanilla+ · 1PP",
+        "text": "Enhanced vanilla experience in first person. No pay-to-win: here you win by skill."
+      },
+      {
+        "icon": "flame",
+        "title": "100% PvP",
+        "text": "Livonia is a compact map where combat is guaranteed. If you're after action, you've got it."
+      },
+      {
+        "icon": "map",
+        "title": "The Livonia Run",
+        "text": "A unique end-game: bunkers, access cards and exclusive weapons (AWM, GALIL, M79)."
+      },
+      {
+        "icon": "shield",
+        "title": "Active anti-cheat",
+        "text": "VPPAdminTools and a staff watching 24/7. Cheats or bug abuse = permanent ban."
+      },
+      {
+        "icon": "users",
+        "title": "Spanish community",
+        "text": "Hundreds of survivors on Discord. Clans, alliances, betrayals… and good vibes."
+      },
+      {
+        "icon": "bolt",
+        "title": "Enhanced base-building",
+        "text": "Building addon, Building Fortifications and MMG Base Storage for bases done right."
+      }
     ]
   },
   "quickstart": {
@@ -90,10 +116,22 @@
     "title2": "survivor",
     "button": "Start now",
     "steps": [
-      { "title": "Join the Discord", "text": "Come into the community, introduce yourself and stay on top of wipes, events and rules." },
-      { "title": "Own DayZ on Steam", "text": "You need the base game. Black Legend is a Vanilla+ experience in first person." },
-      { "title": "Copy the IP and connect", "text": "In DayZ, go to community servers and search by IP address. Paste ours and jump in." },
-      { "title": "Install the mods and survive", "text": "The mods download automatically when you connect. Create your character and start writing your legend." }
+      {
+        "title": "Join the Discord",
+        "text": "Come into the community, introduce yourself and stay on top of wipes, events and rules."
+      },
+      {
+        "title": "Own DayZ on Steam",
+        "text": "You need the base game. Black Legend is a Vanilla+ experience in first person."
+      },
+      {
+        "title": "Copy the IP and connect",
+        "text": "In DayZ, go to community servers and search by IP address. Paste ours and jump in."
+      },
+      {
+        "title": "Install the mods and survive",
+        "text": "The mods download automatically when you connect. Create your character and start writing your legend."
+      }
     ]
   },
   "maps": {
@@ -117,10 +155,30 @@
     "guidePre": "Full tier guide in the",
     "guideLink": "Wiki",
     "tiers": [
-      { "label": "1", "name": "Tier 1", "color": "#56c15f", "text": "Green zone. Basic loot to gear up and start surviving." },
-      { "label": "2", "name": "Tier 2", "color": "#74bce0", "text": "Blue zone. Mid-tier gear and decent weapons; more player traffic." },
-      { "label": "3", "name": "Tier 3", "color": "#f1ce2a", "text": "Yellow zone. The best military loot on the map, with higher combat risk." },
-      { "label": "Ú", "name": "Unique Tier", "color": "#c350d2", "text": "Special purple zones scattered across the map: where you'll find the explosives you need to raid." }
+      {
+        "label": "1",
+        "name": "Tier 1",
+        "color": "#56c15f",
+        "text": "Green zone. Basic loot to gear up and start surviving."
+      },
+      {
+        "label": "2",
+        "name": "Tier 2",
+        "color": "#74bce0",
+        "text": "Blue zone. Mid-tier gear and decent weapons; more player traffic."
+      },
+      {
+        "label": "3",
+        "name": "Tier 3",
+        "color": "#f1ce2a",
+        "text": "Yellow zone. The best military loot on the map, with higher combat risk."
+      },
+      {
+        "label": "Ú",
+        "name": "Unique Tier",
+        "color": "#c350d2",
+        "text": "Special purple zones scattered across the map: where you'll find the explosives you need to raid."
+      }
     ]
   },
   "clips": {
@@ -135,9 +193,21 @@
     "title2": "never stops",
     "subtitle": "Wipes, base contests and the end-game Run. Content that keeps evolving while always staying true to vanilla.",
     "items": [
-      { "name": "Wipe + Livonia", "tag": "Current map", "description": "The server moved to Livonia: a smaller, 100% PvP map. Every wipe means starting from scratch and rewriting your legend." },
-      { "name": "Base contest", "tag": "Event", "description": "Submit your base via ticket. The top 3 earn a custom TAG color in chat. Aesthetics and building are what count." },
-      { "name": "The Livonia Run", "tag": "End-game", "description": "Reach the final bunker with the punched card and the white card to claim the server's most coveted weapons." }
+      {
+        "name": "Wipe + Livonia",
+        "tag": "Current map",
+        "description": "The server moved to Livonia: a smaller, 100% PvP map. Every wipe means starting from scratch and rewriting your legend."
+      },
+      {
+        "name": "Base contest",
+        "tag": "Event",
+        "description": "Submit your base via ticket. The top 3 earn a custom TAG color in chat. Aesthetics and building are what count."
+      },
+      {
+        "name": "The Livonia Run",
+        "tag": "End-game",
+        "description": "Reach the final bunker with the punched card and the white card to claim the server's most coveted weapons."
+      }
     ]
   },
   "gallery": {
@@ -145,20 +215,48 @@
     "title1": "The",
     "title2": "battlefield",
     "note": "Real server screenshots from Livonia",
-    "captions": ["Patrol in Livonia", "Nightfall", "Road to the mine", "The bunker", "No witnesses", "The stash"]
+    "captions": [
+      "Patrol in Livonia",
+      "Nightfall",
+      "Road to the mine",
+      "The bunker",
+      "No witnesses",
+      "The stash"
+    ]
   },
   "faq": {
     "eyebrow": "FAQ",
     "title1": "Frequently asked",
     "title2": "questions",
     "items": [
-      { "q": "Is it free?", "a": "Yes. The server is and will always be free. You only need to own DayZ on Steam." },
-      { "q": "Do I need to install mods?", "a": "A few, and they download automatically the first time you connect. You don't have to do anything manually." },
-      { "q": "Which map is it played on?", "a": "On Livonia: a compact, 100% PvP map where interaction and combat are guaranteed." },
-      { "q": "Is there pay-to-win?", "a": "Never. Donations are voluntary and grant no item or advantage in the game." },
-      { "q": "What is the Livonia Run?", "a": "The server's end-game: a route through bunkers and keys to claim the most coveted weapons (AWM, GALIL, M79). The full guide is in the Wiki." },
-      { "q": "When can I raid?", "a": "Only during raid hours, published in the Rules section. Outside that window it's forbidden." },
-      { "q": "Is it played in first person?", "a": "Yes, the server is 1PP only (first person). More hardcore, fairer and more competitive." }
+      {
+        "q": "Is it free?",
+        "a": "Yes. The server is and will always be free. You only need to own DayZ on Steam."
+      },
+      {
+        "q": "Do I need to install mods?",
+        "a": "A few, and they download automatically the first time you connect. You don't have to do anything manually."
+      },
+      {
+        "q": "Which map is it played on?",
+        "a": "On Livonia: a compact, 100% PvP map where interaction and combat are guaranteed."
+      },
+      {
+        "q": "Is there pay-to-win?",
+        "a": "Never. Donations are voluntary and grant no item or advantage in the game."
+      },
+      {
+        "q": "What is the Livonia Run?",
+        "a": "The server's end-game: a route through bunkers and keys to claim the most coveted weapons (AWM, GALIL, M79). The full guide is in the Wiki."
+      },
+      {
+        "q": "When can I raid?",
+        "a": "Only during raid hours, published in the Rules section. Outside that window it's forbidden."
+      },
+      {
+        "q": "Is it played in first person?",
+        "a": "Yes, the server is 1PP only (first person). More hardcore, fairer and more competitive."
+      }
     ]
   },
   "join": {
@@ -229,9 +327,18 @@
     "pillarsEyebrow": "What defines us",
     "pillarsTitle": "Three pillars",
     "pillars": [
-      { "title": "Real immersion", "text": "No arcade shortcuts. Here realism rules: temperature management, diseases, hunger and the constant threat of other players." },
-      { "title": "Community above all", "text": "A close-knit staff, transparent decisions and a Spanish community years in the making. Your voice counts." },
-      { "title": "Constant content", "text": "Weekly events, rotating maps and continuous improvements. The server evolves with you, never stands still." }
+      {
+        "title": "Real immersion",
+        "text": "No arcade shortcuts. Here realism rules: temperature management, diseases, hunger and the constant threat of other players."
+      },
+      {
+        "title": "Community above all",
+        "text": "A close-knit staff, transparent decisions and a Spanish community years in the making. Your voice counts."
+      },
+      {
+        "title": "Constant content",
+        "text": "Weekly events, rotating maps and continuous improvements. The server evolves with you, never stands still."
+      }
     ],
     "modsEyebrow": "Mods & config",
     "modsTitle": "Geared up for war",
@@ -253,10 +360,22 @@
     "transpTitle2": "pay-to-win",
     "transpText": "We promise it and we keep it: donating gives you absolutely nothing in-game. Whoever wins, wins by skill. Donating is just a way to support the project if you want to and can.",
     "cards": [
-      { "t": "No advantages", "d": "Zero items, roles or combat advantage. No donation benefits you in-game." },
-      { "t": "100% to the server", "d": "Every contribution goes to hosting, mods and improvements. Nothing else." },
-      { "t": "Always voluntary", "d": "The server is free for everyone, always. Donating is entirely optional." },
-      { "t": "With your head", "d": "Only donate what you can spare. Your wellbeing comes first — it's just a game." }
+      {
+        "t": "No advantages",
+        "d": "Zero items, roles or combat advantage. No donation benefits you in-game."
+      },
+      {
+        "t": "100% to the server",
+        "d": "Every contribution goes to hosting, mods and improvements. Nothing else."
+      },
+      {
+        "t": "Always voluntary",
+        "d": "The server is free for everyone, always. Donating is entirely optional."
+      },
+      {
+        "t": "With your head",
+        "d": "Only donate what you can spare. Your wellbeing comes first — it's just a game."
+      }
     ],
     "voteTitle": "Can't donate? Support us for free",
     "voteText": "Vote for the server every day on Top-Games. It's free, takes 10 seconds and helps us grow and reach more survivors.",
@@ -271,14 +390,55 @@
     "noticeLink": "official Discord",
     "noticePost": ". If in doubt, open a ticket.",
     "groups": [
-      { "title": "General rules", "rules": ["Using cheats or abusing bugs/exploits = PERMANENT BAN.", "We offer no compensation for the loss of your life, gear or vehicle.", "Vehicle use is at your own risk. No vehicle support is provided.", "Stream sniping is forbidden: PERMANENT BAN if there's evidence.", "Multi-accounting is forbidden.", "Combat logging is forbidden."] },
-      { "title": "Raiding rules", "rules": ["You can't log out inside a base you've just raided: finish the raid and leave the base.", "A base with no codelock for more than 3 days is considered abandoned.", "Placing codelocks on a raided base is strictly forbidden.", "Boosting between players is allowed; using campfires to boost is NOT allowed.", "Dismantling other bases' structures outside raid hours is forbidden."] },
-      { "title": "Building rules", "rules": ["Don't stack fences, doors or towers (there must be enough room for a player to pass).", "Don't build un-raidable bases (blocking access with poles or other objects).", "Building towers over 3 floors is forbidden."] },
-      { "title": "Conduct", "rules": ["Respect between players and toward the staff, in and out of the game.", "Racism, insults and any abusive behaviour are forbidden: may result in a permanent ban.", "Spamming other servers in the channels or via DM to members is forbidden."] }
+      {
+        "title": "General rules",
+        "rules": [
+          "Using cheats or abusing bugs/exploits = PERMANENT BAN.",
+          "We offer no compensation for the loss of your life, gear or vehicle.",
+          "Vehicle use is at your own risk. No vehicle support is provided.",
+          "Stream sniping is forbidden: PERMANENT BAN if there's evidence.",
+          "Multi-accounting is forbidden.",
+          "Combat logging is forbidden."
+        ]
+      },
+      {
+        "title": "Raiding rules",
+        "rules": [
+          "You can't log out inside a base you've just raided: finish the raid and leave the base.",
+          "A base with no codelock for more than 3 days is considered abandoned.",
+          "Placing codelocks on a raided base is strictly forbidden.",
+          "Boosting between players is allowed; using campfires to boost is NOT allowed.",
+          "Dismantling other bases' structures outside raid hours is forbidden."
+        ]
+      },
+      {
+        "title": "Building rules",
+        "rules": [
+          "Don't stack fences, doors or towers (there must be enough room for a player to pass).",
+          "Don't build un-raidable bases (blocking access with poles or other objects).",
+          "Building towers over 3 floors is forbidden."
+        ]
+      },
+      {
+        "title": "Conduct",
+        "rules": [
+          "Respect between players and toward the staff, in and out of the game.",
+          "Racism, insults and any abusive behaviour are forbidden: may result in a permanent ban.",
+          "Spamming other servers in the channels or via DM to members is forbidden."
+        ]
+      }
     ],
     "scheduleTitle": "Raid schedule",
     "scheduleNote": "You can only raid within these windows. Outside of them, dismantling other bases' structures is forbidden.",
-    "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
     "reportTitle": "Spotted a rule-breaker?",
     "reportText": "Report cheaters, toxic behaviour or bugs by opening a ticket on our Discord. The staff acts fast.",
     "reportBtn": "Open a ticket"
@@ -298,7 +458,12 @@
     "s1title2": "server",
     "s1desc": "Vanilla+ first-person (1PP) server with {slots} slots on the Livonia map. Copy the IP, open it in the DayZ client browser and connect.",
     "s1how": "How to connect",
-    "s1steps": ["Open DayZ and go to the community servers tab.", "Paste the IP and port into the search by IP address.", "Install the mods if the client asks (automatic download).", "Connect, create your character and... survive."],
+    "s1steps": [
+      "Open DayZ and go to the community servers tab.",
+      "Paste the IP and port into the search by IP address.",
+      "Install the mods if the client asks (automatic download).",
+      "Connect, create your character and... survive."
+    ],
     "s2eyebrow": "02 · Tier-map",
     "s2title1": "Loot",
     "s2title2": "zones",
@@ -306,10 +471,30 @@
     "s2callout": "Want to plan your route? Open the interactive Livonia map with all the locations, loot and zones.",
     "s2btn": "Interactive map",
     "tiers": [
-      { "label": "1", "name": "Tier 1", "color": "#56c15f", "text": "Green zone. Basic loot to gear up and start surviving." },
-      { "label": "2", "name": "Tier 2", "color": "#74bce0", "text": "Blue zone. Mid-tier gear and decent weapons; more player traffic." },
-      { "label": "3", "name": "Tier 3", "color": "#f1ce2a", "text": "Yellow zone. The best military loot on the map, with higher combat risk." },
-      { "label": "Ú", "name": "Unique Tier", "color": "#c350d2", "text": "Special purple zones scattered across the map: where you'll find the explosives you need to raid." }
+      {
+        "label": "1",
+        "name": "Tier 1",
+        "color": "#56c15f",
+        "text": "Green zone. Basic loot to gear up and start surviving."
+      },
+      {
+        "label": "2",
+        "name": "Tier 2",
+        "color": "#74bce0",
+        "text": "Blue zone. Mid-tier gear and decent weapons; more player traffic."
+      },
+      {
+        "label": "3",
+        "name": "Tier 3",
+        "color": "#f1ce2a",
+        "text": "Yellow zone. The best military loot on the map, with higher combat risk."
+      },
+      {
+        "label": "Ú",
+        "name": "Unique Tier",
+        "color": "#c350d2",
+        "text": "Special purple zones scattered across the map: where you'll find the explosives you need to raid."
+      }
     ],
     "s3eyebrow": "03 · Keys",
     "s3title1": "Key",
@@ -319,23 +504,69 @@
     "rowLoot": "Contains",
     "rowSource": "Obtained from",
     "keys": [
-      { "id": "roja", "color": "#c0392b", "name": "Red Key", "opens": "Red container (near hospitals)", "loot": "Loot and medical storage", "source": "Medic zombies' inventory" },
-      { "id": "amarilla", "color": "#d4a017", "name": "Yellow Key", "opens": "Yellow container (industrial areas of Nadbor and Topolin)", "loot": "Varied base storage", "source": "Industrial zombies' inventory" },
-      { "id": "azul", "color": "#2e6fb0", "name": "Blue Key", "opens": "Blue container (Airfield)", "loot": "Items needed for the Livonia Run", "source": "Inside the briefcase in the Dambog bunker" }
+      {
+        "id": "roja",
+        "color": "#c0392b",
+        "name": "Red Key",
+        "opens": "Red container (near hospitals)",
+        "loot": "Loot and medical storage",
+        "source": "Medic zombies' inventory"
+      },
+      {
+        "id": "amarilla",
+        "color": "#d4a017",
+        "name": "Yellow Key",
+        "opens": "Yellow container (industrial areas of Nadbor and Topolin)",
+        "loot": "Varied base storage",
+        "source": "Industrial zombies' inventory"
+      },
+      {
+        "id": "azul",
+        "color": "#2e6fb0",
+        "name": "Blue Key",
+        "opens": "Blue container (Airfield)",
+        "loot": "Items needed for the Livonia Run",
+        "source": "Inside the briefcase in the Dambog bunker"
+      }
     ],
     "s4eyebrow": "04 · End-game",
     "s4title1": "The Livonia",
     "s4title2": "Run",
     "s4desc": "The ultimate goal: reach the final bunker and claim the server's most coveted weapons. Follow the steps.",
-    "reward": ["AWM (sniper)", "GALIL (assault rifle)", "M79 (grenade launcher)"],
+    "reward": [
+      "AWM (sniper)",
+      "GALIL (assault rifle)",
+      "M79 (grenade launcher)"
+    ],
     "runSteps": [
-      { "title": "Get the briefcase key", "text": "Obtained by looting the official zombies' inventory. It has a low drop rate, so pack some patience." },
-      { "title": "Find the briefcase", "text": "The briefcase always appears in the Dambog bunker, southwest of the map." },
-      { "title": "Enter the Dambog bunker", "text": "You need the punched card found in the Radunin contaminated zone. This card has two uses." },
-      { "title": "Open the Blue container", "text": "The briefcase gives you the blue container key (at the Airfield). Inside you'll find a teddy bear with the white card and the heater." },
-      { "title": "Reach the final bunker", "text": "It's in the Livonia mine. To enter you need the punched card and the white access card." },
-      { "title": "Start the generator", "text": "Inside, find the generator room. Refuel it with diesel, insert the heater and start it up." },
-      { "title": "Open the missile room", "text": "Next to the generator there's a lever panel (A1-A4) that opens and closes the doors to the missile rooms. The weapons are in one of them." }
+      {
+        "title": "Get the briefcase key",
+        "text": "Obtained by looting the official zombies' inventory. It has a low drop rate, so pack some patience."
+      },
+      {
+        "title": "Find the briefcase",
+        "text": "The briefcase always appears in the Dambog bunker, southwest of the map."
+      },
+      {
+        "title": "Enter the Dambog bunker",
+        "text": "You need the punched card found in the Radunin contaminated zone. This card has two uses."
+      },
+      {
+        "title": "Open the Blue container",
+        "text": "The briefcase gives you the blue container key (at the Airfield). Inside you'll find a teddy bear with the white card and the heater."
+      },
+      {
+        "title": "Reach the final bunker",
+        "text": "It's in the Livonia mine. To enter you need the punched card and the white access card."
+      },
+      {
+        "title": "Start the generator",
+        "text": "Inside, find the generator room. Refuel it with diesel, insert the heater and start it up."
+      },
+      {
+        "title": "Open the missile room",
+        "text": "Next to the generator there's a lever panel (A1-A4) that opens and closes the doors to the missile rooms. The weapons are in one of them."
+      }
     ],
     "runGalleryLabel": "The route in pictures",
     "s5eyebrow": "05 · Crafting & bases",
@@ -343,8 +574,14 @@
     "s5title2": "fortify",
     "s5desc": "The server includes a base-building addon with fortifications and MMG Base Storage. Here are the building guides.",
     "crafts": [
-      { "name": "Palisade", "text": "Basic perimeter defense to protect your base from prying eyes and unwanted access." },
-      { "name": "Fortification", "text": "Advanced defensive structure to withstand raids. Level it up and hold the line." }
+      {
+        "name": "Palisade",
+        "text": "Basic perimeter defense to protect your base from prying eyes and unwanted access."
+      },
+      {
+        "name": "Fortification",
+        "text": "Advanced defensive structure to withstand raids. Level it up and hold the line."
+      }
     ],
     "guidesLabel": "Building guides",
     "ctaTitle": "Still have questions?",

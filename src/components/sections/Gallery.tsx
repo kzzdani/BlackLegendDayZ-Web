@@ -2,9 +2,13 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Container, Heading, SectionLabel } from "@/components/ui";
 import { Reveal, Stagger, StaggerItem } from "@/components/Reveal";
+import { getSiteConfig } from "@/lib/config";
 
-const shots = [
-  { src: "/gallery/real-1.webp", span: "sm:col-span-2 sm:row-span-2" },
+const FEATURED_SPAN = "sm:col-span-2 sm:row-span-2";
+
+// Fotos por defecto (se usan mientras el admin no haya subido ninguna).
+const defaultShots = [
+  { src: "/gallery/real-1.webp", span: FEATURED_SPAN },
   { src: "/gallery/real-2.webp", span: "" },
   { src: "/gallery/real-3.webp", span: "" },
   { src: "/wiki/run-8.webp", span: "" },
@@ -15,6 +19,17 @@ const shots = [
 export async function Gallery() {
   const t = await getTranslations("gallery");
   const captions = t.raw("captions") as string[];
+  const { gallery } = await getSiteConfig();
+
+  // Si Jaro ha subido fotos desde el panel, usamos esas; si no, las por defecto.
+  const shots =
+    gallery.length > 0
+      ? gallery.map((g) => ({
+          src: g.url,
+          span: g.featured ? FEATURED_SPAN : "",
+          caption: g.caption,
+        }))
+      : defaultShots.map((s, i) => ({ ...s, caption: captions[i] ?? "" }));
 
   return (
     <section className="relative overflow-hidden border-y border-ash-800 bg-ash-950 py-24 sm:py-32">
@@ -43,7 +58,7 @@ export async function Gallery() {
               >
                 <Image
                   src={shot.src}
-                  alt={captions[i] ?? ""}
+                  alt={shot.caption ?? ""}
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   className="object-cover brightness-[0.78] grayscale-[0.45] transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-100 group-hover:grayscale-0"
@@ -52,7 +67,7 @@ export async function Gallery() {
                 <span className="pointer-events-none absolute inset-0 ring-2 ring-inset ring-ember/0 transition-all duration-500 group-hover:ring-ember/40" />
                 <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-4">
                   <span className="translate-y-1 font-display text-base font-bold uppercase leading-tight tracking-wide text-bone opacity-90 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                    {captions[i]}
+                    {shot.caption}
                   </span>
                   <span className="font-stencil text-[0.6rem] uppercase tracking-[0.2em] text-ember/80">
                     0{i + 1}

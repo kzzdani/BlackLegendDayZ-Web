@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { site } from "@/lib/site";
 import { Icon } from "@/components/icons";
@@ -10,8 +10,36 @@ import { cn } from "@/lib/utils";
 
 export function ConnectBar() {
   const t = useTranslations("connect");
-  const { ip, port } = site.server;
-  const address = `${ip}:${port}`;
+  const [srv, setSrv] = useState<{
+    ip: string;
+    port: string;
+    currentMap: string;
+    nextWipe: string;
+  }>({
+    ip: site.server.ip,
+    port: site.server.port,
+    currentMap: site.server.currentMap,
+    nextWipe: "",
+  });
+  useEffect(() => {
+    fetch("/api/config")
+      .then((r) => r.json())
+      .then(
+        (c: {
+          server?: { ip: string; port: string; currentMap: string; nextWipe: string };
+        }) => {
+          if (c.server) setSrv(c.server);
+        },
+      )
+      .catch(() => {});
+  }, []);
+
+  const daysToWipe = srv.nextWipe
+    ? Math.floor(
+        (new Date(`${srv.nextWipe}T00:00:00`).getTime() - Date.now()) / 86_400_000,
+      )
+    : null;
+  const address = `${srv.ip}:${srv.port}`;
   const live = useLiveStatus();
 
   const [copied, setCopied] = useState(false);
@@ -68,7 +96,7 @@ export function ConnectBar() {
             {/* Métricas en vivo */}
             <div className="grid grid-cols-2 sm:grid-cols-3">
               <Metric label={t("players")} value={players} live accent />
-              <Metric label={t("map")} value={site.server.currentMap} />
+              <Metric label={t("map")} value={srv.currentMap} />
               <Metric
                 label={t("community")}
                 value={community}
@@ -99,6 +127,17 @@ export function ConnectBar() {
               </button>
             </div>
           </div>
+
+          {daysToWipe !== null && (
+            <div className="flex items-center justify-center gap-2 border-t border-gold/30 bg-gold/10 px-6 py-2.5 text-center">
+              <span className="h-1.5 w-1.5 rounded-full bg-gold [animation:flicker_2s_ease-in-out_infinite]" />
+              <span className="font-display text-sm font-bold uppercase tracking-wide text-gold">
+                {daysToWipe <= 0
+                  ? t("wipeToday")
+                  : t("wipeIn", { days: daysToWipe })}
+              </span>
+            </div>
+          )}
         </div>
       </Container>
     </section>
